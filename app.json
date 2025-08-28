@@ -1,0 +1,77 @@
+{
+  "id": "71e5419f-a621-48b8-b390-eede2e30b5b1",
+  "name": "UFO03 Prints",
+  "publisher": "Key For",
+  "version": "26.0.0.0",
+  "target": "Cloud",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "b2dd1d81-3e95-46a8-94ef-8c32d872bf0c",
+      "name": "Advanced Document Reporting",
+      "publisher": "EOS Solutions",
+      "version": "25.0.0.0"
+    },
+    {
+      "id": "4e2a89a2-9049-496c-8b3a-f4eee6399b0e",
+      "name": "Common Data Layer",
+      "publisher": "EOS Solutions",
+      "version": "26.0.0.0"
+    },
+    {
+      "id": "a9f543e6-a9d3-4eed-8f29-26b2e5632d82",
+      "name": "Common Data Layer Italy",
+      "publisher": "EOS Solutions",
+      "version": "26.0.0.0"
+    },
+    {
+      "id": "3c044738-c922-4462-becf-2248e8676570",
+      "name": "Doc shipping Common Data Layer",
+      "publisher": "EOS Solutions",
+      "version": "26.0.0.0"
+    },
+    {
+      "id": "8bb96677-5112-4566-b742-12eebbb9a058",
+      "name": "EOS Administration Library",
+      "publisher": "EOS Solutions",
+      "version": "26.0.0.0"
+    },
+    {
+      "id": "862ecb44-ab57-484e-9590-90350cbac3ba",
+      "name": "VAT Management for Italy",
+      "publisher": "EOS Solutions",
+      "version": "25.0.0.0"
+    }, 
+    {
+      "id": "50d49a53-5545-4cdf-b593-2824c299dccf",
+      "name": "Advanced Customer Vendor Statements for Italy",
+      "publisher": "EOS Solutions",
+      "version": "25.0.0.0"
+    }
+
+  ],
+  "screenshots": [],
+  "platform": "26.0.0.0",
+  "application": "26.0.0.0",
+  "idRanges": [
+    {
+      "from": 50000,
+      "to": 99999
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "13.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
