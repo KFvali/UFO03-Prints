@@ -2535,7 +2535,7 @@
                   <MIMEType>image/bmp</MIMEType>
                   <Sizing>FitProportional</Sizing>
                   <Height>3.19908cm</Height>
-                  <Width>34.75743mm</Width>
+                  <Width>193.28308mm</Width>
                   <ZIndex>4</ZIndex>
                   <Style>
                     <Border>
@@ -2543,39 +2543,6 @@
                     </Border>
                   </Style>
                 </Image>
-                <Textbox Name="Textbox88">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>=Parameters!CompanyPIva_caption.Value + " " + Fields!CompanyVAT.Value + "&lt;br&gt;" + Parameters!CompanyRea_caption.Value + " " + Fields!CompanyREA.Value + "&lt;br&gt;" + Fields!CompanyShareCapitalTxt.Value + "&lt;br&gt;" + Parameters!IBANCompany_caption.Value + " " + Fields!CompanyIban.Value</Value>
-                          <MarkupType>HTML</MarkupType>
-                          <Style>
-                            <FontSize>8pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox23</rd:DefaultName>
-                  <Top>1.68627cm</Top>
-                  <Left>3.75778cm</Left>
-                  <Height>1.51281cm</Height>
-                  <Width>6.64805cm</Width>
-                  <ZIndex>5</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Left>0.12039cm</Left>
@@ -3553,7 +3520,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>6.14816cm</Height>
+          <Height>5.06337cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -5229,7 +5196,7 @@
               <Value>=First(Fields!FooterImage.Value, "DataSet_Result")</Value>
               <MIMEType>image/bmp</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>4.57198cm</Top>
+              <Top>3.61948cm</Top>
               <Left>0.63784cm</Left>
               <Height>10.15283mm</Height>
               <Width>7.19078in</Width>
@@ -5418,7 +5385,7 @@
             </Textbox>
             <Rectangle Name="Rectangle2">
               <KeepTogether>true</KeepTogether>
-              <Top>4.41323cm</Top>
+              <Top>3.46073cm</Top>
               <Left>0.24014cm</Left>
               <Height>1.52104cm</Height>
               <Width>19.22245cm</Width>
@@ -5444,39 +5411,6 @@
                 </Border>
               </Style>
             </Line>
-            <Textbox Name="Textbox90">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=iif(Globals!PageNumber &lt;&gt; Globals!TotalPages, "", "&lt;i&gt;" + Parameters!Piede6_caption.Value + "&lt;/i&gt;" + "&lt;br&gt;" + "&lt;br&gt;" + "&lt;b&gt;" + Parameters!Piede9_caption.Value + "&lt;/b&gt;" + "&lt;br&gt;" + Parameters!Piede10_caption.Value + Parameters!Piede11_caption.Value + Parameters!Piede12_caption.Value)</Value>
-                      <MarkupType>HTML</MarkupType>
-                      <Style>
-                        <FontSize>6pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>3.44336cm</Top>
-              <Left>0.13428cm</Left>
-              <Height>0.90812cm</Height>
-              <Width>19.29443cm</Width>
-              <ZIndex>9</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
           </ReportItems>
           <Style>
             <Border>

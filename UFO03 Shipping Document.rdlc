@@ -10,832 +10,6 @@
       <rd:DataSourceID>bea6f9ce-1370-4da2-8fb7-145fd467c437</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="SourceSubtype">
-          <DataField>SourceSubtype</DataField>
-        </Field>
-        <Field Name="HeaderImage">
-          <DataField>HeaderImage</DataField>
-        </Field>
-        <Field Name="FooterImage">
-          <DataField>FooterImage</DataField>
-        </Field>
-        <Field Name="CompanyPicture">
-          <DataField>CompanyPicture</DataField>
-        </Field>
-        <Field Name="CompanyREA">
-          <DataField>CompanyREA</DataField>
-        </Field>
-        <Field Name="CompanyVAT">
-          <DataField>CompanyVAT</DataField>
-        </Field>
-        <Field Name="CompanyIban">
-          <DataField>CompanyIban</DataField>
-        </Field>
-        <Field Name="CompanyShareCapitalTxt">
-          <DataField>CompanyShareCapitalTxt</DataField>
-        </Field>
-        <Field Name="CopyNo">
-          <DataField>CopyNo</DataField>
-        </Field>
-        <Field Name="DocumentNo">
-          <DataField>DocumentNo</DataField>
-        </Field>
-        <Field Name="PostingDate">
-          <DataField>PostingDate</DataField>
-        </Field>
-        <Field Name="OurOrderNo">
-          <DataField>OurOrderNo</DataField>
-        </Field>
-        <Field Name="OurOrderDate">
-          <DataField>OurOrderDate</DataField>
-        </Field>
-        <Field Name="SourceID">
-          <DataField>SourceID</DataField>
-        </Field>
-        <Field Name="Salesperson">
-          <DataField>Salesperson</DataField>
-        </Field>
-        <Field Name="CupCode">
-          <DataField>CupCode</DataField>
-        </Field>
-        <Field Name="CigCode">
-          <DataField>CigCode</DataField>
-        </Field>
-        <Field Name="OurBankRef">
-          <DataField>OurBankRef</DataField>
-        </Field>
-        <Field Name="OurBankRef1">
-          <DataField>OurBankRef1</DataField>
-        </Field>
-        <Field Name="OperatorName">
-          <DataField>OperatorName</DataField>
-        </Field>
-        <Field Name="SelltoBuyFromNo">
-          <DataField>SelltoBuyFromNo</DataField>
-        </Field>
-        <Field Name="SellToBuyFromAddr">
-          <DataField>SellToBuyFromAddr</DataField>
-        </Field>
-        <Field Name="BillToNo">
-          <DataField>BillToNo</DataField>
-        </Field>
-        <Field Name="ShipToAddress">
-          <DataField>ShipToAddress</DataField>
-        </Field>
-        <Field Name="BillToAddress">
-          <DataField>BillToAddress</DataField>
-        </Field>
-        <Field Name="HideAddressCaption">
-          <DataField>HideAddressCaption</DataField>
-        </Field>
-        <Field Name="LocationAddress">
-          <DataField>LocationAddress</DataField>
-        </Field>
-        <Field Name="CustomerVendorContact">
-          <DataField>CustomerVendorContact</DataField>
-        </Field>
-        <Field Name="CustomerVendorEMail">
-          <DataField>CustomerVendorEMail</DataField>
-        </Field>
-        <Field Name="PaymentTerms">
-          <DataField>PaymentTerms</DataField>
-        </Field>
-        <Field Name="PaymentMethod">
-          <DataField>PaymentMethod</DataField>
-        </Field>
-        <Field Name="Reason">
-          <DataField>Reason</DataField>
-        </Field>
-        <Field Name="VATRegNo">
-          <DataField>VATRegNo</DataField>
-        </Field>
-        <Field Name="FiscalCode">
-          <DataField>FiscalCode</DataField>
-        </Field>
-        <Field Name="ShptMethod">
-          <DataField>ShptMethod</DataField>
-        </Field>
-        <Field Name="ShptBy">
-          <DataField>ShptBy</DataField>
-        </Field>
-        <Field Name="ShpAgent">
-          <DataField>ShpAgent</DataField>
-        </Field>
-        <Field Name="GoodsAppearance">
-          <DataField>GoodsAppearance</DataField>
-        </Field>
-        <Field Name="ShipmentStartingDateTime">
-          <DataField>ShipmentStartingDateTime</DataField>
-        </Field>
-        <Field Name="ReturnAddress">
-          <DataField>ReturnAddress</DataField>
-        </Field>
-        <Field Name="NoOfParcels">
-          <DataField>NoOfParcels</DataField>
-        </Field>
-        <Field Name="GrossWeight">
-          <DataField>GrossWeight</DataField>
-        </Field>
-        <Field Name="GrossWeightFormat">
-          <DataField>GrossWeightFormat</DataField>
-        </Field>
-        <Field Name="NetWeight">
-          <DataField>NetWeight</DataField>
-        </Field>
-        <Field Name="NetWeightFormat">
-          <DataField>NetWeightFormat</DataField>
-        </Field>
-        <Field Name="Volume">
-          <DataField>Volume</DataField>
-        </Field>
-        <Field Name="VolumeFormat">
-          <DataField>VolumeFormat</DataField>
-        </Field>
-        <Field Name="AddressPosition">
-          <DataField>AddressPosition</DataField>
-        </Field>
-        <Field Name="OurBank">
-          <DataField>OurBank</DataField>
-        </Field>
-        <Field Name="YourReference">
-          <DataField>YourReference</DataField>
-        </Field>
-        <Field Name="OrderDate">
-          <DataField>OrderDate</DataField>
-        </Field>
-        <Field Name="ShipmentDate">
-          <DataField>ShipmentDate</DataField>
-        </Field>
-        <Field Name="ValidTo">
-          <DataField>ValidTo</DataField>
-        </Field>
-        <Field Name="VATExclDeclaration">
-          <DataField>VATExclDeclaration</DataField>
-        </Field>
-        <Field Name="VATLineAmountToPay">
-          <DataField>VATLineAmountToPay</DataField>
-        </Field>
-        <Field Name="VATLineAmountToPayFormat">
-          <DataField>VATLineAmountToPayFormat</DataField>
-        </Field>
-        <Field Name="ShowArt62Text">
-          <DataField>ShowArt62Text</DataField>
-        </Field>
-        <Field Name="ShowLicenseReqText">
-          <DataField>ShowLicenseReqText</DataField>
-        </Field>
-        <Field Name="TextLicenseCptNew">
-          <DataField>TextLicenseCptNew</DataField>
-        </Field>
-        <Field Name="CustomerPestLicense">
-          <DataField>CustomerPestLicense</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt1">
-          <DataField>CstmHdrTxt1</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt2">
-          <DataField>CstmHdrTxt2</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt3">
-          <DataField>CstmHdrTxt3</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt4">
-          <DataField>CstmHdrTxt4</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt5">
-          <DataField>CstmHdrTxt5</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt6">
-          <DataField>CstmHdrTxt6</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt7">
-          <DataField>CstmHdrTxt7</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt8">
-          <DataField>CstmHdrTxt8</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt9">
-          <DataField>CstmHdrTxt9</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt10">
-          <DataField>CstmHdrTxt10</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt11">
-          <DataField>CstmHdrTxt11</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt12">
-          <DataField>CstmHdrTxt12</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt13">
-          <DataField>CstmHdrTxt13</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt14">
-          <DataField>CstmHdrTxt14</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt15">
-          <DataField>CstmHdrTxt15</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt16">
-          <DataField>CstmHdrTxt16</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt17">
-          <DataField>CstmHdrTxt17</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt18">
-          <DataField>CstmHdrTxt18</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt19">
-          <DataField>CstmHdrTxt19</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt20">
-          <DataField>CstmHdrTxt20</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt21">
-          <DataField>CstmHdrTxt21</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt22">
-          <DataField>CstmHdrTxt22</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt23">
-          <DataField>CstmHdrTxt23</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt24">
-          <DataField>CstmHdrTxt24</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt25">
-          <DataField>CstmHdrTxt25</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt26">
-          <DataField>CstmHdrTxt26</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt27">
-          <DataField>CstmHdrTxt27</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt28">
-          <DataField>CstmHdrTxt28</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt29">
-          <DataField>CstmHdrTxt29</DataField>
-        </Field>
-        <Field Name="CstmHdrTxt30">
-          <DataField>CstmHdrTxt30</DataField>
-        </Field>
-        <Field Name="CstmHdrDec1">
-          <DataField>CstmHdrDec1</DataField>
-        </Field>
-        <Field Name="CstmHdrDec1Format">
-          <DataField>CstmHdrDec1Format</DataField>
-        </Field>
-        <Field Name="CstmHdrDec2">
-          <DataField>CstmHdrDec2</DataField>
-        </Field>
-        <Field Name="CstmHdrDec2Format">
-          <DataField>CstmHdrDec2Format</DataField>
-        </Field>
-        <Field Name="CstmHdrDec3">
-          <DataField>CstmHdrDec3</DataField>
-        </Field>
-        <Field Name="CstmHdrDec3Format">
-          <DataField>CstmHdrDec3Format</DataField>
-        </Field>
-        <Field Name="CstmHdrDec4">
-          <DataField>CstmHdrDec4</DataField>
-        </Field>
-        <Field Name="CstmHdrDec4Format">
-          <DataField>CstmHdrDec4Format</DataField>
-        </Field>
-        <Field Name="CstmHdrDec5">
-          <DataField>CstmHdrDec5</DataField>
-        </Field>
-        <Field Name="CstmHdrDec5Format">
-          <DataField>CstmHdrDec5Format</DataField>
-        </Field>
-        <Field Name="CstmHdrInt1">
-          <DataField>CstmHdrInt1</DataField>
-        </Field>
-        <Field Name="CstmHdrInt2">
-          <DataField>CstmHdrInt2</DataField>
-        </Field>
-        <Field Name="CstmHdrInt3">
-          <DataField>CstmHdrInt3</DataField>
-        </Field>
-        <Field Name="CstmHdrInt4">
-          <DataField>CstmHdrInt4</DataField>
-        </Field>
-        <Field Name="CstmHdrInt5">
-          <DataField>CstmHdrInt5</DataField>
-        </Field>
-        <Field Name="CstmHdrFieldLabel1">
-          <DataField>CstmHdrFieldLabel1</DataField>
-        </Field>
-        <Field Name="CstmHdrFieldValue1">
-          <DataField>CstmHdrFieldValue1</DataField>
-        </Field>
-        <Field Name="CstmHdrFieldLabel2">
-          <DataField>CstmHdrFieldLabel2</DataField>
-        </Field>
-        <Field Name="CstmHdrFieldValue2">
-          <DataField>CstmHdrFieldValue2</DataField>
-        </Field>
-        <Field Name="PrintText1">
-          <DataField>PrintText1</DataField>
-        </Field>
-        <Field Name="ShippingComments">
-          <DataField>ShippingComments</DataField>
-        </Field>
-        <Field Name="IsCustomerBank">
-          <DataField>IsCustomerBank</DataField>
-        </Field>
-        <Field Name="ABICode">
-          <DataField>ABICode</DataField>
-        </Field>
-        <Field Name="CABCode">
-          <DataField>CABCode</DataField>
-        </Field>
-        <Field Name="IBANCode">
-          <DataField>IBANCode</DataField>
-        </Field>
-        <Field Name="BankName">
-          <DataField>BankName</DataField>
-        </Field>
-        <Field Name="CurrencyCode">
-          <DataField>CurrencyCode</DataField>
-        </Field>
-        <Field Name="PaymentMethodCode">
-          <DataField>PaymentMethodCode</DataField>
-        </Field>
-        <Field Name="NascondiPrezzi">
-          <DataField>NascondiPrezzi</DataField>
-        </Field>
-        <Field Name="NrColliSecchi">
-          <DataField>NrColliSecchi</DataField>
-        </Field>
-        <Field Name="NrColliSurgelati">
-          <DataField>NrColliSurgelati</DataField>
-        </Field>
-        <Field Name="NrColliFreschi">
-          <DataField>NrColliFreschi</DataField>
-        </Field>
-        <Field Name="GiornoChiusura">
-          <DataField>GiornoChiusura</DataField>
-        </Field>
-        <Field Name="CartaIntestata">
-          <DataField>CartaIntestata</DataField>
-        </Field>
-        <Field Name="Line_Type">
-          <DataField>Line_Type</DataField>
-        </Field>
-        <Field Name="Line_LineType">
-          <DataField>Line_LineType</DataField>
-        </Field>
-        <Field Name="Line_Style">
-          <DataField>Line_Style</DataField>
-        </Field>
-        <Field Name="Line_ExtensionCode">
-          <DataField>Line_ExtensionCode</DataField>
-        </Field>
-        <Field Name="Line_LineNo">
-          <DataField>Line_LineNo</DataField>
-        </Field>
-        <Field Name="Line_ItemNo">
-          <DataField>Line_ItemNo</DataField>
-        </Field>
-        <Field Name="Line_Description">
-          <DataField>Line_Description</DataField>
-        </Field>
-        <Field Name="showvariant">
-          <DataField>showvariant</DataField>
-        </Field>
-        <Field Name="Line_ItemVariantNo">
-          <DataField>Line_ItemVariantNo</DataField>
-        </Field>
-        <Field Name="Line_ItemVariantDesc">
-          <DataField>Line_ItemVariantDesc</DataField>
-        </Field>
-        <Field Name="Line_RegNo">
-          <DataField>Line_RegNo</DataField>
-        </Field>
-        <Field Name="Line_Description2">
-          <DataField>Line_Description2</DataField>
-        </Field>
-        <Field Name="Line_Quantity">
-          <DataField>Line_Quantity</DataField>
-        </Field>
-        <Field Name="Line_QuantityFormat">
-          <DataField>Line_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Line_UoMCode">
-          <DataField>Line_UoMCode</DataField>
-        </Field>
-        <Field Name="Line_LineDiscountPerc">
-          <DataField>Line_LineDiscountPerc</DataField>
-        </Field>
-        <Field Name="Line_LineDiscountPercFormat">
-          <DataField>Line_LineDiscountPercFormat</DataField>
-        </Field>
-        <Field Name="Line_UnitPrice">
-          <DataField>Line_UnitPrice</DataField>
-        </Field>
-        <Field Name="Line_UnitPriceFormat">
-          <DataField>Line_UnitPriceFormat</DataField>
-        </Field>
-        <Field Name="Line_Amount">
-          <DataField>Line_Amount</DataField>
-        </Field>
-        <Field Name="Line_AmountFormat">
-          <DataField>Line_AmountFormat</DataField>
-        </Field>
-        <Field Name="Line_VATIdentifier">
-          <DataField>Line_VATIdentifier</DataField>
-        </Field>
-        <Field Name="Line_ShipmentDate">
-          <DataField>Line_ShipmentDate</DataField>
-        </Field>
-        <Field Name="Line_Type_Desc">
-          <DataField>Line_Type_Desc</DataField>
-        </Field>
-        <Field Name="Line_OrderQuantity">
-          <DataField>Line_OrderQuantity</DataField>
-        </Field>
-        <Field Name="Line_OrderQuantityFormat">
-          <DataField>Line_OrderQuantityFormat</DataField>
-        </Field>
-        <Field Name="CstmLneTxt1">
-          <DataField>CstmLneTxt1</DataField>
-        </Field>
-        <Field Name="CstmLneTxt2">
-          <DataField>CstmLneTxt2</DataField>
-        </Field>
-        <Field Name="CstmLneTxt3">
-          <DataField>CstmLneTxt3</DataField>
-        </Field>
-        <Field Name="CstmLneTxt4">
-          <DataField>CstmLneTxt4</DataField>
-        </Field>
-        <Field Name="CstmLneTxt5">
-          <DataField>CstmLneTxt5</DataField>
-        </Field>
-        <Field Name="CstmLneTxt6">
-          <DataField>CstmLneTxt6</DataField>
-        </Field>
-        <Field Name="CstmLneTxt7">
-          <DataField>CstmLneTxt7</DataField>
-        </Field>
-        <Field Name="CstmLneTxt8">
-          <DataField>CstmLneTxt8</DataField>
-        </Field>
-        <Field Name="CstmLneTxt9">
-          <DataField>CstmLneTxt9</DataField>
-        </Field>
-        <Field Name="CstmLneTxt10">
-          <DataField>CstmLneTxt10</DataField>
-        </Field>
-        <Field Name="CstmLneTxt11">
-          <DataField>CstmLneTxt11</DataField>
-        </Field>
-        <Field Name="CstmLneTxt12">
-          <DataField>CstmLneTxt12</DataField>
-        </Field>
-        <Field Name="CstmLneTxt13">
-          <DataField>CstmLneTxt13</DataField>
-        </Field>
-        <Field Name="CstmLneTxt14">
-          <DataField>CstmLneTxt14</DataField>
-        </Field>
-        <Field Name="CstmLneTxt15">
-          <DataField>CstmLneTxt15</DataField>
-        </Field>
-        <Field Name="CstmLneTxt16">
-          <DataField>CstmLneTxt16</DataField>
-        </Field>
-        <Field Name="CstmLneTxt17">
-          <DataField>CstmLneTxt17</DataField>
-        </Field>
-        <Field Name="CstmLneTxt18">
-          <DataField>CstmLneTxt18</DataField>
-        </Field>
-        <Field Name="CstmLneTxt19">
-          <DataField>CstmLneTxt19</DataField>
-        </Field>
-        <Field Name="CstmLneTxt20">
-          <DataField>CstmLneTxt20</DataField>
-        </Field>
-        <Field Name="CstmLneTxt21">
-          <DataField>CstmLneTxt21</DataField>
-        </Field>
-        <Field Name="CstmLneTxt22">
-          <DataField>CstmLneTxt22</DataField>
-        </Field>
-        <Field Name="CstmLneTxt23">
-          <DataField>CstmLneTxt23</DataField>
-        </Field>
-        <Field Name="CstmLneTxt24">
-          <DataField>CstmLneTxt24</DataField>
-        </Field>
-        <Field Name="CstmLneTxt25">
-          <DataField>CstmLneTxt25</DataField>
-        </Field>
-        <Field Name="CstmLneTxt26">
-          <DataField>CstmLneTxt26</DataField>
-        </Field>
-        <Field Name="CstmLneTxt27">
-          <DataField>CstmLneTxt27</DataField>
-        </Field>
-        <Field Name="CstmLneTxt28">
-          <DataField>CstmLneTxt28</DataField>
-        </Field>
-        <Field Name="CstmLneTxt29">
-          <DataField>CstmLneTxt29</DataField>
-        </Field>
-        <Field Name="CstmLneTxt30">
-          <DataField>CstmLneTxt30</DataField>
-        </Field>
-        <Field Name="CstmLneDec1">
-          <DataField>CstmLneDec1</DataField>
-        </Field>
-        <Field Name="CstmLneDec1Format">
-          <DataField>CstmLneDec1Format</DataField>
-        </Field>
-        <Field Name="CstmLneDec2">
-          <DataField>CstmLneDec2</DataField>
-        </Field>
-        <Field Name="CstmLneDec2Format">
-          <DataField>CstmLneDec2Format</DataField>
-        </Field>
-        <Field Name="CstmLneDec3">
-          <DataField>CstmLneDec3</DataField>
-        </Field>
-        <Field Name="CstmLneDec3Format">
-          <DataField>CstmLneDec3Format</DataField>
-        </Field>
-        <Field Name="CstmLneDec4">
-          <DataField>CstmLneDec4</DataField>
-        </Field>
-        <Field Name="CstmLneDec4Format">
-          <DataField>CstmLneDec4Format</DataField>
-        </Field>
-        <Field Name="CstmLneDec5">
-          <DataField>CstmLneDec5</DataField>
-        </Field>
-        <Field Name="CstmLneDec5Format">
-          <DataField>CstmLneDec5Format</DataField>
-        </Field>
-        <Field Name="CstmLneInt1">
-          <DataField>CstmLneInt1</DataField>
-        </Field>
-        <Field Name="CstmLneInt2">
-          <DataField>CstmLneInt2</DataField>
-        </Field>
-        <Field Name="CstmLneInt3">
-          <DataField>CstmLneInt3</DataField>
-        </Field>
-        <Field Name="CstmLneInt4">
-          <DataField>CstmLneInt4</DataField>
-        </Field>
-        <Field Name="CstmLneInt5">
-          <DataField>CstmLneInt5</DataField>
-        </Field>
-        <Field Name="Line_Amount_DDT">
-          <DataField>Line_Amount_DDT</DataField>
-        </Field>
-        <Field Name="Line_Amount_DDTFormat">
-          <DataField>Line_Amount_DDTFormat</DataField>
-        </Field>
-        <Field Name="SecQuantity">
-          <DataField>SecQuantity</DataField>
-        </Field>
-        <Field Name="SecQuantityFormat">
-          <DataField>SecQuantityFormat</DataField>
-        </Field>
-        <Field Name="VAT_Identifier1">
-          <DataField>VAT_Identifier1</DataField>
-        </Field>
-        <Field Name="VAT_Perc1">
-          <DataField>VAT_Perc1</DataField>
-        </Field>
-        <Field Name="VAT_Perc1Format">
-          <DataField>VAT_Perc1Format</DataField>
-        </Field>
-        <Field Name="VAT_Description1">
-          <DataField>VAT_Description1</DataField>
-        </Field>
-        <Field Name="VAT_Base1">
-          <DataField>VAT_Base1</DataField>
-        </Field>
-        <Field Name="VAT_Base1Format">
-          <DataField>VAT_Base1Format</DataField>
-        </Field>
-        <Field Name="VAT_Amount1">
-          <DataField>VAT_Amount1</DataField>
-        </Field>
-        <Field Name="VAT_Amount1Format">
-          <DataField>VAT_Amount1Format</DataField>
-        </Field>
-        <Field Name="VAT_InvoiceDiscountAmount1">
-          <DataField>VAT_InvoiceDiscountAmount1</DataField>
-        </Field>
-        <Field Name="VAT_InvoiceDiscountAmount1Format">
-          <DataField>VAT_InvoiceDiscountAmount1Format</DataField>
-        </Field>
-        <Field Name="VAT_ClauseCode1">
-          <DataField>VAT_ClauseCode1</DataField>
-        </Field>
-        <Field Name="VAT_ClauseDescription1">
-          <DataField>VAT_ClauseDescription1</DataField>
-        </Field>
-        <Field Name="VAT_Identifier2">
-          <DataField>VAT_Identifier2</DataField>
-        </Field>
-        <Field Name="VAT_Perc2">
-          <DataField>VAT_Perc2</DataField>
-        </Field>
-        <Field Name="VAT_Perc2Format">
-          <DataField>VAT_Perc2Format</DataField>
-        </Field>
-        <Field Name="VAT_Description2">
-          <DataField>VAT_Description2</DataField>
-        </Field>
-        <Field Name="VAT_Base2">
-          <DataField>VAT_Base2</DataField>
-        </Field>
-        <Field Name="VAT_Base2Format">
-          <DataField>VAT_Base2Format</DataField>
-        </Field>
-        <Field Name="VAT_Amount2">
-          <DataField>VAT_Amount2</DataField>
-        </Field>
-        <Field Name="VAT_Amount2Format">
-          <DataField>VAT_Amount2Format</DataField>
-        </Field>
-        <Field Name="VAT_InvoiceDiscountAmount2">
-          <DataField>VAT_InvoiceDiscountAmount2</DataField>
-        </Field>
-        <Field Name="VAT_InvoiceDiscountAmount2Format">
-          <DataField>VAT_InvoiceDiscountAmount2Format</DataField>
-        </Field>
-        <Field Name="VAT_ClauseCode2">
-          <DataField>VAT_ClauseCode2</DataField>
-        </Field>
-        <Field Name="VAT_ClauseDescription2">
-          <DataField>VAT_ClauseDescription2</DataField>
-        </Field>
-        <Field Name="VAT_Identifier3">
-          <DataField>VAT_Identifier3</DataField>
-        </Field>
-        <Field Name="VAT_Perc3">
-          <DataField>VAT_Perc3</DataField>
-        </Field>
-        <Field Name="VAT_Perc3Format">
-          <DataField>VAT_Perc3Format</DataField>
-        </Field>
-        <Field Name="VAT_Description3">
-          <DataField>VAT_Description3</DataField>
-        </Field>
-        <Field Name="VAT_Base3">
-          <DataField>VAT_Base3</DataField>
-        </Field>
-        <Field Name="VAT_Base3Format">
-          <DataField>VAT_Base3Format</DataField>
-        </Field>
-        <Field Name="VAT_Amount3">
-          <DataField>VAT_Amount3</DataField>
-        </Field>
-        <Field Name="VAT_Amount3Format">
-          <DataField>VAT_Amount3Format</DataField>
-        </Field>
-        <Field Name="VAT_InvoiceDiscountAmount3">
-          <DataField>VAT_InvoiceDiscountAmount3</DataField>
-        </Field>
-        <Field Name="VAT_InvoiceDiscountAmount3Format">
-          <DataField>VAT_InvoiceDiscountAmount3Format</DataField>
-        </Field>
-        <Field Name="VAT_ClauseCode3">
-          <DataField>VAT_ClauseCode3</DataField>
-        </Field>
-        <Field Name="VAT_ClauseDescription3">
-          <DataField>VAT_ClauseDescription3</DataField>
-        </Field>
-        <Field Name="VAT_Identifier4">
-          <DataField>VAT_Identifier4</DataField>
-        </Field>
-        <Field Name="VAT_Perc4">
-          <DataField>VAT_Perc4</DataField>
-        </Field>
-        <Field Name="VAT_Perc4Format">
-          <DataField>VAT_Perc4Format</DataField>
-        </Field>
-        <Field Name="VAT_Description4">
-          <DataField>VAT_Description4</DataField>
-        </Field>
-        <Field Name="VAT_Base4">
-          <DataField>VAT_Base4</DataField>
-        </Field>
-        <Field Name="VAT_Base4Format">
-          <DataField>VAT_Base4Format</DataField>
-        </Field>
-        <Field Name="VAT_Amount4">
-          <DataField>VAT_Amount4</DataField>
-        </Field>
-        <Field Name="VAT_Amount4Format">
-          <DataField>VAT_Amount4Format</DataField>
-        </Field>
-        <Field Name="VAT_InvoiceDiscountAmount4">
-          <DataField>VAT_InvoiceDiscountAmount4</DataField>
-        </Field>
-        <Field Name="VAT_InvoiceDiscountAmount4Format">
-          <DataField>VAT_InvoiceDiscountAmount4Format</DataField>
-        </Field>
-        <Field Name="VAT_ClauseCode4">
-          <DataField>VAT_ClauseCode4</DataField>
-        </Field>
-        <Field Name="VAT_ClauseDescription4">
-          <DataField>VAT_ClauseDescription4</DataField>
-        </Field>
-        <Field Name="ShowVATClauseTab">
-          <DataField>ShowVATClauseTab</DataField>
-        </Field>
-        <Field Name="PaymentLine_DueDate1">
-          <DataField>PaymentLine_DueDate1</DataField>
-        </Field>
-        <Field Name="PaymentLine_Amount1">
-          <DataField>PaymentLine_Amount1</DataField>
-        </Field>
-        <Field Name="PaymentLine_Amount1Format">
-          <DataField>PaymentLine_Amount1Format</DataField>
-        </Field>
-        <Field Name="PaymentLine_DueDate2">
-          <DataField>PaymentLine_DueDate2</DataField>
-        </Field>
-        <Field Name="PaymentLine_Amount2">
-          <DataField>PaymentLine_Amount2</DataField>
-        </Field>
-        <Field Name="PaymentLine_Amount2Format">
-          <DataField>PaymentLine_Amount2Format</DataField>
-        </Field>
-        <Field Name="PaymentLine_DueDate3">
-          <DataField>PaymentLine_DueDate3</DataField>
-        </Field>
-        <Field Name="PaymentLine_Amount3">
-          <DataField>PaymentLine_Amount3</DataField>
-        </Field>
-        <Field Name="PaymentLine_Amount3Format">
-          <DataField>PaymentLine_Amount3Format</DataField>
-        </Field>
-        <Field Name="PaymentLine_DueDate4">
-          <DataField>PaymentLine_DueDate4</DataField>
-        </Field>
-        <Field Name="PaymentLine_Amount4">
-          <DataField>PaymentLine_Amount4</DataField>
-        </Field>
-        <Field Name="PaymentLine_Amount4Format">
-          <DataField>PaymentLine_Amount4Format</DataField>
-        </Field>
-        <Field Name="VATLineCurrencyCode">
-          <DataField>VATLineCurrencyCode</DataField>
-        </Field>
-        <Field Name="VATLineTotal">
-          <DataField>VATLineTotal</DataField>
-        </Field>
-        <Field Name="VATLineTotalFormat">
-          <DataField>VATLineTotalFormat</DataField>
-        </Field>
-        <Field Name="VATLineInvDiscTotal">
-          <DataField>VATLineInvDiscTotal</DataField>
-        </Field>
-        <Field Name="VATLineInvDiscTotalFormat">
-          <DataField>VATLineInvDiscTotalFormat</DataField>
-        </Field>
-        <Field Name="VATLineBaseTotal">
-          <DataField>VATLineBaseTotal</DataField>
-        </Field>
-        <Field Name="VATLineBaseTotalFormat">
-          <DataField>VATLineBaseTotalFormat</DataField>
-        </Field>
-        <Field Name="VATLineAmountTotal">
-          <DataField>VATLineAmountTotal</DataField>
-        </Field>
-        <Field Name="VATLineAmountTotalFormat">
-          <DataField>VATLineAmountTotalFormat</DataField>
-        </Field>
-        <Field Name="VATLineAmountInclVATTotal">
-          <DataField>VATLineAmountInclVATTotal</DataField>
-        </Field>
-        <Field Name="VATLineAmountInclVATTotalFormat">
-          <DataField>VATLineAmountInclVATTotalFormat</DataField>
-        </Field>
-        <Field Name="PrintVat">
-          <DataField>PrintVat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -862,22 +36,16 @@
                                     <Width>0.03125in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>0.49317in</Width>
+                                    <Width>0.83476in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>3.94752in</Width>
+                                    <Width>4.40971in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>0.24614in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>0.56124in</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.46238in</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.3414in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>0.59668in</Width>
@@ -1099,100 +267,6 @@
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </Border>
-                                              <TopBorder>
-                                                <Color>Black</Color>
-                                                <Width>1pt</Width>
-                                              </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Style>None</Style>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Style>None</Style>
-                                              </RightBorder>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox48">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Parameters!QtaCo_Caption.Value</Value>
-                                                    <Style>
-                                                      <FontSize>7pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Right</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox48</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </Border>
-                                              <TopBorder>
-                                                <Color>Black</Color>
-                                                <Width>1pt</Width>
-                                              </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Style>None</Style>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Style>None</Style>
-                                              </RightBorder>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox56">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Parameters!Om_Caption.Value</Value>
-                                                    <Style>
-                                                      <FontSize>7pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox56</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -1528,72 +602,6 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox49">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Right</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox49</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Top</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>3pt</PaddingTop>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox57">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox57</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Top</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>3pt</PaddingTop>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
                                           <Textbox Name="Textbox71">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
@@ -1846,72 +854,6 @@
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox16</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Bottom</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox50">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Italic</FontStyle>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Right</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox50</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Bottom</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox58">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Italic</FontStyle>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox58</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>None</Style>
@@ -2184,72 +1126,6 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox51">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Italic</FontStyle>
-                                                      <FontSize>6.5pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Right</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox51</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Top</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox59">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Italic</FontStyle>
-                                                      <FontSize>6.5pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox59</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Top</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
                                           <Textbox Name="Textbox73">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
@@ -2506,70 +1382,6 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox52">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontSize>6pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Right</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox52</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Top</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox60">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontSize>6pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox60</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Top</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
                                           <Textbox Name="Textbox74">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
@@ -2761,70 +1573,6 @@
                                       <TablixCell />
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox54">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Italic</FontStyle>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox54</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Bottom</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox61">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Italic</FontStyle>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox61</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Bottom</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
                                           <Textbox Name="Textbox75">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
@@ -2919,8 +1667,6 @@
                               </TablixBody>
                               <TablixColumnHierarchy>
                                 <TablixMembers>
-                                  <TablixMember />
-                                  <TablixMember />
                                   <TablixMember />
                                   <TablixMember />
                                   <TablixMember />
@@ -3095,6 +1841,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
+            <Top>0cm</Top>
             <Left>0.17636cm</Left>
             <Height>0.78044in</Height>
             <Width>7.6276in</Width>
@@ -3126,10 +1873,7 @@
                   <MIMEType>image/bmp</MIMEType>
                   <Sizing>Fit</Sizing>
                   <Height>3.19908cm</Height>
-                  <Width>34.75743mm</Width>
-                  <Visibility>
-                    <Hidden>true</Hidden>
-                  </Visibility>
+                  <Width>193.5474mm</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -3266,44 +2010,11 @@
                     <PaddingBottom>1pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="Textbox28">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>=Parameters!CompanyPIva_caption.Value + " " + Fields!CompanyVAT.Value + "&lt;br&gt;" + Parameters!CompanyRea_caption.Value + " " + Fields!CompanyREA.Value + "&lt;br&gt;" + Fields!CompanyShareCapitalTxt.Value + "&lt;br&gt;" + Parameters!IBANCompany_caption.Value + " " + Fields!CompanyIban.Value</Value>
-                          <MarkupType>HTML</MarkupType>
-                          <Style>
-                            <FontSize>8pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox23</rd:DefaultName>
-                  <Top>1.68627cm</Top>
-                  <Left>3.44028cm</Left>
-                  <Height>1.51281cm</Height>
-                  <Width>6.45162cm</Width>
-                  <ZIndex>5</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Left>0.16947cm</Left>
               <Height>6.40349cm</Height>
-              <Width>7.60957in</Width>
+              <Width>7.61998in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3413,7 +2124,7 @@
                   </Style>
                 </Textbox>
                 <Line Name="Line51">
-                  <Left>1.495cm</Left>
+                  <Left>2.765cm</Left>
                   <Height>1.00612cm</Height>
                   <Width>0cm</Width>
                   <ZIndex>3</ZIndex>
@@ -3546,7 +2257,7 @@
                   <Top>12.28335pt</Top>
                   <Left>0.07938cm</Left>
                   <Height>11pt</Height>
-                  <Width>1.37592cm</Width>
+                  <Width>2.12029cm</Width>
                   <ZIndex>9</ZIndex>
                   <Style>
                     <Border>
@@ -3578,7 +2289,7 @@
                     </Paragraph>
                   </Paragraphs>
                   <Top>0.05095cm</Top>
-                  <Left>1.56556cm</Left>
+                  <Left>2.83556cm</Left>
                   <Height>9.79999pt</Height>
                   <Width>0.99759in</Width>
                   <ZIndex>10</ZIndex>
@@ -3612,9 +2323,9 @@
                     </Paragraph>
                   </Paragraphs>
                   <Top>12.28335pt</Top>
-                  <Left>1.56556cm</Left>
+                  <Left>2.83556cm</Left>
                   <Height>11pt</Height>
-                  <Width>2.53388cm</Width>
+                  <Width>3.85861cm</Width>
                   <ZIndex>11</ZIndex>
                   <Style>
                     <Border>
@@ -4235,86 +2946,6 @@
                     </RightBorder>
                   </Style>
                 </Rectangle>
-                <Line Name="Line55">
-                  <Left>4.17cm</Left>
-                  <Height>0.98cm</Height>
-                  <Width>0cm</Width>
-                  <ZIndex>20</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                      <Width>0.5pt</Width>
-                    </Border>
-                  </Style>
-                </Line>
-                <Textbox Name="SalespersonCaption12">
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>=Parameters!Giornochiusura_caption.Value</Value>
-                          <Style>
-                            <FontSize>7pt</FontSize>
-                            <FontWeight>Normal</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>0.05095cm</Top>
-                  <Left>4.24055cm</Left>
-                  <Height>9.79999pt</Height>
-                  <Width>0.9837in</Width>
-                  <ZIndex>21</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>1pt</PaddingTop>
-                    <PaddingBottom>1pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="DocumentNo12">
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>=Fields!GiornoChiusura.Value</Value>
-                          <Style>
-                            <FontSize>8pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Left</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>12.28335pt</Top>
-                  <Left>4.24055cm</Left>
-                  <Height>11pt</Height>
-                  <Width>2.49861cm</Width>
-                  <ZIndex>22</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>1pt</PaddingTop>
-                    <PaddingBottom>1pt</PaddingBottom>
-                  </Style>
-                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>2.90447in</Top>
@@ -5097,7 +3728,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value EvaluationMode="Constant" />
+                              <Value>=Code.BlankZero(Fields!CstmHdrTxt24.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -5310,7 +3941,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Parameters!Fresco_caption.Value</Value>
+                              <Value>=Parameters!GrossWeightCaption.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                               </Style>
@@ -5342,7 +3973,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Parameters!Secco_caption.Value</Value>
+                              <Value>=Parameters!NetWeightCaption.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                               </Style>
@@ -5463,7 +4094,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>12.00006pt</Top>
+              <Top>11.99984pt</Top>
               <Left>432.32328pt</Left>
               <Height>15.49285pt</Height>
               <Width>1.31395in</Width>
@@ -5497,7 +4128,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>12.00006pt</Top>
+              <Top>11.99984pt</Top>
               <Left>527.17456pt</Left>
               <Height>15.49295pt</Height>
               <Width>0.35442in</Width>
@@ -5527,14 +4158,7 @@
         <TopMargin>0.5cm</TopMargin>
         <BottomMargin>0.5cm</BottomMargin>
         <ColumnSpacing>1.27cm</ColumnSpacing>
-        <Style>
-          <BackgroundImage>
-            <Source>Database</Source>
-            <Value>=First(Fields!CartaIntestata.Value, "DataSet_Result")</Value>
-            <MIMEType>image/bmp</MIMEType>
-            <BackgroundRepeat>Clip</BackgroundRepeat>
-          </BackgroundImage>
-        </Style>
+        <Style />
       </Page>
     </ReportSection>
   </ReportSections>
@@ -5781,6 +4405,15 @@
         </Values>
       </DefaultValue>
       <Prompt>NetWeightCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="GrossWeightCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>GrossWeightCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>GrossWeightCaption</Prompt>
     </ReportParameter>
     <ReportParameter Name="WeightCaption">
       <DataType>String</DataType>
@@ -6641,7 +5274,7 @@
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>1</NumberOfColumns>
-      <NumberOfRows>122</NumberOfRows>
+      <NumberOfRows>123</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -6781,476 +5414,481 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>27</RowIndex>
-          <ParameterName>WeightCaption</ParameterName>
+          <ParameterName>GrossWeightCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>28</RowIndex>
-          <ParameterName>NoOfParcels_Caption</ParameterName>
+          <ParameterName>WeightCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>29</RowIndex>
-          <ParameterName>OperatorName_Caption</ParameterName>
+          <ParameterName>NoOfParcels_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>30</RowIndex>
-          <ParameterName>OrderConf_Title</ParameterName>
+          <ParameterName>OperatorName_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>31</RowIndex>
-          <ParameterName>OrderDate_Caption</ParameterName>
+          <ParameterName>OrderConf_Title</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>32</RowIndex>
-          <ParameterName>Our_Bank</ParameterName>
+          <ParameterName>OrderDate_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>33</RowIndex>
-          <ParameterName>Page_Caption</ParameterName>
+          <ParameterName>Our_Bank</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>34</RowIndex>
-          <ParameterName>Payment_Amount_Caption</ParameterName>
+          <ParameterName>Page_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>35</RowIndex>
-          <ParameterName>Payment_DueDate_Caption</ParameterName>
+          <ParameterName>Payment_Amount_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>36</RowIndex>
-          <ParameterName>PaymentMethod_Caption</ParameterName>
+          <ParameterName>Payment_DueDate_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>37</RowIndex>
-          <ParameterName>PaymentTerms_Caption</ParameterName>
+          <ParameterName>PaymentMethod_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>38</RowIndex>
-          <ParameterName>PostingDate_Caption</ParameterName>
+          <ParameterName>PaymentTerms_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>39</RowIndex>
-          <ParameterName>Reason_Caption</ParameterName>
+          <ParameterName>PostingDate_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>40</RowIndex>
-          <ParameterName>ReturnAddr_Caption</ParameterName>
+          <ParameterName>Reason_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>41</RowIndex>
-          <ParameterName>Salesperson_Caption</ParameterName>
+          <ParameterName>ReturnAddr_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>42</RowIndex>
-          <ParameterName>ShipmentDate_Caption</ParameterName>
+          <ParameterName>Salesperson_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>43</RowIndex>
-          <ParameterName>ShipToAddress_Caption</ParameterName>
+          <ParameterName>ShipmentDate_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>44</RowIndex>
-          <ParameterName>ShpAgent_Caption</ParameterName>
+          <ParameterName>ShipToAddress_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>45</RowIndex>
-          <ParameterName>ShptBy_Caption</ParameterName>
+          <ParameterName>ShpAgent_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>46</RowIndex>
-          <ParameterName>ShptMethod_Caption</ParameterName>
+          <ParameterName>ShptBy_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>47</RowIndex>
-          <ParameterName>ShptStart_Caption</ParameterName>
+          <ParameterName>ShptMethod_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>48</RowIndex>
-          <ParameterName>SigRecipient_Caption</ParameterName>
+          <ParameterName>ShptStart_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>49</RowIndex>
-          <ParameterName>SigDriver_Caption</ParameterName>
+          <ParameterName>SigRecipient_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>50</RowIndex>
-          <ParameterName>SigCompiler_Caption</ParameterName>
+          <ParameterName>SigDriver_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>51</RowIndex>
-          <ParameterName>Total_DocumentTotalCaption</ParameterName>
+          <ParameterName>SigCompiler_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>52</RowIndex>
-          <ParameterName>Total_DocumentTotalVatExclCaption</ParameterName>
+          <ParameterName>Total_DocumentTotalCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>53</RowIndex>
-          <ParameterName>Total_NetAmountToPayCaption</ParameterName>
+          <ParameterName>Total_DocumentTotalVatExclCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>54</RowIndex>
-          <ParameterName>Total_TotalAmountCaption</ParameterName>
+          <ParameterName>Total_NetAmountToPayCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>55</RowIndex>
-          <ParameterName>Total_TotalBaseCaption</ParameterName>
+          <ParameterName>Total_TotalAmountCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>56</RowIndex>
-          <ParameterName>Total_TotalCaption</ParameterName>
+          <ParameterName>Total_TotalBaseCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>57</RowIndex>
-          <ParameterName>Total_TotalInvDiscCaption</ParameterName>
+          <ParameterName>Total_TotalCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>58</RowIndex>
-          <ParameterName>ValidTo_Caption</ParameterName>
+          <ParameterName>Total_TotalInvDiscCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>59</RowIndex>
-          <ParameterName>VAT_InvDisc_Caption</ParameterName>
+          <ParameterName>ValidTo_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>60</RowIndex>
-          <ParameterName>VAT_Line_VATIdentifier_Caption</ParameterName>
+          <ParameterName>VAT_InvDisc_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>61</RowIndex>
-          <ParameterName>VAT_VATAmount_Caption</ParameterName>
+          <ParameterName>VAT_Line_VATIdentifier_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>62</RowIndex>
-          <ParameterName>VAT_VATBase_Caption</ParameterName>
+          <ParameterName>VAT_VATAmount_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>63</RowIndex>
-          <ParameterName>VAT_VATPercent_Caption</ParameterName>
+          <ParameterName>VAT_VATBase_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>64</RowIndex>
-          <ParameterName>VAT_VATText_Caption</ParameterName>
+          <ParameterName>VAT_VATPercent_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>65</RowIndex>
-          <ParameterName>VATClausesCaption</ParameterName>
+          <ParameterName>VAT_VATText_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>66</RowIndex>
-          <ParameterName>VATRegNo_Caption</ParameterName>
+          <ParameterName>VATClausesCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>67</RowIndex>
-          <ParameterName>Volume_Caption</ParameterName>
+          <ParameterName>VATRegNo_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>68</RowIndex>
-          <ParameterName>YourReference_Caption</ParameterName>
+          <ParameterName>Volume_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>69</RowIndex>
-          <ParameterName>BankReference_Caption</ParameterName>
+          <ParameterName>YourReference_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>70</RowIndex>
-          <ParameterName>YourBankAccountRef_Caption</ParameterName>
+          <ParameterName>BankReference_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>71</RowIndex>
-          <ParameterName>CustomerBankReference_Caption</ParameterName>
+          <ParameterName>YourBankAccountRef_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>72</RowIndex>
-          <ParameterName>TextLicenseCpt</ParameterName>
+          <ParameterName>CustomerBankReference_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>73</RowIndex>
-          <ParameterName>TextLicense2</ParameterName>
+          <ParameterName>TextLicenseCpt</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>74</RowIndex>
-          <ParameterName>TextArt62</ParameterName>
+          <ParameterName>TextLicense2</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>75</RowIndex>
-          <ParameterName>SigCompilier_Caption</ParameterName>
+          <ParameterName>TextArt62</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>76</RowIndex>
-          <ParameterName>TaxDiscount_Caption</ParameterName>
+          <ParameterName>SigCompilier_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>77</RowIndex>
-          <ParameterName>CarrierGenInfo_Caption</ParameterName>
+          <ParameterName>TaxDiscount_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>78</RowIndex>
-          <ParameterName>PhytoLicense_CaptionM</ParameterName>
+          <ParameterName>CarrierGenInfo_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>79</RowIndex>
-          <ParameterName>TransportationBythe_Caption</ParameterName>
+          <ParameterName>PhytoLicense_CaptionM</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>80</RowIndex>
-          <ParameterName>CollectionCosts</ParameterName>
+          <ParameterName>TransportationBythe_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>81</RowIndex>
-          <ParameterName>GoodsTotal_Caption</ParameterName>
+          <ParameterName>CollectionCosts</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>82</RowIndex>
-          <ParameterName>LoadingPlace_Caption</ParameterName>
+          <ParameterName>GoodsTotal_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>83</RowIndex>
-          <ParameterName>text1</ParameterName>
+          <ParameterName>LoadingPlace_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>84</RowIndex>
-          <ParameterName>text2</ParameterName>
+          <ParameterName>text1</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>85</RowIndex>
-          <ParameterName>text3</ParameterName>
+          <ParameterName>text2</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>86</RowIndex>
-          <ParameterName>PhytoItemRegNo_Caption</ParameterName>
+          <ParameterName>text3</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>87</RowIndex>
-          <ParameterName>ABI_Caption</ParameterName>
+          <ParameterName>PhytoItemRegNo_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>88</RowIndex>
-          <ParameterName>CAB_Caption</ParameterName>
+          <ParameterName>ABI_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>89</RowIndex>
-          <ParameterName>Valuta_Caption</ParameterName>
+          <ParameterName>CAB_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>90</RowIndex>
-          <ParameterName>IBAN_Caption</ParameterName>
+          <ParameterName>Valuta_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>91</RowIndex>
-          <ParameterName>FirmaLegRappr_Caption</ParameterName>
+          <ParameterName>IBAN_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>92</RowIndex>
-          <ParameterName>Note_Caption</ParameterName>
+          <ParameterName>FirmaLegRappr_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>93</RowIndex>
-          <ParameterName>CompanyPIva_caption</ParameterName>
+          <ParameterName>Note_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>94</RowIndex>
-          <ParameterName>CompanyRea_caption</ParameterName>
+          <ParameterName>CompanyPIva_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>95</RowIndex>
-          <ParameterName>IBANCompany_caption</ParameterName>
+          <ParameterName>CompanyRea_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>96</RowIndex>
-          <ParameterName>Giornochiusura_caption</ParameterName>
+          <ParameterName>IBANCompany_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>97</RowIndex>
-          <ParameterName>OrdineNr_caption</ParameterName>
+          <ParameterName>Giornochiusura_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>98</RowIndex>
-          <ParameterName>Fresco_caption</ParameterName>
+          <ParameterName>OrdineNr_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>99</RowIndex>
-          <ParameterName>Surg_caption</ParameterName>
+          <ParameterName>Fresco_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>100</RowIndex>
-          <ParameterName>Secco_caption</ParameterName>
+          <ParameterName>Surg_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>101</RowIndex>
-          <ParameterName>Conai1_caption</ParameterName>
+          <ParameterName>Secco_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>102</RowIndex>
-          <ParameterName>Conai2_caption</ParameterName>
+          <ParameterName>Conai1_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>103</RowIndex>
-          <ParameterName>Conai3_caption</ParameterName>
+          <ParameterName>Conai2_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>104</RowIndex>
-          <ParameterName>Piede1_caption</ParameterName>
+          <ParameterName>Conai3_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>105</RowIndex>
-          <ParameterName>Piede2_caption</ParameterName>
+          <ParameterName>Piede1_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>106</RowIndex>
-          <ParameterName>Piede3_caption</ParameterName>
+          <ParameterName>Piede2_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>107</RowIndex>
-          <ParameterName>Piede4_caption</ParameterName>
+          <ParameterName>Piede3_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>108</RowIndex>
-          <ParameterName>Piede5_caption</ParameterName>
+          <ParameterName>Piede4_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>109</RowIndex>
-          <ParameterName>Piede6_caption</ParameterName>
+          <ParameterName>Piede5_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>110</RowIndex>
-          <ParameterName>Piede7_caption</ParameterName>
+          <ParameterName>Piede6_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>111</RowIndex>
-          <ParameterName>Piede8_caption</ParameterName>
+          <ParameterName>Piede7_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>112</RowIndex>
-          <ParameterName>Piede9_caption</ParameterName>
+          <ParameterName>Piede8_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>113</RowIndex>
-          <ParameterName>Piede10_caption</ParameterName>
+          <ParameterName>Piede9_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>114</RowIndex>
-          <ParameterName>Piede11_caption</ParameterName>
+          <ParameterName>Piede10_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>115</RowIndex>
-          <ParameterName>Piede12_caption</ParameterName>
+          <ParameterName>Piede11_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>116</RowIndex>
-          <ParameterName>SpedizioneInf_caption</ParameterName>
+          <ParameterName>Piede12_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>117</RowIndex>
-          <ParameterName>Autista_caption</ParameterName>
+          <ParameterName>SpedizioneInf_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>118</RowIndex>
-          <ParameterName>QtaCo_Caption</ParameterName>
+          <ParameterName>Autista_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>119</RowIndex>
-          <ParameterName>Om_Caption</ParameterName>
+          <ParameterName>QtaCo_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>120</RowIndex>
-          <ParameterName>PrezzoUnitario_Caption</ParameterName>
+          <ParameterName>Om_Caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>121</RowIndex>
+          <ParameterName>PrezzoUnitario_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>122</RowIndex>
           <ParameterName>AmountColumn_Caption</ParameterName>
         </CellDefinition>
       </CellDefinitions>
@@ -7363,4 +6001,830 @@ E6D2FTsSc5111nmY29nKaouxXnjhhY332WefxwhhVjBr1+IugjjFf+utt1bnlnYM5nLLLfdSEsaRbrV9
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>a0a9241d-961a-4033-b286-058a26562d08</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="SourceSubtype">
+          <DataField>SourceSubtype</DataField>
+        </Field>
+        <Field Name="HeaderImage">
+          <DataField>HeaderImage</DataField>
+        </Field>
+        <Field Name="FooterImage">
+          <DataField>FooterImage</DataField>
+        </Field>
+        <Field Name="CompanyPicture">
+          <DataField>CompanyPicture</DataField>
+        </Field>
+        <Field Name="CompanyREA">
+          <DataField>CompanyREA</DataField>
+        </Field>
+        <Field Name="CompanyVAT">
+          <DataField>CompanyVAT</DataField>
+        </Field>
+        <Field Name="CompanyIban">
+          <DataField>CompanyIban</DataField>
+        </Field>
+        <Field Name="CompanyShareCapitalTxt">
+          <DataField>CompanyShareCapitalTxt</DataField>
+        </Field>
+        <Field Name="CopyNo">
+          <DataField>CopyNo</DataField>
+        </Field>
+        <Field Name="DocumentNo">
+          <DataField>DocumentNo</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="OurOrderNo">
+          <DataField>OurOrderNo</DataField>
+        </Field>
+        <Field Name="OurOrderDate">
+          <DataField>OurOrderDate</DataField>
+        </Field>
+        <Field Name="SourceID">
+          <DataField>SourceID</DataField>
+        </Field>
+        <Field Name="Salesperson">
+          <DataField>Salesperson</DataField>
+        </Field>
+        <Field Name="CupCode">
+          <DataField>CupCode</DataField>
+        </Field>
+        <Field Name="CigCode">
+          <DataField>CigCode</DataField>
+        </Field>
+        <Field Name="OurBankRef">
+          <DataField>OurBankRef</DataField>
+        </Field>
+        <Field Name="OurBankRef1">
+          <DataField>OurBankRef1</DataField>
+        </Field>
+        <Field Name="OperatorName">
+          <DataField>OperatorName</DataField>
+        </Field>
+        <Field Name="SelltoBuyFromNo">
+          <DataField>SelltoBuyFromNo</DataField>
+        </Field>
+        <Field Name="SellToBuyFromAddr">
+          <DataField>SellToBuyFromAddr</DataField>
+        </Field>
+        <Field Name="BillToNo">
+          <DataField>BillToNo</DataField>
+        </Field>
+        <Field Name="ShipToAddress">
+          <DataField>ShipToAddress</DataField>
+        </Field>
+        <Field Name="BillToAddress">
+          <DataField>BillToAddress</DataField>
+        </Field>
+        <Field Name="HideAddressCaption">
+          <DataField>HideAddressCaption</DataField>
+        </Field>
+        <Field Name="LocationAddress">
+          <DataField>LocationAddress</DataField>
+        </Field>
+        <Field Name="CustomerVendorContact">
+          <DataField>CustomerVendorContact</DataField>
+        </Field>
+        <Field Name="CustomerVendorEMail">
+          <DataField>CustomerVendorEMail</DataField>
+        </Field>
+        <Field Name="PaymentTerms">
+          <DataField>PaymentTerms</DataField>
+        </Field>
+        <Field Name="PaymentMethod">
+          <DataField>PaymentMethod</DataField>
+        </Field>
+        <Field Name="Reason">
+          <DataField>Reason</DataField>
+        </Field>
+        <Field Name="VATRegNo">
+          <DataField>VATRegNo</DataField>
+        </Field>
+        <Field Name="FiscalCode">
+          <DataField>FiscalCode</DataField>
+        </Field>
+        <Field Name="ShptMethod">
+          <DataField>ShptMethod</DataField>
+        </Field>
+        <Field Name="ShptBy">
+          <DataField>ShptBy</DataField>
+        </Field>
+        <Field Name="ShpAgent">
+          <DataField>ShpAgent</DataField>
+        </Field>
+        <Field Name="GoodsAppearance">
+          <DataField>GoodsAppearance</DataField>
+        </Field>
+        <Field Name="ShipmentStartingDateTime">
+          <DataField>ShipmentStartingDateTime</DataField>
+        </Field>
+        <Field Name="ReturnAddress">
+          <DataField>ReturnAddress</DataField>
+        </Field>
+        <Field Name="NoOfParcels">
+          <DataField>NoOfParcels</DataField>
+        </Field>
+        <Field Name="GrossWeight">
+          <DataField>GrossWeight</DataField>
+        </Field>
+        <Field Name="GrossWeightFormat">
+          <DataField>GrossWeightFormat</DataField>
+        </Field>
+        <Field Name="NetWeight">
+          <DataField>NetWeight</DataField>
+        </Field>
+        <Field Name="NetWeightFormat">
+          <DataField>NetWeightFormat</DataField>
+        </Field>
+        <Field Name="Volume">
+          <DataField>Volume</DataField>
+        </Field>
+        <Field Name="VolumeFormat">
+          <DataField>VolumeFormat</DataField>
+        </Field>
+        <Field Name="AddressPosition">
+          <DataField>AddressPosition</DataField>
+        </Field>
+        <Field Name="OurBank">
+          <DataField>OurBank</DataField>
+        </Field>
+        <Field Name="YourReference">
+          <DataField>YourReference</DataField>
+        </Field>
+        <Field Name="OrderDate">
+          <DataField>OrderDate</DataField>
+        </Field>
+        <Field Name="ShipmentDate">
+          <DataField>ShipmentDate</DataField>
+        </Field>
+        <Field Name="ValidTo">
+          <DataField>ValidTo</DataField>
+        </Field>
+        <Field Name="VATExclDeclaration">
+          <DataField>VATExclDeclaration</DataField>
+        </Field>
+        <Field Name="VATLineAmountToPay">
+          <DataField>VATLineAmountToPay</DataField>
+        </Field>
+        <Field Name="VATLineAmountToPayFormat">
+          <DataField>VATLineAmountToPayFormat</DataField>
+        </Field>
+        <Field Name="ShowArt62Text">
+          <DataField>ShowArt62Text</DataField>
+        </Field>
+        <Field Name="ShowLicenseReqText">
+          <DataField>ShowLicenseReqText</DataField>
+        </Field>
+        <Field Name="TextLicenseCptNew">
+          <DataField>TextLicenseCptNew</DataField>
+        </Field>
+        <Field Name="CustomerPestLicense">
+          <DataField>CustomerPestLicense</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt1">
+          <DataField>CstmHdrTxt1</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt2">
+          <DataField>CstmHdrTxt2</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt3">
+          <DataField>CstmHdrTxt3</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt4">
+          <DataField>CstmHdrTxt4</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt5">
+          <DataField>CstmHdrTxt5</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt6">
+          <DataField>CstmHdrTxt6</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt7">
+          <DataField>CstmHdrTxt7</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt8">
+          <DataField>CstmHdrTxt8</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt9">
+          <DataField>CstmHdrTxt9</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt10">
+          <DataField>CstmHdrTxt10</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt11">
+          <DataField>CstmHdrTxt11</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt12">
+          <DataField>CstmHdrTxt12</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt13">
+          <DataField>CstmHdrTxt13</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt14">
+          <DataField>CstmHdrTxt14</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt15">
+          <DataField>CstmHdrTxt15</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt16">
+          <DataField>CstmHdrTxt16</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt17">
+          <DataField>CstmHdrTxt17</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt18">
+          <DataField>CstmHdrTxt18</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt19">
+          <DataField>CstmHdrTxt19</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt20">
+          <DataField>CstmHdrTxt20</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt21">
+          <DataField>CstmHdrTxt21</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt22">
+          <DataField>CstmHdrTxt22</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt23">
+          <DataField>CstmHdrTxt23</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt24">
+          <DataField>CstmHdrTxt24</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt25">
+          <DataField>CstmHdrTxt25</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt26">
+          <DataField>CstmHdrTxt26</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt27">
+          <DataField>CstmHdrTxt27</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt28">
+          <DataField>CstmHdrTxt28</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt29">
+          <DataField>CstmHdrTxt29</DataField>
+        </Field>
+        <Field Name="CstmHdrTxt30">
+          <DataField>CstmHdrTxt30</DataField>
+        </Field>
+        <Field Name="CstmHdrDec1">
+          <DataField>CstmHdrDec1</DataField>
+        </Field>
+        <Field Name="CstmHdrDec1Format">
+          <DataField>CstmHdrDec1Format</DataField>
+        </Field>
+        <Field Name="CstmHdrDec2">
+          <DataField>CstmHdrDec2</DataField>
+        </Field>
+        <Field Name="CstmHdrDec2Format">
+          <DataField>CstmHdrDec2Format</DataField>
+        </Field>
+        <Field Name="CstmHdrDec3">
+          <DataField>CstmHdrDec3</DataField>
+        </Field>
+        <Field Name="CstmHdrDec3Format">
+          <DataField>CstmHdrDec3Format</DataField>
+        </Field>
+        <Field Name="CstmHdrDec4">
+          <DataField>CstmHdrDec4</DataField>
+        </Field>
+        <Field Name="CstmHdrDec4Format">
+          <DataField>CstmHdrDec4Format</DataField>
+        </Field>
+        <Field Name="CstmHdrDec5">
+          <DataField>CstmHdrDec5</DataField>
+        </Field>
+        <Field Name="CstmHdrDec5Format">
+          <DataField>CstmHdrDec5Format</DataField>
+        </Field>
+        <Field Name="CstmHdrInt1">
+          <DataField>CstmHdrInt1</DataField>
+        </Field>
+        <Field Name="CstmHdrInt2">
+          <DataField>CstmHdrInt2</DataField>
+        </Field>
+        <Field Name="CstmHdrInt3">
+          <DataField>CstmHdrInt3</DataField>
+        </Field>
+        <Field Name="CstmHdrInt4">
+          <DataField>CstmHdrInt4</DataField>
+        </Field>
+        <Field Name="CstmHdrInt5">
+          <DataField>CstmHdrInt5</DataField>
+        </Field>
+        <Field Name="CstmHdrFieldLabel1">
+          <DataField>CstmHdrFieldLabel1</DataField>
+        </Field>
+        <Field Name="CstmHdrFieldValue1">
+          <DataField>CstmHdrFieldValue1</DataField>
+        </Field>
+        <Field Name="CstmHdrFieldLabel2">
+          <DataField>CstmHdrFieldLabel2</DataField>
+        </Field>
+        <Field Name="CstmHdrFieldValue2">
+          <DataField>CstmHdrFieldValue2</DataField>
+        </Field>
+        <Field Name="PrintText1">
+          <DataField>PrintText1</DataField>
+        </Field>
+        <Field Name="ShippingComments">
+          <DataField>ShippingComments</DataField>
+        </Field>
+        <Field Name="IsCustomerBank">
+          <DataField>IsCustomerBank</DataField>
+        </Field>
+        <Field Name="ABICode">
+          <DataField>ABICode</DataField>
+        </Field>
+        <Field Name="CABCode">
+          <DataField>CABCode</DataField>
+        </Field>
+        <Field Name="IBANCode">
+          <DataField>IBANCode</DataField>
+        </Field>
+        <Field Name="BankName">
+          <DataField>BankName</DataField>
+        </Field>
+        <Field Name="CurrencyCode">
+          <DataField>CurrencyCode</DataField>
+        </Field>
+        <Field Name="PaymentMethodCode">
+          <DataField>PaymentMethodCode</DataField>
+        </Field>
+        <Field Name="NascondiPrezzi">
+          <DataField>NascondiPrezzi</DataField>
+        </Field>
+        <Field Name="NrColliSecchi">
+          <DataField>NrColliSecchi</DataField>
+        </Field>
+        <Field Name="NrColliSurgelati">
+          <DataField>NrColliSurgelati</DataField>
+        </Field>
+        <Field Name="NrColliFreschi">
+          <DataField>NrColliFreschi</DataField>
+        </Field>
+        <Field Name="GiornoChiusura">
+          <DataField>GiornoChiusura</DataField>
+        </Field>
+        <Field Name="CartaIntestata">
+          <DataField>CartaIntestata</DataField>
+        </Field>
+        <Field Name="Line_Type">
+          <DataField>Line_Type</DataField>
+        </Field>
+        <Field Name="Line_LineType">
+          <DataField>Line_LineType</DataField>
+        </Field>
+        <Field Name="Line_Style">
+          <DataField>Line_Style</DataField>
+        </Field>
+        <Field Name="Line_ExtensionCode">
+          <DataField>Line_ExtensionCode</DataField>
+        </Field>
+        <Field Name="Line_LineNo">
+          <DataField>Line_LineNo</DataField>
+        </Field>
+        <Field Name="Line_ItemNo">
+          <DataField>Line_ItemNo</DataField>
+        </Field>
+        <Field Name="Line_Description">
+          <DataField>Line_Description</DataField>
+        </Field>
+        <Field Name="showvariant">
+          <DataField>showvariant</DataField>
+        </Field>
+        <Field Name="Line_ItemVariantNo">
+          <DataField>Line_ItemVariantNo</DataField>
+        </Field>
+        <Field Name="Line_ItemVariantDesc">
+          <DataField>Line_ItemVariantDesc</DataField>
+        </Field>
+        <Field Name="Line_RegNo">
+          <DataField>Line_RegNo</DataField>
+        </Field>
+        <Field Name="Line_Description2">
+          <DataField>Line_Description2</DataField>
+        </Field>
+        <Field Name="Line_Quantity">
+          <DataField>Line_Quantity</DataField>
+        </Field>
+        <Field Name="Line_QuantityFormat">
+          <DataField>Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Line_UoMCode">
+          <DataField>Line_UoMCode</DataField>
+        </Field>
+        <Field Name="Line_LineDiscountPerc">
+          <DataField>Line_LineDiscountPerc</DataField>
+        </Field>
+        <Field Name="Line_LineDiscountPercFormat">
+          <DataField>Line_LineDiscountPercFormat</DataField>
+        </Field>
+        <Field Name="Line_UnitPrice">
+          <DataField>Line_UnitPrice</DataField>
+        </Field>
+        <Field Name="Line_UnitPriceFormat">
+          <DataField>Line_UnitPriceFormat</DataField>
+        </Field>
+        <Field Name="Line_Amount">
+          <DataField>Line_Amount</DataField>
+        </Field>
+        <Field Name="Line_AmountFormat">
+          <DataField>Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="Line_VATIdentifier">
+          <DataField>Line_VATIdentifier</DataField>
+        </Field>
+        <Field Name="Line_ShipmentDate">
+          <DataField>Line_ShipmentDate</DataField>
+        </Field>
+        <Field Name="Line_Type_Desc">
+          <DataField>Line_Type_Desc</DataField>
+        </Field>
+        <Field Name="Line_OrderQuantity">
+          <DataField>Line_OrderQuantity</DataField>
+        </Field>
+        <Field Name="Line_OrderQuantityFormat">
+          <DataField>Line_OrderQuantityFormat</DataField>
+        </Field>
+        <Field Name="CstmLneTxt1">
+          <DataField>CstmLneTxt1</DataField>
+        </Field>
+        <Field Name="CstmLneTxt2">
+          <DataField>CstmLneTxt2</DataField>
+        </Field>
+        <Field Name="CstmLneTxt3">
+          <DataField>CstmLneTxt3</DataField>
+        </Field>
+        <Field Name="CstmLneTxt4">
+          <DataField>CstmLneTxt4</DataField>
+        </Field>
+        <Field Name="CstmLneTxt5">
+          <DataField>CstmLneTxt5</DataField>
+        </Field>
+        <Field Name="CstmLneTxt6">
+          <DataField>CstmLneTxt6</DataField>
+        </Field>
+        <Field Name="CstmLneTxt7">
+          <DataField>CstmLneTxt7</DataField>
+        </Field>
+        <Field Name="CstmLneTxt8">
+          <DataField>CstmLneTxt8</DataField>
+        </Field>
+        <Field Name="CstmLneTxt9">
+          <DataField>CstmLneTxt9</DataField>
+        </Field>
+        <Field Name="CstmLneTxt10">
+          <DataField>CstmLneTxt10</DataField>
+        </Field>
+        <Field Name="CstmLneTxt11">
+          <DataField>CstmLneTxt11</DataField>
+        </Field>
+        <Field Name="CstmLneTxt12">
+          <DataField>CstmLneTxt12</DataField>
+        </Field>
+        <Field Name="CstmLneTxt13">
+          <DataField>CstmLneTxt13</DataField>
+        </Field>
+        <Field Name="CstmLneTxt14">
+          <DataField>CstmLneTxt14</DataField>
+        </Field>
+        <Field Name="CstmLneTxt15">
+          <DataField>CstmLneTxt15</DataField>
+        </Field>
+        <Field Name="CstmLneTxt16">
+          <DataField>CstmLneTxt16</DataField>
+        </Field>
+        <Field Name="CstmLneTxt17">
+          <DataField>CstmLneTxt17</DataField>
+        </Field>
+        <Field Name="CstmLneTxt18">
+          <DataField>CstmLneTxt18</DataField>
+        </Field>
+        <Field Name="CstmLneTxt19">
+          <DataField>CstmLneTxt19</DataField>
+        </Field>
+        <Field Name="CstmLneTxt20">
+          <DataField>CstmLneTxt20</DataField>
+        </Field>
+        <Field Name="CstmLneTxt21">
+          <DataField>CstmLneTxt21</DataField>
+        </Field>
+        <Field Name="CstmLneTxt22">
+          <DataField>CstmLneTxt22</DataField>
+        </Field>
+        <Field Name="CstmLneTxt23">
+          <DataField>CstmLneTxt23</DataField>
+        </Field>
+        <Field Name="CstmLneTxt24">
+          <DataField>CstmLneTxt24</DataField>
+        </Field>
+        <Field Name="CstmLneTxt25">
+          <DataField>CstmLneTxt25</DataField>
+        </Field>
+        <Field Name="CstmLneTxt26">
+          <DataField>CstmLneTxt26</DataField>
+        </Field>
+        <Field Name="CstmLneTxt27">
+          <DataField>CstmLneTxt27</DataField>
+        </Field>
+        <Field Name="CstmLneTxt28">
+          <DataField>CstmLneTxt28</DataField>
+        </Field>
+        <Field Name="CstmLneTxt29">
+          <DataField>CstmLneTxt29</DataField>
+        </Field>
+        <Field Name="CstmLneTxt30">
+          <DataField>CstmLneTxt30</DataField>
+        </Field>
+        <Field Name="CstmLneDec1">
+          <DataField>CstmLneDec1</DataField>
+        </Field>
+        <Field Name="CstmLneDec1Format">
+          <DataField>CstmLneDec1Format</DataField>
+        </Field>
+        <Field Name="CstmLneDec2">
+          <DataField>CstmLneDec2</DataField>
+        </Field>
+        <Field Name="CstmLneDec2Format">
+          <DataField>CstmLneDec2Format</DataField>
+        </Field>
+        <Field Name="CstmLneDec3">
+          <DataField>CstmLneDec3</DataField>
+        </Field>
+        <Field Name="CstmLneDec3Format">
+          <DataField>CstmLneDec3Format</DataField>
+        </Field>
+        <Field Name="CstmLneDec4">
+          <DataField>CstmLneDec4</DataField>
+        </Field>
+        <Field Name="CstmLneDec4Format">
+          <DataField>CstmLneDec4Format</DataField>
+        </Field>
+        <Field Name="CstmLneDec5">
+          <DataField>CstmLneDec5</DataField>
+        </Field>
+        <Field Name="CstmLneDec5Format">
+          <DataField>CstmLneDec5Format</DataField>
+        </Field>
+        <Field Name="CstmLneInt1">
+          <DataField>CstmLneInt1</DataField>
+        </Field>
+        <Field Name="CstmLneInt2">
+          <DataField>CstmLneInt2</DataField>
+        </Field>
+        <Field Name="CstmLneInt3">
+          <DataField>CstmLneInt3</DataField>
+        </Field>
+        <Field Name="CstmLneInt4">
+          <DataField>CstmLneInt4</DataField>
+        </Field>
+        <Field Name="CstmLneInt5">
+          <DataField>CstmLneInt5</DataField>
+        </Field>
+        <Field Name="Line_Amount_DDT">
+          <DataField>Line_Amount_DDT</DataField>
+        </Field>
+        <Field Name="Line_Amount_DDTFormat">
+          <DataField>Line_Amount_DDTFormat</DataField>
+        </Field>
+        <Field Name="SecQuantity">
+          <DataField>SecQuantity</DataField>
+        </Field>
+        <Field Name="SecQuantityFormat">
+          <DataField>SecQuantityFormat</DataField>
+        </Field>
+        <Field Name="VAT_Identifier1">
+          <DataField>VAT_Identifier1</DataField>
+        </Field>
+        <Field Name="VAT_Perc1">
+          <DataField>VAT_Perc1</DataField>
+        </Field>
+        <Field Name="VAT_Perc1Format">
+          <DataField>VAT_Perc1Format</DataField>
+        </Field>
+        <Field Name="VAT_Description1">
+          <DataField>VAT_Description1</DataField>
+        </Field>
+        <Field Name="VAT_Base1">
+          <DataField>VAT_Base1</DataField>
+        </Field>
+        <Field Name="VAT_Base1Format">
+          <DataField>VAT_Base1Format</DataField>
+        </Field>
+        <Field Name="VAT_Amount1">
+          <DataField>VAT_Amount1</DataField>
+        </Field>
+        <Field Name="VAT_Amount1Format">
+          <DataField>VAT_Amount1Format</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount1">
+          <DataField>VAT_InvoiceDiscountAmount1</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount1Format">
+          <DataField>VAT_InvoiceDiscountAmount1Format</DataField>
+        </Field>
+        <Field Name="VAT_ClauseCode1">
+          <DataField>VAT_ClauseCode1</DataField>
+        </Field>
+        <Field Name="VAT_ClauseDescription1">
+          <DataField>VAT_ClauseDescription1</DataField>
+        </Field>
+        <Field Name="VAT_Identifier2">
+          <DataField>VAT_Identifier2</DataField>
+        </Field>
+        <Field Name="VAT_Perc2">
+          <DataField>VAT_Perc2</DataField>
+        </Field>
+        <Field Name="VAT_Perc2Format">
+          <DataField>VAT_Perc2Format</DataField>
+        </Field>
+        <Field Name="VAT_Description2">
+          <DataField>VAT_Description2</DataField>
+        </Field>
+        <Field Name="VAT_Base2">
+          <DataField>VAT_Base2</DataField>
+        </Field>
+        <Field Name="VAT_Base2Format">
+          <DataField>VAT_Base2Format</DataField>
+        </Field>
+        <Field Name="VAT_Amount2">
+          <DataField>VAT_Amount2</DataField>
+        </Field>
+        <Field Name="VAT_Amount2Format">
+          <DataField>VAT_Amount2Format</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount2">
+          <DataField>VAT_InvoiceDiscountAmount2</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount2Format">
+          <DataField>VAT_InvoiceDiscountAmount2Format</DataField>
+        </Field>
+        <Field Name="VAT_ClauseCode2">
+          <DataField>VAT_ClauseCode2</DataField>
+        </Field>
+        <Field Name="VAT_ClauseDescription2">
+          <DataField>VAT_ClauseDescription2</DataField>
+        </Field>
+        <Field Name="VAT_Identifier3">
+          <DataField>VAT_Identifier3</DataField>
+        </Field>
+        <Field Name="VAT_Perc3">
+          <DataField>VAT_Perc3</DataField>
+        </Field>
+        <Field Name="VAT_Perc3Format">
+          <DataField>VAT_Perc3Format</DataField>
+        </Field>
+        <Field Name="VAT_Description3">
+          <DataField>VAT_Description3</DataField>
+        </Field>
+        <Field Name="VAT_Base3">
+          <DataField>VAT_Base3</DataField>
+        </Field>
+        <Field Name="VAT_Base3Format">
+          <DataField>VAT_Base3Format</DataField>
+        </Field>
+        <Field Name="VAT_Amount3">
+          <DataField>VAT_Amount3</DataField>
+        </Field>
+        <Field Name="VAT_Amount3Format">
+          <DataField>VAT_Amount3Format</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount3">
+          <DataField>VAT_InvoiceDiscountAmount3</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount3Format">
+          <DataField>VAT_InvoiceDiscountAmount3Format</DataField>
+        </Field>
+        <Field Name="VAT_ClauseCode3">
+          <DataField>VAT_ClauseCode3</DataField>
+        </Field>
+        <Field Name="VAT_ClauseDescription3">
+          <DataField>VAT_ClauseDescription3</DataField>
+        </Field>
+        <Field Name="VAT_Identifier4">
+          <DataField>VAT_Identifier4</DataField>
+        </Field>
+        <Field Name="VAT_Perc4">
+          <DataField>VAT_Perc4</DataField>
+        </Field>
+        <Field Name="VAT_Perc4Format">
+          <DataField>VAT_Perc4Format</DataField>
+        </Field>
+        <Field Name="VAT_Description4">
+          <DataField>VAT_Description4</DataField>
+        </Field>
+        <Field Name="VAT_Base4">
+          <DataField>VAT_Base4</DataField>
+        </Field>
+        <Field Name="VAT_Base4Format">
+          <DataField>VAT_Base4Format</DataField>
+        </Field>
+        <Field Name="VAT_Amount4">
+          <DataField>VAT_Amount4</DataField>
+        </Field>
+        <Field Name="VAT_Amount4Format">
+          <DataField>VAT_Amount4Format</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount4">
+          <DataField>VAT_InvoiceDiscountAmount4</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount4Format">
+          <DataField>VAT_InvoiceDiscountAmount4Format</DataField>
+        </Field>
+        <Field Name="VAT_ClauseCode4">
+          <DataField>VAT_ClauseCode4</DataField>
+        </Field>
+        <Field Name="VAT_ClauseDescription4">
+          <DataField>VAT_ClauseDescription4</DataField>
+        </Field>
+        <Field Name="ShowVATClauseTab">
+          <DataField>ShowVATClauseTab</DataField>
+        </Field>
+        <Field Name="PaymentLine_DueDate1">
+          <DataField>PaymentLine_DueDate1</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount1">
+          <DataField>PaymentLine_Amount1</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount1Format">
+          <DataField>PaymentLine_Amount1Format</DataField>
+        </Field>
+        <Field Name="PaymentLine_DueDate2">
+          <DataField>PaymentLine_DueDate2</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount2">
+          <DataField>PaymentLine_Amount2</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount2Format">
+          <DataField>PaymentLine_Amount2Format</DataField>
+        </Field>
+        <Field Name="PaymentLine_DueDate3">
+          <DataField>PaymentLine_DueDate3</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount3">
+          <DataField>PaymentLine_Amount3</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount3Format">
+          <DataField>PaymentLine_Amount3Format</DataField>
+        </Field>
+        <Field Name="PaymentLine_DueDate4">
+          <DataField>PaymentLine_DueDate4</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount4">
+          <DataField>PaymentLine_Amount4</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount4Format">
+          <DataField>PaymentLine_Amount4Format</DataField>
+        </Field>
+        <Field Name="VATLineCurrencyCode">
+          <DataField>VATLineCurrencyCode</DataField>
+        </Field>
+        <Field Name="VATLineTotal">
+          <DataField>VATLineTotal</DataField>
+        </Field>
+        <Field Name="VATLineTotalFormat">
+          <DataField>VATLineTotalFormat</DataField>
+        </Field>
+        <Field Name="VATLineInvDiscTotal">
+          <DataField>VATLineInvDiscTotal</DataField>
+        </Field>
+        <Field Name="VATLineInvDiscTotalFormat">
+          <DataField>VATLineInvDiscTotalFormat</DataField>
+        </Field>
+        <Field Name="VATLineBaseTotal">
+          <DataField>VATLineBaseTotal</DataField>
+        </Field>
+        <Field Name="VATLineBaseTotalFormat">
+          <DataField>VATLineBaseTotalFormat</DataField>
+        </Field>
+        <Field Name="VATLineAmountTotal">
+          <DataField>VATLineAmountTotal</DataField>
+        </Field>
+        <Field Name="VATLineAmountTotalFormat">
+          <DataField>VATLineAmountTotalFormat</DataField>
+        </Field>
+        <Field Name="VATLineAmountInclVATTotal">
+          <DataField>VATLineAmountInclVATTotal</DataField>
+        </Field>
+        <Field Name="VATLineAmountInclVATTotalFormat">
+          <DataField>VATLineAmountInclVATTotalFormat</DataField>
+        </Field>
+        <Field Name="PrintVat">
+          <DataField>PrintVat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
