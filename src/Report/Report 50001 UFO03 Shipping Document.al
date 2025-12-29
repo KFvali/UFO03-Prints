@@ -1,7 +1,5 @@
 report 50001 "UFO03 Shipping Document"
 {
-    // version NP11.01
-
     DefaultLayout = RDLC;
     RDLCLayout = 'UFO03 Shipping Document.rdlc';
 

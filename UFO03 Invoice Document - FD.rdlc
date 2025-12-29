@@ -2364,10 +2364,10 @@
         <Height>2.34044cm</Height>
         <Style />
       </Body>
-      <Width>19.51775cm</Width>
+      <Width>19.57067cm</Width>
       <Page>
         <PageHeader>
-          <Height>9.42763cm</Height>
+          <Height>10.48596cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2388,7 +2388,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ReportTitle</rd:DefaultName>
-              <Top>6.62943cm</Top>
+              <Top>7.58193cm</Top>
               <Left>0.12039cm</Left>
               <Height>19.8pt</Height>
               <Width>3.64195in</Width>
@@ -2417,7 +2417,7 @@
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.53089in</Top>
+                  <Top>1.90589in</Top>
                   <Left>4.05675in</Left>
                   <Height>2.4977cm</Height>
                   <Width>3.42187in</Width>
@@ -2450,7 +2450,7 @@
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>3.50042cm</Top>
+                  <Top>4.45292cm</Top>
                   <Left>10.30415cm</Left>
                   <Height>11pt</Height>
                   <Width>3.42187in</Width>
@@ -2479,7 +2479,7 @@
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.53089in</Top>
+                  <Top>1.90589in</Top>
                   <Left>0.13127cm</Left>
                   <Height>2.4977cm</Height>
                   <Width>3.35165in</Width>
@@ -2513,7 +2513,7 @@
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>3.50042cm</Top>
+                  <Top>4.45292cm</Top>
                   <Left>0.14703cm</Left>
                   <Height>11pt</Height>
                   <Width>3.34545in</Width>
@@ -2533,8 +2533,8 @@
                   <Source>Database</Source>
                   <Value>=First(Fields!CompanyPicture.Value, "DataSet_Result")</Value>
                   <MIMEType>image/bmp</MIMEType>
-                  <Sizing>FitProportional</Sizing>
-                  <Height>3.19908cm</Height>
+                  <Sizing>Fit</Sizing>
+                  <Height>4.27653cm</Height>
                   <Width>193.28308mm</Width>
                   <ZIndex>4</ZIndex>
                   <Style>
@@ -2546,7 +2546,7 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Left>0.12039cm</Left>
-              <Height>6.38616cm</Height>
+              <Height>7.33866cm</Height>
               <Width>7.60957in</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -3487,7 +3487,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>2.88594in</Top>
+              <Top>3.26094in</Top>
               <Left>0.11871cm</Left>
               <Height>59.45216pt</Height>
               <Width>7.61024in</Width>

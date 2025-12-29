@@ -188,7 +188,7 @@
                   <Width>0.62719in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.64374in</Width>
+                  <Width>0.65068in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.28334in</Width>
@@ -2043,7 +2043,7 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Left>0.18195cm</Left>
             <Height>58.39285pt</Height>
-            <Width>7.60792in</Width>
+            <Width>7.61486in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2058,10 +2058,10 @@
         <Height>2.05998cm</Height>
         <Style />
       </Body>
-      <Width>19.53949cm</Width>
+      <Width>19.61887cm</Width>
       <Page>
         <PageHeader>
-          <Height>9.13366cm</Height>
+          <Height>10.08616cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2082,7 +2082,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ReportTitle</rd:DefaultName>
-              <Top>184.26615pt</Top>
+              <Top>211.26615pt</Top>
               <Left>0.1875cm</Left>
               <Height>21.43895pt</Height>
               <Width>3.37748in</Width>
@@ -2115,7 +2115,7 @@
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.54478in</Top>
+                  <Top>1.91978in</Top>
                   <Left>4.06013in</Left>
                   <Height>2.4977cm</Height>
                   <Width>3.08471in</Width>
@@ -2152,7 +2152,7 @@
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>3.50042cm</Top>
+                  <Top>4.45292cm</Top>
                   <Left>10.30415cm</Left>
                   <Height>11pt</Height>
                   <Width>3.09143in</Width>
@@ -2173,8 +2173,8 @@
                   <Value>=First(Fields!CompanyPicture.Value, "DataSet_Result")</Value>
                   <MIMEType>image/bmp</MIMEType>
                   <Sizing>Fit</Sizing>
-                  <Height>3.19908cm</Height>
-                  <Width>34.75743mm</Width>
+                  <Height>4.27653cm</Height>
+                  <Width>192.5131mm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
@@ -2199,7 +2199,7 @@
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.54478in</Top>
+                  <Top>1.91978in</Top>
                   <Height>2.4977cm</Height>
                   <Width>3.08808in</Width>
                   <ZIndex>3</ZIndex>
@@ -2236,7 +2236,7 @@
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>3.50042cm</Top>
+                  <Top>4.45292cm</Top>
                   <Height>11pt</Height>
                   <Width>3.08808in</Width>
                   <ZIndex>4</ZIndex>
@@ -2251,43 +2251,10 @@
                     <PaddingBottom>1pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="Textbox99">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>=Parameters!CompanyPIva_caption.Value + " " + Fields!CompanyVAT.Value + "&lt;br&gt;" + Parameters!CompanyRea_caption.Value + " " +  Fields!CompanyREA.Value + "&lt;br&gt;" + Fields!CompanyShareCapitalTxt.Value + "&lt;br&gt;" + Parameters!IBANCompany_caption.Value + " " + Fields!CompanyIban.Value</Value>
-                          <MarkupType>HTML</MarkupType>
-                          <Style>
-                            <FontSize>8pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox99</rd:DefaultName>
-                  <Top>1.68627cm</Top>
-                  <Left>3.75778cm</Left>
-                  <Height>1.51281cm</Height>
-                  <Width>6.64805cm</Width>
-                  <ZIndex>5</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Left>0.17773cm</Left>
-              <Height>6.42145cm</Height>
+              <Height>7.37395cm</Height>
               <Width>7.60957in</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -3293,7 +3260,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>2.87946in</Top>
+              <Top>3.25446in</Top>
               <Left>0.18195cm</Left>
               <Height>51.58574pt</Height>
               <Width>7.61486in</Width>

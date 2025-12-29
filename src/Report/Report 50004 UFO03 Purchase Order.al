@@ -1,6 +1,5 @@
 report 50004 "UFO03 Purchase Order"
 {
-    // version NP11.01
     DefaultLayout = RDLC;
     RDLCLayout = 'UFO03 Purchase Order.rdlc';
     CaptionML = ENU = 'Purchase Order', ITA = 'Ordine d''acquisto';

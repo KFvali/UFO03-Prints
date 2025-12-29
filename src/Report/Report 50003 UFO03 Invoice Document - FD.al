@@ -1,7 +1,5 @@
 report 50003 "UFO03 Invoice Document - FD"
 {
-    // version NP11.01
-
     DefaultLayout = RDLC;
     RDLCLayout = 'UFO03 Invoice Document - FD.rdlc';
 

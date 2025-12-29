@@ -1,7 +1,5 @@
 report 50006 "UFO03 Transfer Shipping Doc."
 {
-    // version NP11.01
-
     DefaultLayout = RDLC;
     RDLCLayout = 'UFO03 Transfer Shipping Doc.rdlc';
 

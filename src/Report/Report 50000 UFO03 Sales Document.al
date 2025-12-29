@@ -1,7 +1,5 @@
 report 50000 "UFO03 Sales Document"
 {
-    // version NP11.01
-
     DefaultLayout = RDLC;
     RDLCLayout = 'UFO03 Sales Document.rdlc';
     CaptionML = ENU = 'Sales - Quote Document', ITA = 'Offerta/Ordine di vendita';

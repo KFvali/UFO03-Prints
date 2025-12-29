@@ -1,6 +1,5 @@
 report 50005 "UFO03 Purchase Request"
 {
-    // version NP11.01
     DefaultLayout = RDLC;
     RDLCLayout = 'UFO03 Purchase Request.rdlc';
     CaptionML = ENU = 'Purchase Request', ITA = 'Richiesta d''offerta';
