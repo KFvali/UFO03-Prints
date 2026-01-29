@@ -1060,7 +1060,7 @@ report 50000 "UFO03 Sales Document"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1088,7 +1088,7 @@ report 50000 "UFO03 Sales Document"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1115,7 +1115,7 @@ report 50000 "UFO03 Sales Document"
 
     local procedure PrepareLineLoopWithTrackingSpec()
     var
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         TmpTrackSpec: Record "Tracking Specification" temporary;
         LineLoopComodo: Record "EOS Report Buffer Line" temporary;
         NextLineNo: Integer;
@@ -1242,7 +1242,7 @@ report 50000 "UFO03 Sales Document"
         ApprovedBy: Code[50];
         TipoDocumento: Text;
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         DataValidita: Date;
         RedattoDa: Code[50];
         PercSconto: Text;

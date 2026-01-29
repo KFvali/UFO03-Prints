@@ -1,4 +1,4 @@
-codeunit 50000 "AM303 Prints Managment"
+codeunit 50000 "UFO03 Prints Managment"
 {
     trigger OnRun()
     begin
@@ -290,9 +290,18 @@ codeunit 50000 "AM303 Prints Managment"
         GoodAppearance: record "Goods Appearance";
         ReturnShipmentHeader: record "Return Shipment Header";
         DateTimeCreatedAt: DateTime;
+        // ESCMDispatchOrder: Record "ESCM Dispatch Order";
+        // ESCMDispatchOrderLine: Record "ESCM Dispatch Order Line";
+        NetWeight: Decimal;
+        GrossWeight: Decimal;
+        NoOfParcels: Integer;
     begin
         if (RBHeader."EOS Source Table ID" <> Database::"Sales Shipment Header") then
             exit;
+
+        Clear(NetWeight);
+        Clear(GrossWeight);
+        Clear(NoOfParcels);
 
         case RBHeader."EOS Source Table ID" of
             Database::"Sales Shipment Header":
@@ -318,13 +327,16 @@ codeunit 50000 "AM303 Prints Managment"
         if not DocShippingInfo.IsEmpty then begin
             case DocShippingInfo."Freight Type" of
                 DocShippingInfo."Freight Type"::"Agent Code":
-                    TempAdvRptCustomFields.SetTextNameValue('CustomText18', 'Vettore');
+                    //TempAdvRptCustomFields.SetTextNameValue('CustomText18', 'Vettore');
+                    TempAdvRptCustomFields.SetTextNameValue('CustomText18Vet', 'X');
 
                 DocShippingInfo."Freight Type"::"Carriage Consigner":
-                    TempAdvRptCustomFields.SetTextNameValue('CustomText18', 'Mittente');
+                    //TempAdvRptCustomFields.SetTextNameValue('CustomText18', 'Mittente');
+                    TempAdvRptCustomFields.SetTextNameValue('CustomText18Mit', 'X');
 
                 DocShippingInfo."Freight Type"::"Carriage Forward":
-                    TempAdvRptCustomFields.SetTextNameValue('CustomText18', 'Destinatario');
+                    //TempAdvRptCustomFields.SetTextNameValue('CustomText18', 'Destinatario');
+                    TempAdvRptCustomFields.SetTextNameValue('CustomText18Dest', 'X');
 
                 else
                     TempAdvRptCustomFields.SetTextNameValue('CustomText18', '');
@@ -332,10 +344,44 @@ codeunit 50000 "AM303 Prints Managment"
 
             TempAdvRptCustomFields.Insert(true);
 
-            TempAdvRptCustomFields.SetTextNameValue('CustomText19', format(DocShippingInfo."Net Weight"));
+            // Clear(ESCMDispatchOrder);
+            // SalesShipmentHeader.CalcFields("ESCM Dispatch Order No.");
+            // if SalesShipmentHeader."ESCM Dispatch Order No." <> '' THEN
+            //     if not ESCMDispatchOrder.GET(ESCMDispatchOrder.Type::Outbound, SalesShipmentHeader."ESCM Dispatch Order No.") THEN
+            //         Clear(ESCMDispatchOrder);
+
+            // ESCMDispatchOrderLine.Reset;
+            // ESCMDispatchOrderLine.SetRange("Dispatch Order Type", ESCMDispatchOrder.Type);
+            // ESCMDispatchOrderLine.SetRange("Dispatch Order No.", ESCMDispatchOrder."No.");
+            // ESCMDispatchOrderLine.SetRange("Document No.", SalesShipmentHeader."No.");
+            // ESCMDispatchOrderLine.SetRange("Document Type", ESCMDispatchOrderLine."Document Type"::"Sales Shipment");
+            // if ESCMDispatchOrderLine.FindFirst() then begin
+            //     if DocShippingInfo."Net Weight" <> 0 then
+            //         NetWeight := DocShippingInfo."Net Weight"
+            //     else
+            //         NetWeight := ESCMDispatchOrderLine."Total Net Weight";
+
+            //     if DocShippingInfo."Gross Weight" <> 0 then
+            //         GrossWeight := DocShippingInfo."Gross Weight"
+            //     else
+            //         GrossWeight := ESCMDispatchOrderLine."Total Gross Weight";
+
+            //     if DocShippingInfo."No. of Parcels" <> 0 then
+            //         NoOfParcels := DocShippingInfo."No. of Parcels"
+            //     else
+            //         NoOfParcels := ESCMDispatchOrderLine."No. of Packages";
+            // end;
+
+            //TempAdvRptCustomFields.SetTextNameValue('CustomText19', format(DocShippingInfo."Net Weight"));
+            TempAdvRptCustomFields.SetTextNameValue('CustomText19', format(NetWeight));
             TempAdvRptCustomFields.Insert(true);
-            TempAdvRptCustomFields.SetTextNameValue('CustomText20', format(DocShippingInfo."Gross Weight"));
+            //TempAdvRptCustomFields.SetTextNameValue('CustomText20', format(DocShippingInfo."Gross Weight"));
+            TempAdvRptCustomFields.SetTextNameValue('CustomText20', format(GrossWeight));
             TempAdvRptCustomFields.Insert(true);
+
+            TempAdvRptCustomFields.SetTextNameValue('CustomText30', format(NoOfParcels));
+            TempAdvRptCustomFields.Insert(true);
+
 
             /// --> capire come gestire
             //if GoodAppearance.get(DocShippingInfo."EOS Goods Appearance") then begin

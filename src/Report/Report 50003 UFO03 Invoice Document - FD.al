@@ -828,14 +828,38 @@ report 50003 "UFO03 Invoice Document - FD"
         label(CompanyPIva_caption; ENU = 'P.iva e C.F.', ITA = 'P.iva e C.F.')
         label(CompanyRea_caption; ENU = 'Iscr. cciaa Terni n. rea', ITA = 'Iscr. cciaa Terni n. rea')
         label(IBANCompany_caption; ENU = 'IBAN', ITA = 'IBAN')
-        label(Conai1_caption; ENU = 'CONAI contribution paid where due', ITA = 'Contributo CONAI assolto ove dovuto. ')
-        label(Conai2_caption; ENU = 'Fee including environmental contribution', ITA = 'Corrispettivo comprensivo del contributo ambientale')
-        label(Conai3_caption; ENU = 'Complies with the obligations under art. 62, paragraph 1, of the decree Law 24 January 2012, n. 1, converted with amendments by law 24 March 2012, n. 27', ITA = 'Assolve gli obblighi di cui all''art. 62, comma 1, del decr. Legge 24 gennaio 2012, n. 1, convertito con modificazioni dalla legge 24 marzo 2012, n. 27')
+        label(Conai1_caption; ENU = 'CONAI CONTRIBUTION PAID WHERE DUE', ITA = 'CONTRIBUTO CONAI ASSOLTO OVE DOVUTO. ')
         label(Piede6_caption; ENU = '(*) SM = Discount on Goods; ID = Company VAT; IC = Customer VAT; SO = Replacement', ITA = '(*) SM = Sconto in Merce; ID = Iva Carico Ditta; IC = Iva Carico Cliente; SO = Sostituzione')
         label(Piede9_caption; ENU = 'INFORMATION AND REQUEST FOR CONSENT TO THE PROCESSING OF PERSONAL DATA IN ACCORDANCE WITH EU REGULATION 679/2016 AND CURRENT ITALIAN LEGISLATION ON THE SUBJECT', ITA = 'INFORMATIVA E RICHIESTA CONSENSO AL TRATTAMENTO DEI DATI PERSONALI AI SENSI DEL REGOLAMENTO UE 679/2016 E NORMATIVA ITALIANA VIGENTE IN MATERIA')
         label(Piede10_caption; ENU = 'The processing of personal data is carried out, in full compliance with the aforementioned legislation, in compliance with the fundamental rights and freedoms of the interested party, ', ITA = 'Il trattamento dei dati personali si svolge, nel pieno rispetto della normativa suddetta, nel rispetto dei diritti e delle libertà fondamentali dell''interessato, ')
         label(Piede11_caption; ENU = 'with particular reference to confidentiality and the right to protection. The processing is carried out to fulfill administrative-accounting and fiscal obligations, ', ITA = 'con particolare riferimento alla riservatezza e al diritto alla protezione. Il trattamento viene effettuato per adempiere ad obblighi amministrativo-contabili e fiscali, ')
         label(Piede12_caption; ENU = 'as per the information available at www.amelia3.it, which we ask you to read', ITA = 'come da informativa reperibile all''indirizzo www.amelia3.it, della quali Vi preghiamo di prendere visione')
+        label(SupplierNumber_Caption; ENU = 'SUPPLIER NUMBER', ITA = 'FORNITORE N.', DEU = 'LIEFERANT N.')
+        label(YourReferenceNumber_Caption; ENU = 'YOUR REFERENCE ORDER NUMBER', ITA = 'RIFERIMENTO VS NUMERO ORDINE', DEU = 'IN BEZUNG AUF IHRE BESTELLUNG NR.')
+        label(CommodityCode_Caption; ENU = 'Commodity code:', ITA = 'Codice merce:')
+        label(GrossWeightSotto_caption; ENU = 'Gross Weight: Kg', ITA = 'Peso Lordo: Kg')
+        label(Colli_caption; ENU = 'Packaging: n.', ITA = 'Colli: n.')
+        label(Resa_Caption; ENU = 'Carriage:', ITA = 'RESA:')
+        label(Trasporto_Caption; ENU = 'Carriage:', ITA = 'Trasporto:')
+        label(PaeseOrigine_Caption; ENU = 'Country of origin:', ITA = 'Paese d''origine:')
+        label(PaeseDestinazione_Caption; ENU = 'Destination country:', ITA = 'Paese destinazione:')
+        label(DestinazioneMerce_Caption; ENU = 'Destinazione Merce:', ITA = 'Destinazione Merce:')
+        label(Esportatore1_Caption; ENU = 'The exporter of the products covered by this', ITA = 'L''esportatore dichiara che i prodotti oggetto del')
+        label(Esportatore2_Caption; ENU = 'document, declares that, except where otherwise', ITA = 'presente documento, salvo dove diversamente')
+        label(Esportatore3_Caption; ENU = 'clearly indicated, these products are of the', ITA = 'indicato, sono di origine preferenziale della')
+        label(Esportatore4_Caption; ENU = 'European Community preferential origin.', ITA = 'Comunità europea.')
+        label(Intracomunitaria1_Caption; ENU = 'Operazione intracomunitaria', ITA = 'Operazione intracomunitaria')
+        label(Intracomunitaria2_Caption; ENU = 'non imponibile IVA art.', ITA = 'non imponibile IVA art.')
+        label(Intracomunitaria3_Caption; ENU = '41 DPR 331/93', ITA = '41 DPR 331/93')
+        label(Intracomunitaria4_Caption; ENU = '-Reverse charge-', ITA = '-Reverse charge-')
+        label(Extracomunitaria1_Caption; ENU = 'Operazione extracomunitaria', ITA = 'Operazione extracomunitaria')
+        label(Extracomunitaria2_Caption; ENU = 'non imponibile IVA art. 8', ITA = 'non imponibile IVA art. 8')
+        label(Extracomunitaria3_Caption; ENU = 'DPR 633/72', ITA = 'DPR 633/72')
+        label(NonImpIVA1_Caption; ENU = 'Non imp. IVA art 8/2 DPR 633', ITA = 'Non imp. IVA art 8/2 DPR 633')
+        label(NonImpIVA2_Caption; ENU = 'del 26/10/72 e succ. modifiche', ITA = 'del 26/10/72 e succ. modifiche')
+        label(NonImpIVA3_Caption; ENU = 'Vs. aut. N.   162 del 12/12/24', ITA = 'Vs. aut. N.   162 del 12/12/24')
+        label(NonImpIVA4_Caption; ENU = 'Ns protoc.   1 del 12/12/24', ITA = 'Ns protoc.   1 del 12/12/24')
+
     }
 
     trigger OnInitReport()
@@ -853,7 +877,7 @@ report 50003 "UFO03 Invoice Document - FD"
 
     trigger OnPreReport()
     var
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         AdvancedReportingMngt: Codeunit "EOS Advanced Reporting Mngt";
         AdvRptDebug: Codeunit "EOS AdvRpt Debug";
         StopExecution: Boolean;
@@ -1112,7 +1136,7 @@ report 50003 "UFO03 Invoice Document - FD"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1140,7 +1164,7 @@ report 50003 "UFO03 Invoice Document - FD"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1208,7 +1232,7 @@ report 50003 "UFO03 Invoice Document - FD"
         IBANCode: Code[50];
         BankName: Text[100];
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         Debug: Boolean;
         // RecRef: RecordRef; // recref del debug
         // ReportDebug: Codeunit "MMA03 Report Debug";

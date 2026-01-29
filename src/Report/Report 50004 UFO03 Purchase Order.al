@@ -804,12 +804,12 @@ report 50004 "UFO03 Purchase Order"
         label(Volume_Caption; ENU = 'Volume', ITA = 'Volume')
         label(YourReference_Caption; ENU = 'Your reference', ITA = 'Vs. Riferimento')
         label(Note_caption; ENU = 'NOTES:', ITA = 'NOTE:')
-        label(Note2_caption; ENU = 'PLEASE FOLLOW THE PACKAGE/PIECE COMPOSITION AS INDICATED FOR EACH ITEM.', ITA = 'ATTENERSI ALLA COMPOSIZIONE DEI PEZZI/CONFEZIONI DEL COLLO COME INDICATO PER OGNI ARTICOLO.')
-        label(Note3_caption; ENU = 'PLEASE COMMUNICATE ANY CHANGES IN PACKAGING OR WRAPPING IN ADVANCE OF SHIPPING.', ITA = 'COMUNICARE PREVENTIVAMENTE ALLA SPEDIZIONE QUALSIASI VARIAZIONE DI IMBALLO O CONFEZIONAMENTO.')
-        label(Note4_caption; ENU = 'THE PRICES AND QUANTITIES INDICATED IN THIS ORDER ARE CONFIRMED BY THE SUPPLIER, UNLESS COMUNICATION IS SENT BY EMAIL WITHIN 24 HOURS ', ITA = 'I PREZZI E LE QUANTITA'' INDICATE NEL PRESENTE ORDINE, SONO CONFERMATE DAL FORNITORE, SALVO COMUNICAZIONE INVIATA VIA MAIL ENTRO 24 ORE ')
-        label(Note5_caption; ENU = 'FROM RECEIPT OF THIS LETTER.', ITA = 'DAL RICEVIMENTO DELLA PRESENTE.')
-        label(Note6_caption; ENU = 'Book the download at the following email address:', ITA = 'Prenotare lo scarico al seguente indirizzo e-mail: ')
-        label(Note7_caption; ENU = 'ricezionimerci@amelia3.it', ITA = 'ricezionimerci@amelia3.it')
+        label(Note2_caption; ENU = '*** INFORMAZIONI FISSE DA CONCORDARE CON IL CLIENTE ***', ITA = '*** INFORMAZIONI FISSE DA CONCORDARE CON IL CLIENTE ***')
+        label(Note3_caption; ENU = ' ', ITA = ' ')
+        label(Note4_caption; ENU = ' ', ITA = ' ')
+        label(Note5_caption; ENU = ' ', ITA = ' ')
+        label(Note6_caption; ENU = ' ', ITA = ' ')
+        label(Note7_caption; ENU = ' ', ITA = ' ')
         label(RedattoDa_caption; ENU = 'Compiled by', ITA = 'Redatto da')
         label(DtRichSped_caption; ENU = 'Expected shipment date', ITA = 'Data Consegna Richiesta')
         // label(BankReference_Caption; ENU = 'Our bank references', ITA = 'Ns. riferimenti bancari')
@@ -1018,7 +1018,7 @@ report 50004 "UFO03 Purchase Order"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
     //PostCode: record "Post Code";
     begin
         // PostCode.Reset();
@@ -1030,7 +1030,7 @@ report 50004 "UFO03 Purchase Order"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
     //PostCode: Record "Post Code";
     begin
         // PostCode.Reset();
@@ -1120,7 +1120,7 @@ report 50004 "UFO03 Purchase Order"
         // RecRef: RecordRef; // recref del debug
         // ReportDebug: Codeunit "MMA03 Report Debug";
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         ABICode: Code[5];
         CABCode: Code[5];
         IBANCode: Code[50];

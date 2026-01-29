@@ -6274,24 +6274,6 @@
       </DefaultValue>
       <Prompt>Conai1_caption</Prompt>
     </ReportParameter>
-    <ReportParameter Name="Conai2_caption">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>Conai2_caption</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Conai2_caption</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="Conai3_caption">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>Conai3_caption</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Conai3_caption</Prompt>
-    </ReportParameter>
     <ReportParameter Name="Piede6_caption">
       <DataType>String</DataType>
       <DefaultValue>
@@ -6337,11 +6319,236 @@
       </DefaultValue>
       <Prompt>Piede12_caption</Prompt>
     </ReportParameter>
+    <ReportParameter Name="SupplierNumber_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SupplierNumber_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SupplierNumber_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="YourReferenceNumber_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>YourReferenceNumber_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>YourReferenceNumber_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CommodityCode_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CommodityCode_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CommodityCode_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="GrossWeightSotto_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>GrossWeightSotto_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>GrossWeightSotto_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Colli_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Colli_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Colli_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Resa_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Resa_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Resa_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Trasporto_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Trasporto_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Trasporto_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PaeseOrigine_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PaeseOrigine_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PaeseOrigine_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PaeseDestinazione_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PaeseDestinazione_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PaeseDestinazione_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DestinazioneMerce_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DestinazioneMerce_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DestinazioneMerce_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Esportatore1_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Esportatore1_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Esportatore1_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Esportatore2_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Esportatore2_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Esportatore2_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Esportatore3_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Esportatore3_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Esportatore3_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Esportatore4_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Esportatore4_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Esportatore4_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Intracomunitaria1_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Intracomunitaria1_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Intracomunitaria1_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Intracomunitaria2_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Intracomunitaria2_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Intracomunitaria2_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Intracomunitaria3_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Intracomunitaria3_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Intracomunitaria3_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Intracomunitaria4_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Intracomunitaria4_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Intracomunitaria4_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Extracomunitaria1_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Extracomunitaria1_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Extracomunitaria1_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Extracomunitaria2_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Extracomunitaria2_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Extracomunitaria2_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Extracomunitaria3_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Extracomunitaria3_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Extracomunitaria3_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NonImpIVA1_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>NonImpIVA1_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>NonImpIVA1_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NonImpIVA2_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>NonImpIVA2_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>NonImpIVA2_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NonImpIVA3_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>NonImpIVA3_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>NonImpIVA3_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NonImpIVA4_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>NonImpIVA4_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>NonImpIVA4_Caption</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>1</NumberOfColumns>
-      <NumberOfRows>100</NumberOfRows>
+      <NumberOfRows>123</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -6811,37 +7018,152 @@
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>93</RowIndex>
-          <ParameterName>Conai2_caption</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>94</RowIndex>
-          <ParameterName>Conai3_caption</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>95</RowIndex>
           <ParameterName>Piede6_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
-          <RowIndex>96</RowIndex>
+          <RowIndex>94</RowIndex>
           <ParameterName>Piede9_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
-          <RowIndex>97</RowIndex>
+          <RowIndex>95</RowIndex>
           <ParameterName>Piede10_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
-          <RowIndex>98</RowIndex>
+          <RowIndex>96</RowIndex>
           <ParameterName>Piede11_caption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
-          <RowIndex>99</RowIndex>
+          <RowIndex>97</RowIndex>
           <ParameterName>Piede12_caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>98</RowIndex>
+          <ParameterName>SupplierNumber_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>99</RowIndex>
+          <ParameterName>YourReferenceNumber_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>100</RowIndex>
+          <ParameterName>CommodityCode_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>101</RowIndex>
+          <ParameterName>GrossWeightSotto_caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>102</RowIndex>
+          <ParameterName>Colli_caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>103</RowIndex>
+          <ParameterName>Resa_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>104</RowIndex>
+          <ParameterName>Trasporto_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>105</RowIndex>
+          <ParameterName>PaeseOrigine_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>106</RowIndex>
+          <ParameterName>PaeseDestinazione_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>107</RowIndex>
+          <ParameterName>DestinazioneMerce_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>108</RowIndex>
+          <ParameterName>Esportatore1_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>109</RowIndex>
+          <ParameterName>Esportatore2_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>110</RowIndex>
+          <ParameterName>Esportatore3_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>111</RowIndex>
+          <ParameterName>Esportatore4_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>112</RowIndex>
+          <ParameterName>Intracomunitaria1_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>113</RowIndex>
+          <ParameterName>Intracomunitaria2_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>114</RowIndex>
+          <ParameterName>Intracomunitaria3_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>115</RowIndex>
+          <ParameterName>Intracomunitaria4_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>116</RowIndex>
+          <ParameterName>Extracomunitaria1_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>117</RowIndex>
+          <ParameterName>Extracomunitaria2_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>118</RowIndex>
+          <ParameterName>Extracomunitaria3_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>119</RowIndex>
+          <ParameterName>NonImpIVA1_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>120</RowIndex>
+          <ParameterName>NonImpIVA2_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>121</RowIndex>
+          <ParameterName>NonImpIVA3_Caption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>122</RowIndex>
+          <ParameterName>NonImpIVA4_Caption</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

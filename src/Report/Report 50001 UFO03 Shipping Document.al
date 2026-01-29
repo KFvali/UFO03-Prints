@@ -648,7 +648,7 @@ report 50001 "UFO03 Shipping Document"
 
             trigger OnAfterGetRecord()
             var
-                PrintsManagement: Codeunit "AM303 Prints Managment";
+                PrintsManagement: Codeunit "UFO03 Prints Managment";
                 Commentline: Record "Comment Line";
                 SalesShipHeader: record "Sales Shipment Header";
                 ReturnShptHeader: Record "Return Shipment Header";
@@ -998,7 +998,7 @@ report 50001 "UFO03 Shipping Document"
     var
         AdvancedReportingMngt: Codeunit "EOS Advanced Reporting Mngt";
         AdvRptDebug: Codeunit "EOS AdvRpt Debug";
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         StopExecution: Boolean;
     begin
         AdvRptDebug.AddEventLog('OnPreReport', 'Start', '');
@@ -1381,7 +1381,7 @@ report 50001 "UFO03 Shipping Document"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1409,7 +1409,7 @@ report 50001 "UFO03 Shipping Document"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1516,7 +1516,7 @@ report 50001 "UFO03 Shipping Document"
         IBANCode: Code[50];
         BankName: Text[100];
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "AM303 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Managment";
         LastOrderNo: Code[20];
         Debug: Boolean;
         // RecRef: RecordRef; // recref del debug

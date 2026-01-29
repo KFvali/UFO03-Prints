@@ -42,4 +42,5 @@ reportextension 50008 "UFO03 Customer Aging" extends "EOS Customer Aging"
                 exit(CustLedgerEntry."On Hold")
         end;
     end;
+
 }

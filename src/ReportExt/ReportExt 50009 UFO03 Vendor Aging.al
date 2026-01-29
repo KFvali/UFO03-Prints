@@ -5,7 +5,24 @@ reportextension 50009 "UFO03 Vendor Aging" extends "EOS Vendor Aging"
         add(Detail)
         {
             column(OnHold; OnHold(TempReportingBuffer."EOS Document No.")) { }
+            column(LineComments; LineComment()) { }
+            column(ShowComment; ShowComment) { }
         }
+    }
+    requestpage
+    {
+        layout
+        {
+            addlast(Content)
+            {
+                field(ShowComment; ShowComment)
+                {
+                    ApplicationArea = All;
+                    CaptionML = ENU = 'Show comments', ITA = 'Mostra commenti';
+                }
+            }
+        }
+
     }
 
     rendering
@@ -20,6 +37,8 @@ reportextension 50009 "UFO03 Vendor Aging" extends "EOS Vendor Aging"
     labels
     {
         label(OnHold_Caption; ENU = 'On Hold', ITA = 'Sosp.')
+        label(LineComment_Caption; ENU = 'Notes:', ITA = 'Note:')
+        label(Fornitore_Caption; ENU = 'Vend.', ITA = 'Forn.')
     }
 
     local procedure OnHold(DocNo: Code[20]): text[3];
@@ -42,4 +61,26 @@ reportextension 50009 "UFO03 Vendor Aging" extends "EOS Vendor Aging"
                 exit(VendorLedgerEntry."On Hold")
         end;
     end;
+
+    local procedure LineComment(): Text;
+    var
+        lPurchCommentLine: Record "Purch. Comment Line";
+        ReturnTxt: text;
+    begin
+        if DetailLevelPrmtr <> DetailLevelPrmtr::Vendor then begin
+            lPurchCommentLine.Reset();
+            lPurchCommentLine.SetFilter("No.", TempReportingBuffer."EOS Document No.");
+            if lPurchCommentLine.FindFirst() then begin
+                repeat
+                    ReturnTxt := ReturnTxt + ' | ' + lPurchCommentLine.Comment;
+                until lPurchCommentLine.Next = 0;
+                ReturnTxt := DelStr(ReturnTxt, 1, 2);
+                exit(ReturnTxt);
+            end;
+        end;
+    end;
+
+    var
+        ShowComment: Boolean;
+
 }

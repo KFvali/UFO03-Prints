@@ -2,7 +2,7 @@
   "id": "71e5419f-a621-48b8-b390-eede2e30b5b1",
   "name": "UFO03 Prints",
   "publisher": "Key For",
-  "version": "26.0.0.2",
+  "version": "26.0.0.3",
   "target": "Cloud",
   "brief": "",
   "description": "",
@@ -53,6 +53,18 @@
       "name": "Advanced Customer Vendor Statements for Italy",
       "publisher": "EOS Solutions",
       "version": "25.0.0.0"
+    }, 
+    {
+      "id": "e4167402-835f-45b0-bb9a-2b728f5a258c",
+      "name": "Yaveon 365 Dispatch & Packaging",
+      "publisher": "YAVEON GMBH",
+      "version": "12.0.0.0"
+    }, 
+    {
+      "id": "3c6a08bd-ee51-40c4-b652-892dc9f0b24d",
+      "name": "Yaveon 365 Automotive",
+      "publisher": "YAVEON GMBH",
+      "version": "12.0.0.0"
     }
 
   ],
