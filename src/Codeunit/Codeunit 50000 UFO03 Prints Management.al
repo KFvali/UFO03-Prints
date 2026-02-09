@@ -1,4 +1,4 @@
-codeunit 50000 "UFO03 Prints Managment"
+codeunit 50000 "UFO03 Prints Management"
 {
     trigger OnRun()
     begin

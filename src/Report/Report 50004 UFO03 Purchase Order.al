@@ -1018,7 +1018,7 @@ report 50004 "UFO03 Purchase Order"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
     //PostCode: record "Post Code";
     begin
         // PostCode.Reset();
@@ -1030,7 +1030,7 @@ report 50004 "UFO03 Purchase Order"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
     //PostCode: Record "Post Code";
     begin
         // PostCode.Reset();
@@ -1120,7 +1120,7 @@ report 50004 "UFO03 Purchase Order"
         // RecRef: RecordRef; // recref del debug
         // ReportDebug: Codeunit "MMA03 Report Debug";
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         ABICode: Code[5];
         CABCode: Code[5];
         IBANCode: Code[50];

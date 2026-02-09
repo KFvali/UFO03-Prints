@@ -261,7 +261,6 @@ report 50002 "UFO03 Invoice Document"
                 column(VATLineAmountToPay; HeaderLoop."EOS Amount Including VAT") { }
 
                 //Start iad
-                column(ShowArt62Text; CheckArt62Item(HeaderLoop."EOS No.", HeaderLoop."EOS Source Table ID")) { }
                 // column(ShowLicenseReqText; CheckLicenseReqItem(HeaderLoop."EOS No.", HeaderLoop."EOS Source Table ID")) { }
                 column(TextLicenseCptNew; TextLicense) { } //mpd+ 29.12.20
                                                            //Stop iad
@@ -623,7 +622,7 @@ report 50002 "UFO03 Invoice Document"
                 locBankAcc: Record "Bank Account";
                 PaymentMethod: Record "Payment Method";
                 PostCode: Record "Post Code";
-                PrintsManagement: Codeunit "UFO03 Prints Managment";
+                PrintsManagement: Codeunit "UFO03 Prints Management";
                 InvoiceShipHeader: Record "Sales Shipment Header";
                 lCustomer: Record Customer;
             //ReportsEvents: Codeunit "MMA Reports Events";
@@ -691,13 +690,6 @@ report 50002 "UFO03 Invoice Document"
 
                 // end;
                 // >>> commentato perché modificata la gestione
-
-                //Stop mpd+ 08.02.21
-                //Start 29.12.20 mpd+
-                TextLicense := '';
-                if CheckShippingAgentComments() then
-                    TextLicense := TextLicenseLbl;
-                //Stop 29.12.20 mpd+
 
                 //Start  24.12.2020 Gestione Testi trasporto conto proprio /IAD  
                 //if HeaderLoop."EOS Source Table ID" = 110 then begin //mpd- 29.12.20
@@ -980,7 +972,7 @@ report 50002 "UFO03 Invoice Document"
     var
         AdvancedReportingMngt: Codeunit "EOS Advanced Reporting Mngt";
         AdvRptDebug: Codeunit "EOS AdvRpt Debug";
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         SalesInvoiceHeader: record "Sales Invoice Header";
         StopExecution: Boolean;
     begin
@@ -1199,49 +1191,6 @@ report 50002 "UFO03 Invoice Document"
     //     END;
     // end;
 
-    local procedure CheckArt62Item(var DocumentNo: code[20]; SourceTableID: Integer): Boolean
-    var
-        Item: Record Item;
-        //JobShipLine: Record "MMA07 Job Shipment Line";
-        //SalesShipLine: Record "Sales Shipment Line"; -- vecchia gestione 
-        SalesInvLine: Record "Sales Invoice Line";
-        Print: Boolean;
-    begin
-
-        CASE SourceTableID OF
-            112:
-                begin
-                    // SalesInvLine.SetRange("Document No.", DocumentNo);
-                    // SalesInvLine.SetRange(Type, SalesInvLine.type::Item);
-
-                    // if SalesInvLine.FindSet() then
-                    //     repeat
-                    //         if Item.Get(SalesInvLine."No.") AND Item."MMA04 Art. 62" then begin
-                    //             Print := true;
-                    //             exit(Print);
-                    //         end;
-                    //     until SalesInvLine.Next() = 0;
-                    // Print := false;
-                    // exit(Print);
-                end;
-
-        END;
-
-
-    end;
-
-    local procedure CheckShippingAgentComments(): Boolean //29.12.20 MPd+
-    var
-        CommentLine: record "Comment Line";
-        SalesShipHeader: record "Sales Shipment Header";
-    begin
-        CommentLine.Reset();
-        //        CommentLine.SetRange("Table Name", CommentLine."Table Name"::"Shipping Agent");
-        CommentLine.SetRange("No.", HeaderLoop."EOS Shipping Agent Code");
-        if not CommentLine.IsEmpty then
-            exit(true);
-    end;
-
     local procedure GetShipToAddr2(): Text
     var
         FormatAddr: Codeunit "Format Address";
@@ -1303,7 +1252,7 @@ report 50002 "UFO03 Invoice Document"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1331,7 +1280,7 @@ report 50002 "UFO03 Invoice Document"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1410,7 +1359,7 @@ report 50002 "UFO03 Invoice Document"
         IBANCode: Code[50];
         BankName: Text[100];
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         Debug: Boolean;
         // RecRef: RecordRef; // recref del debug
         // ReportDebug: Codeunit "MMA03 Report Debug";

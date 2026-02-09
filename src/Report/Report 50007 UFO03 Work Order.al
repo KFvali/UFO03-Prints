@@ -242,7 +242,7 @@ report 50007 "UFO03 Work Order"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
     //PostCode: record "Post Code";
     begin
         // PostCode.Reset();
@@ -253,7 +253,7 @@ report 50007 "UFO03 Work Order"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
     //PostCode: Record "Post Code";
     begin
         // PostCode.Reset();
@@ -264,7 +264,7 @@ report 50007 "UFO03 Work Order"
 
     local procedure GetContactToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         //PostCode: Record "Post Code";
         Contact: Record Contact;
         TelLbl: TextConst ENU = 'Phone No.: %1', ITA = 'Tel: %1';
@@ -288,7 +288,7 @@ report 50007 "UFO03 Work Order"
 
     local procedure CreateTrackingLines()
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         TmpTrackingSpecification: Record "Tracking Specification" temporary;
         TmpReservationEntry: Record "Reservation Entry" temporary;
         ReservationEntry: Record "Reservation Entry";

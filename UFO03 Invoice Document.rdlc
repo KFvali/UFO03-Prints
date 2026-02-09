@@ -8044,9 +8044,6 @@ End Function
         <Field Name="VATLineAmountToPayFormat">
           <DataField>VATLineAmountToPayFormat</DataField>
         </Field>
-        <Field Name="ShowArt62Text">
-          <DataField>ShowArt62Text</DataField>
-        </Field>
         <Field Name="TextLicenseCptNew">
           <DataField>TextLicenseCptNew</DataField>
         </Field>

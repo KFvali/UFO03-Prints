@@ -227,6 +227,7 @@ report 50003 "UFO03 Invoice Document - FD"
                 column(BillToAddress; GetBillToFormattedAddress()) { }
                 column(CustomerVendorContact; BuyFromContact.Name) { }
                 column(CustomerVendorEMail; BuyFromContact."E-Mail") { }
+                column(CustomerGroup; CustomerGroup) { }
                 column(PaymentTerms; HeaderLoop.PaymentTerms_GetDescInLanguage()) { }
                 column(PaymentMethod; HeaderLoop.PaymentMethod_GetDescInLanguage()) { }
                 column(PaymentMethodCode; HeaderLoop."EOS Payment Method Code") { }
@@ -617,6 +618,7 @@ report 50003 "UFO03 Invoice Document - FD"
                 if SalesInvHeader.Get(HeaderLoop."EOS No.") then begin
                     CigCode_Value := SalesInvHeader."Fattura Tender Code";
                     CupCode_Value := SalesInvHeader."Fattura Project Code";
+                    CustomerGroup := SalesInvHeader."Customer Posting Group";
                 end;
                 if SalesCrMemoHeader.Get(HeaderLoop."EOS No.") then begin
                     CigCode_Value := SalesCrMemoHeader."Fattura Tender Code";
@@ -836,18 +838,29 @@ report 50003 "UFO03 Invoice Document - FD"
         label(Piede12_caption; ENU = 'as per the information available at www.amelia3.it, which we ask you to read', ITA = 'come da informativa reperibile all''indirizzo www.amelia3.it, della quali Vi preghiamo di prendere visione')
         label(SupplierNumber_Caption; ENU = 'SUPPLIER NUMBER', ITA = 'FORNITORE N.', DEU = 'LIEFERANT N.')
         label(YourReferenceNumber_Caption; ENU = 'YOUR REFERENCE ORDER NUMBER', ITA = 'RIFERIMENTO VS NUMERO ORDINE', DEU = 'IN BEZUNG AUF IHRE BESTELLUNG NR.')
-        label(CommodityCode_Caption; ENU = 'Commodity code:', ITA = 'Codice merce:')
-        label(GrossWeightSotto_caption; ENU = 'Gross Weight: Kg', ITA = 'Peso Lordo: Kg')
-        label(Colli_caption; ENU = 'Packaging: n.', ITA = 'Colli: n.')
-        label(Resa_Caption; ENU = 'Carriage:', ITA = 'RESA:')
-        label(Trasporto_Caption; ENU = 'Carriage:', ITA = 'Trasporto:')
-        label(PaeseOrigine_Caption; ENU = 'Country of origin:', ITA = 'Paese d''origine:')
-        label(PaeseDestinazione_Caption; ENU = 'Destination country:', ITA = 'Paese destinazione:')
+        label(CommodityCode_Caption; ENU = 'Commodity code:', ITA = 'Commodity code:')
+        label(GrossWeightSotto_caption; ENU = 'Gross Weight: Kg', ITA = 'Gross Weight: Kg')
+        label(Colli_caption; ENU = 'Packaging: n.', ITA = 'Packaging: n.')
+        label(Resa_Caption; ENU = 'Delivery:', ITA = 'Delivery:')
+        label(Trasporto_Caption; ENU = 'Carriage:', ITA = 'Carriage:')
+        label(PaeseOrigine_Caption; ENU = 'Country of origin:', ITA = 'Country of origin:')
+        label(PaeseDestinazione_Caption; ENU = 'Destination country:', ITA = 'Destination country:')
+        label(CommodityCode1_Caption; ENU = 'Codice merce:', ITA = 'Codice merce:')
+        label(GrossWeightSotto1_caption; ENU = 'Peso Lordo: Kg', ITA = 'Peso Lordo: Kg')
+        label(Colli1_caption; ENU = 'Colli: n.', ITA = 'Colli: n.')
+        label(Resa1_Caption; ENU = 'RESA:', ITA = 'RESA:')
+        label(Trasporto1_Caption; ENU = 'Trasporto:', ITA = 'Trasporto:')
+        label(PaeseOrigine1_Caption; ENU = 'Paese d''origine:', ITA = 'Paese d''origine:')
+        label(PaeseDestinazione1_Caption; ENU = 'Paese destinazione:', ITA = 'Paese destinazione:')
         label(DestinazioneMerce_Caption; ENU = 'Destinazione Merce:', ITA = 'Destinazione Merce:')
-        label(Esportatore1_Caption; ENU = 'The exporter of the products covered by this', ITA = 'L''esportatore dichiara che i prodotti oggetto del')
-        label(Esportatore2_Caption; ENU = 'document, declares that, except where otherwise', ITA = 'presente documento, salvo dove diversamente')
-        label(Esportatore3_Caption; ENU = 'clearly indicated, these products are of the', ITA = 'indicato, sono di origine preferenziale della')
-        label(Esportatore4_Caption; ENU = 'European Community preferential origin.', ITA = 'Comunità europea.')
+        label(Esportatore1_Caption; ENU = 'L''esportatore dichiara che i prodotti oggetto del', ITA = 'L''esportatore dichiara che i prodotti oggetto del')
+        label(Esportatore2_Caption; ENU = 'presente documento, salvo dove diversamente', ITA = 'presente documento, salvo dove diversamente')
+        label(Esportatore3_Caption; ENU = 'indicato, sono di origine preferenziale della', ITA = 'indicato, sono di origine preferenziale della')
+        label(Esportatore4_Caption; ENU = 'Comunità europea.', ITA = 'Comunità europea.')
+        label(EsportatoreIng1_Caption; ENU = 'The exporter of the products covered by this', ITA = 'The exporter of the products covered by this')
+        label(EsportatoreIng2_Caption; ENU = 'document, declares that, except where otherwise', ITA = 'document, declares that, except where otherwise')
+        label(EsportatoreIng3_Caption; ENU = 'clearly indicated, these products are of the', ITA = 'clearly indicated, these products are of the')
+        label(EsportatoreIng4_Caption; ENU = 'European Community preferential origin.', ITA = 'European Community preferential origin.')
         label(Intracomunitaria1_Caption; ENU = 'Operazione intracomunitaria', ITA = 'Operazione intracomunitaria')
         label(Intracomunitaria2_Caption; ENU = 'non imponibile IVA art.', ITA = 'non imponibile IVA art.')
         label(Intracomunitaria3_Caption; ENU = '41 DPR 331/93', ITA = '41 DPR 331/93')
@@ -859,7 +872,6 @@ report 50003 "UFO03 Invoice Document - FD"
         label(NonImpIVA2_Caption; ENU = 'del 26/10/72 e succ. modifiche', ITA = 'del 26/10/72 e succ. modifiche')
         label(NonImpIVA3_Caption; ENU = 'Vs. aut. N.   162 del 12/12/24', ITA = 'Vs. aut. N.   162 del 12/12/24')
         label(NonImpIVA4_Caption; ENU = 'Ns protoc.   1 del 12/12/24', ITA = 'Ns protoc.   1 del 12/12/24')
-
     }
 
     trigger OnInitReport()
@@ -877,7 +889,7 @@ report 50003 "UFO03 Invoice Document - FD"
 
     trigger OnPreReport()
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         AdvancedReportingMngt: Codeunit "EOS Advanced Reporting Mngt";
         AdvRptDebug: Codeunit "EOS AdvRpt Debug";
         StopExecution: Boolean;
@@ -1136,7 +1148,7 @@ report 50003 "UFO03 Invoice Document - FD"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1164,7 +1176,7 @@ report 50003 "UFO03 Invoice Document - FD"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1232,7 +1244,7 @@ report 50003 "UFO03 Invoice Document - FD"
         IBANCode: Code[50];
         BankName: Text[100];
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         Debug: Boolean;
         // RecRef: RecordRef; // recref del debug
         // ReportDebug: Codeunit "MMA03 Report Debug";
@@ -1244,6 +1256,6 @@ report 50003 "UFO03 Invoice Document - FD"
         CapSocAz_CaptionLbl: TextConst ENU = 'Share capital', ITA = 'Cap. Soc.';
         InteramenteVersatoLbl: TextConst ENU = 'fully paid', ITA = 'inter. vers.';
         Agente: Text;
-
+        CustomerGroup: code[20];
 }
 

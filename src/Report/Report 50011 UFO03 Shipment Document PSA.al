@@ -1046,7 +1046,7 @@ report 50011 "UFO03 Shipment Document PSA"
     var
         AdvancedReportingMngt: Codeunit "EOS Advanced Reporting Mngt";
         AdvRptDebug: Codeunit "EOS AdvRpt Debug";
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         StopExecution: Boolean;
     begin
         AdvRptDebug.AddEventLog('OnPreReport', 'Start', '');
@@ -1347,7 +1347,7 @@ report 50011 "UFO03 Shipment Document PSA"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1375,7 +1375,7 @@ report 50011 "UFO03 Shipment Document PSA"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1481,7 +1481,7 @@ report 50011 "UFO03 Shipment Document PSA"
         IBANCode: Code[50];
         BankName: Text[100];
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         LastOrderNo: Code[20];
         Debug: Boolean;
         // RecRef: RecordRef; // recref del debug

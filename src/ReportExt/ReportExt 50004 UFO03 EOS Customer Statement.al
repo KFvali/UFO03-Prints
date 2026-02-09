@@ -151,7 +151,7 @@ reportextension 50004 "UFO03 EOS Customer Statement" extends "EOS Customer State
 
     local procedure GetCustomerFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Managment";
+        PrintsManagement: Codeunit "UFO03 Prints Management";
         PostCode: Record "Post Code";
     begin
         PostCode.Reset();
