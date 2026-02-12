@@ -552,7 +552,7 @@ report 50006 "UFO03 Transfer Shipping Doc."
 
             trigger OnAfterGetRecord()
             var
-                PrintsManagement: Codeunit "UFO03 Prints Management";
+                PrintsManagement: Codeunit "Prints Management";
                 Commentline: Record "Comment Line";
                 SalesShipHeader: record "Sales Shipment Header";
                 Locsalesheader: Record "Sales Header";
@@ -858,7 +858,7 @@ report 50006 "UFO03 Transfer Shipping Doc."
     var
         AdvancedReportingMngt: Codeunit "EOS Advanced Reporting Mngt";
         AdvRptDebug: Codeunit "EOS AdvRpt Debug";
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         StopExecution: Boolean;
     begin
         AdvRptDebug.AddEventLog('OnPreReport', 'Start', '');
@@ -1235,7 +1235,7 @@ report 50006 "UFO03 Transfer Shipping Doc."
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         //PostCode: record "Post Code";
         TransferShipHeader: Record "Transfer Shipment Header";
     begin
@@ -1250,7 +1250,7 @@ report 50006 "UFO03 Transfer Shipping Doc."
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         PostCode: Record "Post Code";
         TransferShipHeader: Record "Transfer Shipment Header";
     begin
@@ -1325,7 +1325,7 @@ report 50006 "UFO03 Transfer Shipping Doc."
         IBANCode: Code[50];
         BankName: Text[100];
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         LastOrderNo: Code[20];
         Debug: Boolean;
         // RecRef: RecordRef; // recref del debug

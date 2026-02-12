@@ -889,7 +889,7 @@ report 50003 "UFO03 Invoice Document - FD"
 
     trigger OnPreReport()
     var
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         AdvancedReportingMngt: Codeunit "EOS Advanced Reporting Mngt";
         AdvRptDebug: Codeunit "EOS AdvRpt Debug";
         StopExecution: Boolean;
@@ -1148,7 +1148,7 @@ report 50003 "UFO03 Invoice Document - FD"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1176,7 +1176,7 @@ report 50003 "UFO03 Invoice Document - FD"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1244,7 +1244,7 @@ report 50003 "UFO03 Invoice Document - FD"
         IBANCode: Code[50];
         BankName: Text[100];
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         Debug: Boolean;
         // RecRef: RecordRef; // recref del debug
         // ReportDebug: Codeunit "MMA03 Report Debug";

@@ -1,4 +1,8 @@
-pageextension 50008 "UFO03 Customer Card" extends "Customer Card"
+namespace Keyfor.UFO03.Prints;
+
+using Microsoft.Sales.Customer;
+
+pageextension 50004 "Customer Card" extends "Customer Card"
 {
     actions
     {

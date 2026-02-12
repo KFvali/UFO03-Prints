@@ -1,4 +1,33 @@
-report 50000 "UFO03 Sales Document"
+namespace Keyfor.UFO03.Prints;
+
+using Microsoft.Sales.Document;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.History;
+using Microsoft.Sales.Archive;
+using Microsoft.Service.Document;
+using Microsoft.Service.History;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Document;
+using Microsoft.Purchases.Archive;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Bank.BankAccount;
+using Microsoft.Foundation.PaymentTerms;
+using Microsoft.Foundation.Company;
+using Microsoft.Foundation.Shipping;
+using Microsoft.Foundation.Comment;
+using Microsoft.Foundation.Auditcodes;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Transfer;
+using Microsoft.Inventory.Tracking;
+using Microsoft.CRM.Team;
+using Microsoft.CRM.Contact;
+using Microsoft.HumanResources.Employee;
+using System.Environment;
+using System.Security.AccessControl;
+using System.Security.User;
+using System.Utilities;
+
+report 50000 "Sales Document"
 {
     DefaultLayout = RDLC;
     RDLCLayout = 'UFO03 Sales Document.rdlc';
@@ -1060,7 +1089,7 @@ report 50000 "UFO03 Sales Document"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1088,7 +1117,7 @@ report 50000 "UFO03 Sales Document"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1115,7 +1144,7 @@ report 50000 "UFO03 Sales Document"
 
     local procedure PrepareLineLoopWithTrackingSpec()
     var
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         TmpTrackSpec: Record "Tracking Specification" temporary;
         LineLoopComodo: Record "EOS Report Buffer Line" temporary;
         NextLineNo: Integer;
@@ -1242,7 +1271,7 @@ report 50000 "UFO03 Sales Document"
         ApprovedBy: Code[50];
         TipoDocumento: Text;
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         DataValidita: Date;
         RedattoDa: Code[50];
         PercSconto: Text;

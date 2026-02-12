@@ -622,7 +622,7 @@ report 50002 "UFO03 Invoice Document"
                 locBankAcc: Record "Bank Account";
                 PaymentMethod: Record "Payment Method";
                 PostCode: Record "Post Code";
-                PrintsManagement: Codeunit "UFO03 Prints Management";
+                PrintsManagement: Codeunit "Prints Management";
                 InvoiceShipHeader: Record "Sales Shipment Header";
                 lCustomer: Record Customer;
             //ReportsEvents: Codeunit "MMA Reports Events";
@@ -972,7 +972,7 @@ report 50002 "UFO03 Invoice Document"
     var
         AdvancedReportingMngt: Codeunit "EOS Advanced Reporting Mngt";
         AdvRptDebug: Codeunit "EOS AdvRpt Debug";
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         SalesInvoiceHeader: record "Sales Invoice Header";
         StopExecution: Boolean;
     begin
@@ -1252,7 +1252,7 @@ report 50002 "UFO03 Invoice Document"
 
     local procedure GetBillToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1280,7 +1280,7 @@ report 50002 "UFO03 Invoice Document"
 
     local procedure GetShipToFormattedAddress(): Text
     var
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         Customer: Record Customer;
         TelLbl: TextConst ITA = 'Telefono: %1', ENU = 'Phone: %1';
         FaxLbl: TextConst ITA = ' - Fax: %1', ENU = ' - Fax: %1';
@@ -1359,7 +1359,7 @@ report 50002 "UFO03 Invoice Document"
         IBANCode: Code[50];
         BankName: Text[100];
         IsCustomerBank: Boolean;
-        PrintsManagement: Codeunit "UFO03 Prints Management";
+        PrintsManagement: Codeunit "Prints Management";
         Debug: Boolean;
         // RecRef: RecordRef; // recref del debug
         // ReportDebug: Codeunit "MMA03 Report Debug";

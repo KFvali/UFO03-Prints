@@ -1,4 +1,8 @@
-pageextension 50009 "UFO03 Posted Sales Invoices" extends "Posted Sales Invoices"
+namespace Keyfor.UFO03.Prints;
+
+using Microsoft.Sales.History;
+
+pageextension 50005 "Posted Sales Invoices" extends "Posted Sales Invoices"
 {
     actions
     {

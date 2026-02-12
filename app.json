@@ -65,6 +65,12 @@
       "name": "Yaveon 365 Automotive",
       "publisher": "YAVEON GMBH",
       "version": "12.0.0.0"
+    }, 
+    {
+      "id": "1cef8c70-09fa-4fe4-82b1-45e02339d9eb",
+      "name": "Yaveon 365 Library",
+      "publisher": "YAVEON GMBH",
+      "version": "12.0.0.0"
     }
 
   ],

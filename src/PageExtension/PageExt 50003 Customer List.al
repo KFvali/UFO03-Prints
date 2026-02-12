@@ -1,4 +1,8 @@
-pageextension 50007 "UFO03 Customer List" extends "Customer List"
+namespace Keyfor.UFO03.Prints;
+
+using Microsoft.Sales.Customer;
+
+pageextension 50003 "Customer List" extends "Customer List"
 {
     actions
     {

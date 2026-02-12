@@ -1,0 +1,1804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="ReportTitle">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReportTitle</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReportTitle</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReporttitleText">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReporttitleText</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReporttitleText</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="RecipientCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>RecipientCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>RecipientCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PlaceCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PlaceCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PlaceCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="BillToAddress_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>BillToAddress_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>BillToAddress_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CIGCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CIGCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CIGCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CUPCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CUPCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CUPCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CustomerVendorContact_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CustomerVendorContact_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CustomerVendorContact_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CustomerVendorMail_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CustomerVendorMail_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CustomerVendorMail_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CustomerVendorNo_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CustomerVendorNo_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CustomerVendorNo_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocumentNo_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DocumentNo_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DocumentNo_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FiscalCode_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FiscalCode_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FiscalCode_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="GoodsAppearance_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>GoodsAppearance_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>GoodsAppearance_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TransportbyThe_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TransportbyThe_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TransportbyThe_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="GrossWeight_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>GrossWeight_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>GrossWeight_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_Amount_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_Amount_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_Amount_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_Description_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_Description_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_Description_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_ItemNo_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_ItemNo_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_ItemNo_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_LineDiscountPerc_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_LineDiscountPerc_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_LineDiscountPerc_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_OrderQuantity_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_OrderQuantity_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_OrderQuantity_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_Quantity_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_Quantity_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_Quantity_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_ShipmentDate_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_ShipmentDate_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_ShipmentDate_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_Type_Descr_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_Type_Descr_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_Type_Descr_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_UnitPrice_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_UnitPrice_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_UnitPrice_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_UoM_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_UoM_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_UoM_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Line_VATIdentifier_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Line_VATIdentifier_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Line_VATIdentifier_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NetWeightCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>NetWeightCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>NetWeightCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="GrossWeightCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>GrossWeightCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>GrossWeightCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="WeightCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>WeightCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>WeightCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="NoOfParcels_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>NoOfParcels_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>NoOfParcels_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OperatorName_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>OperatorName_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>OperatorName_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OrderConf_Title">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>OrderConf_Title</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>OrderConf_Title</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OrderDate_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>OrderDate_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>OrderDate_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Our_Bank">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Our_Bank</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Our_Bank</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Page_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Page_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Page_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Payment_Amount_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Payment_Amount_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Payment_Amount_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Payment_DueDate_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Payment_DueDate_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Payment_DueDate_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PaymentMethod_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PaymentMethod_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PaymentMethod_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PaymentTerms_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PaymentTerms_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PaymentTerms_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PostingDate_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PostingDate_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PostingDate_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Reason_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Reason_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Reason_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ReturnAddr_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ReturnAddr_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ReturnAddr_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Salesperson_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Salesperson_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Salesperson_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ShipmentDate_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ShipmentDate_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ShipmentDate_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ShipToAddress_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ShipToAddress_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ShipToAddress_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ShpAgent_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ShpAgent_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ShpAgent_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ShptBy_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ShptBy_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ShptBy_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ShptMethod_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ShptMethod_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ShptMethod_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ShptStart_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ShptStart_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ShptStart_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SigRecipient_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SigRecipient_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SigRecipient_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SigDriver_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SigDriver_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SigDriver_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SigCompiler_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SigCompiler_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SigCompiler_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_DocumentTotalCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Total_DocumentTotalCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Total_DocumentTotalCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_DocumentTotalVatExclCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Total_DocumentTotalVatExclCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Total_DocumentTotalVatExclCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_NetAmountToPayCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Total_NetAmountToPayCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Total_NetAmountToPayCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_TotalAmountCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Total_TotalAmountCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Total_TotalAmountCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_TotalBaseCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Total_TotalBaseCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Total_TotalBaseCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_TotalCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Total_TotalCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Total_TotalCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Total_TotalInvDiscCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Total_TotalInvDiscCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Total_TotalInvDiscCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ValidTo_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ValidTo_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ValidTo_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VAT_InvDisc_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VAT_InvDisc_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VAT_InvDisc_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VAT_Line_VATIdentifier_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VAT_Line_VATIdentifier_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VAT_Line_VATIdentifier_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VAT_VATAmount_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VAT_VATAmount_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VAT_VATAmount_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VAT_VATBase_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VAT_VATBase_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VAT_VATBase_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VAT_VATPercent_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VAT_VATPercent_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VAT_VATPercent_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VAT_VATText_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VAT_VATText_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VAT_VATText_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VATClausesCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VATClausesCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VATClausesCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="VATRegNo_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>VATRegNo_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>VATRegNo_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Volume_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Volume_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Volume_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="YourReference_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>YourReference_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>YourReference_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="BankReference_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>BankReference_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>BankReference_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="YourBankAccountRef_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>YourBankAccountRef_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>YourBankAccountRef_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CustomerBankReference_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CustomerBankReference_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CustomerBankReference_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TextLicenseCpt">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TextLicenseCpt</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TextLicenseCpt</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TextLicense2">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TextLicense2</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TextLicense2</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TextArt62">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TextArt62</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TextArt62</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SigCompilier_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SigCompilier_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SigCompilier_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TaxDiscount_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TaxDiscount_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TaxDiscount_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CarrierGenInfo_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CarrierGenInfo_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CarrierGenInfo_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PhytoLicense_CaptionM">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PhytoLicense_CaptionM</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PhytoLicense_CaptionM</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TransportationBythe_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>TransportationBythe_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>TransportationBythe_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CollectionCosts">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CollectionCosts</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CollectionCosts</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="GoodsTotal_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>GoodsTotal_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>GoodsTotal_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="LoadingPlace_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>LoadingPlace_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>LoadingPlace_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="text1">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>text1</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>text1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="text2">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>text2</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>text2</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="text3">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>text3</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>text3</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PhytoItemRegNo_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PhytoItemRegNo_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PhytoItemRegNo_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ABI_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ABI_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ABI_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CAB_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CAB_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CAB_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Valuta_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Valuta_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Valuta_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IBAN_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>IBAN_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>IBAN_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FirmaLegRappr_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>FirmaLegRappr_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>FirmaLegRappr_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Note_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Note_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Note_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CompanyPIva_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CompanyPIva_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CompanyPIva_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CompanyRea_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>CompanyRea_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>CompanyRea_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IBANCompany_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>IBANCompany_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>IBANCompany_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Giornochiusura_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Giornochiusura_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Giornochiusura_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OrdineNr_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>OrdineNr_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>OrdineNr_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Fresco_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Fresco_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Fresco_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Surg_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Surg_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Surg_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Secco_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Secco_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Secco_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Conai1_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Conai1_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Conai1_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Conai2_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Conai2_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Conai2_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Conai3_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Conai3_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Conai3_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede1_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede1_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede1_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede2_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede2_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede2_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede3_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede3_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede3_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede4_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede4_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede4_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede5_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede5_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede5_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede6_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede6_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede6_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede7_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede7_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede7_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede8_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede8_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede8_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede9_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede9_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede9_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede10_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede10_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede10_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede11_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede11_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede11_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Piede12_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Piede12_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Piede12_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="SpedizioneInf_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>SpedizioneInf_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>SpedizioneInf_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Autista_caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Autista_caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Autista_caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="QtaCo_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>QtaCo_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>QtaCo_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Om_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Om_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Om_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PrezzoUnitario_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PrezzoUnitario_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PrezzoUnitario_Caption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="AmountColumn_Caption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>AmountColumn_Caption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>AmountColumn_Caption</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="DocumentNo">
+          <DataField>DocumentNo</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="DocumentDate">
+          <DataField>DocumentDate</DataField>
+        </Field>
+        <Field Name="Salesperson">
+          <DataField>Salesperson</DataField>
+        </Field>
+        <Field Name="Operator">
+          <DataField>Operator</DataField>
+        </Field>
+        <Field Name="SellToCustNo">
+          <DataField>SellToCustNo</DataField>
+        </Field>
+        <Field Name="BillToNo">
+          <DataField>BillToNo</DataField>
+        </Field>
+        <Field Name="ShipToCode">
+          <DataField>ShipToCode</DataField>
+        </Field>
+        <Field Name="CustomerContact">
+          <DataField>CustomerContact</DataField>
+        </Field>
+        <Field Name="CustomerEMail">
+          <DataField>CustomerEMail</DataField>
+        </Field>
+        <Field Name="PaymentTerms">
+          <DataField>PaymentTerms</DataField>
+        </Field>
+        <Field Name="PaymentMethod">
+          <DataField>PaymentMethod</DataField>
+        </Field>
+        <Field Name="Reason">
+          <DataField>Reason</DataField>
+        </Field>
+        <Field Name="VATRegNo">
+          <DataField>VATRegNo</DataField>
+        </Field>
+        <Field Name="FiscalCode">
+          <DataField>FiscalCode</DataField>
+        </Field>
+        <Field Name="WorkDate">
+          <DataField>WorkDate</DataField>
+        </Field>
+        <Field Name="AddressPosition">
+          <DataField>AddressPosition</DataField>
+        </Field>
+        <Field Name="CompanyInfoPicture">
+          <DataField>CompanyInfoPicture</DataField>
+        </Field>
+        <Field Name="ESCMID_ID_TXT">
+          <DataField>ESCMID_ID_TXT</DataField>
+        </Field>
+        <Field Name="SSH_No">
+          <DataField>SSH_No</DataField>
+        </Field>
+        <Field Name="TempBlobBMP_Bill">
+          <DataField>TempBlobBMP_Bill</DataField>
+        </Field>
+        <Field Name="TempBlobBMP_SSH_NO">
+          <DataField>TempBlobBMP_SSH_NO</DataField>
+        </Field>
+        <Field Name="Dati_Destinatario">
+          <DataField>Dati_Destinatario</DataField>
+        </Field>
+        <Field Name="Luogo_Destinatario">
+          <DataField>Luogo_Destinatario</DataField>
+        </Field>
+        <Field Name="Consegna_Porto">
+          <DataField>Consegna_Porto</DataField>
+        </Field>
+        <Field Name="Punto_riferimento">
+          <DataField>Punto_riferimento</DataField>
+        </Field>
+        <Field Name="Codice_Stab_Cli">
+          <DataField>Codice_Stab_Cli</DataField>
+        </Field>
+        <Field Name="NoPackages">
+          <DataField>NoPackages</DataField>
+        </Field>
+        <Field Name="Shpt_Reason_Code">
+          <DataField>Shpt_Reason_Code</DataField>
+        </Field>
+        <Field Name="Shpt_reason_Code_Caption">
+          <DataField>Shpt_reason_Code_Caption</DataField>
+        </Field>
+        <Field Name="ShippingAgent">
+          <DataField>ShippingAgent</DataField>
+        </Field>
+        <Field Name="Sender">
+          <DataField>Sender</DataField>
+        </Field>
+        <Field Name="Recipient">
+          <DataField>Recipient</DataField>
+        </Field>
+        <Field Name="DayGG">
+          <DataField>DayGG</DataField>
+        </Field>
+        <Field Name="MonthMM">
+          <DataField>MonthMM</DataField>
+        </Field>
+        <Field Name="YearAAAA">
+          <DataField>YearAAAA</DataField>
+        </Field>
+        <Field Name="Hour">
+          <DataField>Hour</DataField>
+        </Field>
+        <Field Name="Minutes">
+          <DataField>Minutes</DataField>
+        </Field>
+        <Field Name="TempBlobBMP_QR_CODE">
+          <DataField>TempBlobBMP_QR_CODE</DataField>
+        </Field>
+        <Field Name="OrderNo">
+          <DataField>OrderNo</DataField>
+        </Field>
+        <Field Name="OrderDate">
+          <DataField>OrderDate</DataField>
+        </Field>
+        <Field Name="UserFullName">
+          <DataField>UserFullName</DataField>
+        </Field>
+        <Field Name="ReasonCode">
+          <DataField>ReasonCode</DataField>
+        </Field>
+        <Field Name="ReasonCodeSpedizione">
+          <DataField>ReasonCodeSpedizione</DataField>
+        </Field>
+        <Field Name="HeadDispatchOrderNo">
+          <DataField>HeadDispatchOrderNo</DataField>
+        </Field>
+        <Field Name="DatiDestNome">
+          <DataField>DatiDestNome</DataField>
+        </Field>
+        <Field Name="DatiDestIndirizzo">
+          <DataField>DatiDestIndirizzo</DataField>
+        </Field>
+        <Field Name="DatiDestPostCode">
+          <DataField>DatiDestPostCode</DataField>
+        </Field>
+        <Field Name="DatiDestCity">
+          <DataField>DatiDestCity</DataField>
+        </Field>
+        <Field Name="DatiDestCounty">
+          <DataField>DatiDestCounty</DataField>
+        </Field>
+        <Field Name="DatiDestCountry">
+          <DataField>DatiDestCountry</DataField>
+        </Field>
+        <Field Name="LuogoDestNome">
+          <DataField>LuogoDestNome</DataField>
+        </Field>
+        <Field Name="LuogoDestIndirizzo">
+          <DataField>LuogoDestIndirizzo</DataField>
+        </Field>
+        <Field Name="LuogoDestPostCode">
+          <DataField>LuogoDestPostCode</DataField>
+        </Field>
+        <Field Name="LuogoDestCity">
+          <DataField>LuogoDestCity</DataField>
+        </Field>
+        <Field Name="LuogoDestCounty">
+          <DataField>LuogoDestCounty</DataField>
+        </Field>
+        <Field Name="LuogoDestCountry">
+          <DataField>LuogoDestCountry</DataField>
+        </Field>
+        <Field Name="Line_Type">
+          <DataField>Line_Type</DataField>
+        </Field>
+        <Field Name="Line_LineType">
+          <DataField>Line_LineType</DataField>
+        </Field>
+        <Field Name="Line_Style">
+          <DataField>Line_Style</DataField>
+        </Field>
+        <Field Name="Line_ExtensionCode">
+          <DataField>Line_ExtensionCode</DataField>
+        </Field>
+        <Field Name="Line_LineNo">
+          <DataField>Line_LineNo</DataField>
+        </Field>
+        <Field Name="Line_ItemNo">
+          <DataField>Line_ItemNo</DataField>
+        </Field>
+        <Field Name="Line_Description">
+          <DataField>Line_Description</DataField>
+        </Field>
+        <Field Name="showvariant">
+          <DataField>showvariant</DataField>
+        </Field>
+        <Field Name="Line_ItemVariantNo">
+          <DataField>Line_ItemVariantNo</DataField>
+        </Field>
+        <Field Name="Line_ItemVariantDesc">
+          <DataField>Line_ItemVariantDesc</DataField>
+        </Field>
+        <Field Name="Line_RegNo">
+          <DataField>Line_RegNo</DataField>
+        </Field>
+        <Field Name="Line_Description2">
+          <DataField>Line_Description2</DataField>
+        </Field>
+        <Field Name="Line_Quantity">
+          <DataField>Line_Quantity</DataField>
+        </Field>
+        <Field Name="Line_QuantityFormat">
+          <DataField>Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Line_UoMCode">
+          <DataField>Line_UoMCode</DataField>
+        </Field>
+        <Field Name="Line_LineDiscountPerc">
+          <DataField>Line_LineDiscountPerc</DataField>
+        </Field>
+        <Field Name="Line_LineDiscountPercFormat">
+          <DataField>Line_LineDiscountPercFormat</DataField>
+        </Field>
+        <Field Name="Line_UnitPrice">
+          <DataField>Line_UnitPrice</DataField>
+        </Field>
+        <Field Name="Line_UnitPriceFormat">
+          <DataField>Line_UnitPriceFormat</DataField>
+        </Field>
+        <Field Name="Line_Amount">
+          <DataField>Line_Amount</DataField>
+        </Field>
+        <Field Name="Line_AmountFormat">
+          <DataField>Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="Line_VATIdentifier">
+          <DataField>Line_VATIdentifier</DataField>
+        </Field>
+        <Field Name="Line_ShipmentDate">
+          <DataField>Line_ShipmentDate</DataField>
+        </Field>
+        <Field Name="Line_Type_Desc">
+          <DataField>Line_Type_Desc</DataField>
+        </Field>
+        <Field Name="Line_OrderQuantity">
+          <DataField>Line_OrderQuantity</DataField>
+        </Field>
+        <Field Name="Line_OrderQuantityFormat">
+          <DataField>Line_OrderQuantityFormat</DataField>
+        </Field>
+        <Field Name="CstmLneTxt1">
+          <DataField>CstmLneTxt1</DataField>
+        </Field>
+        <Field Name="CstmLneTxt2">
+          <DataField>CstmLneTxt2</DataField>
+        </Field>
+        <Field Name="CstmLneTxt3">
+          <DataField>CstmLneTxt3</DataField>
+        </Field>
+        <Field Name="CstmLneTxt4">
+          <DataField>CstmLneTxt4</DataField>
+        </Field>
+        <Field Name="CstmLneTxt5">
+          <DataField>CstmLneTxt5</DataField>
+        </Field>
+        <Field Name="CstmLneTxt6">
+          <DataField>CstmLneTxt6</DataField>
+        </Field>
+        <Field Name="CstmLneTxt7">
+          <DataField>CstmLneTxt7</DataField>
+        </Field>
+        <Field Name="CstmLneTxt8">
+          <DataField>CstmLneTxt8</DataField>
+        </Field>
+        <Field Name="CstmLneTxt9">
+          <DataField>CstmLneTxt9</DataField>
+        </Field>
+        <Field Name="CstmLneTxt10">
+          <DataField>CstmLneTxt10</DataField>
+        </Field>
+        <Field Name="CstmLneTxt11">
+          <DataField>CstmLneTxt11</DataField>
+        </Field>
+        <Field Name="CstmLneTxt12">
+          <DataField>CstmLneTxt12</DataField>
+        </Field>
+        <Field Name="CstmLneTxt13">
+          <DataField>CstmLneTxt13</DataField>
+        </Field>
+        <Field Name="CstmLneTxt14">
+          <DataField>CstmLneTxt14</DataField>
+        </Field>
+        <Field Name="CstmLneTxt15">
+          <DataField>CstmLneTxt15</DataField>
+        </Field>
+        <Field Name="CstmLneTxt16">
+          <DataField>CstmLneTxt16</DataField>
+        </Field>
+        <Field Name="CstmLneTxt17">
+          <DataField>CstmLneTxt17</DataField>
+        </Field>
+        <Field Name="CstmLneTxt18D">
+          <DataField>CstmLneTxt18D</DataField>
+        </Field>
+        <Field Name="CstmLneTxt18M">
+          <DataField>CstmLneTxt18M</DataField>
+        </Field>
+        <Field Name="CstmLneTxt18V">
+          <DataField>CstmLneTxt18V</DataField>
+        </Field>
+        <Field Name="CstmLneTxt19">
+          <DataField>CstmLneTxt19</DataField>
+        </Field>
+        <Field Name="CstmLneTxt20">
+          <DataField>CstmLneTxt20</DataField>
+        </Field>
+        <Field Name="CstmLneTxt21">
+          <DataField>CstmLneTxt21</DataField>
+        </Field>
+        <Field Name="CstmLneTxt22">
+          <DataField>CstmLneTxt22</DataField>
+        </Field>
+        <Field Name="CstmLneTxt23">
+          <DataField>CstmLneTxt23</DataField>
+        </Field>
+        <Field Name="CstmLneTxt24">
+          <DataField>CstmLneTxt24</DataField>
+        </Field>
+        <Field Name="CstmLneTxt25">
+          <DataField>CstmLneTxt25</DataField>
+        </Field>
+        <Field Name="CstmLneTxt26">
+          <DataField>CstmLneTxt26</DataField>
+        </Field>
+        <Field Name="CstmLneTxt27">
+          <DataField>CstmLneTxt27</DataField>
+        </Field>
+        <Field Name="CstmLneTxt28">
+          <DataField>CstmLneTxt28</DataField>
+        </Field>
+        <Field Name="CstmLneTxt29">
+          <DataField>CstmLneTxt29</DataField>
+        </Field>
+        <Field Name="CstmLneTxt30">
+          <DataField>CstmLneTxt30</DataField>
+        </Field>
+        <Field Name="CstmLneDec1">
+          <DataField>CstmLneDec1</DataField>
+        </Field>
+        <Field Name="CstmLneDec1Format">
+          <DataField>CstmLneDec1Format</DataField>
+        </Field>
+        <Field Name="CstmLneDec2">
+          <DataField>CstmLneDec2</DataField>
+        </Field>
+        <Field Name="CstmLneDec2Format">
+          <DataField>CstmLneDec2Format</DataField>
+        </Field>
+        <Field Name="CstmLneDec3">
+          <DataField>CstmLneDec3</DataField>
+        </Field>
+        <Field Name="CstmLneDec3Format">
+          <DataField>CstmLneDec3Format</DataField>
+        </Field>
+        <Field Name="CstmLneDec4">
+          <DataField>CstmLneDec4</DataField>
+        </Field>
+        <Field Name="CstmLneDec4Format">
+          <DataField>CstmLneDec4Format</DataField>
+        </Field>
+        <Field Name="CstmLneDec5">
+          <DataField>CstmLneDec5</DataField>
+        </Field>
+        <Field Name="CstmLneDec5Format">
+          <DataField>CstmLneDec5Format</DataField>
+        </Field>
+        <Field Name="CstmLneInt1">
+          <DataField>CstmLneInt1</DataField>
+        </Field>
+        <Field Name="CstmLneInt2">
+          <DataField>CstmLneInt2</DataField>
+        </Field>
+        <Field Name="CstmLneInt3">
+          <DataField>CstmLneInt3</DataField>
+        </Field>
+        <Field Name="CstmLneInt4">
+          <DataField>CstmLneInt4</DataField>
+        </Field>
+        <Field Name="CstmLneInt5">
+          <DataField>CstmLneInt5</DataField>
+        </Field>
+        <Field Name="Line_Amount_DDT">
+          <DataField>Line_Amount_DDT</DataField>
+        </Field>
+        <Field Name="Line_Amount_DDTFormat">
+          <DataField>Line_Amount_DDTFormat</DataField>
+        </Field>
+        <Field Name="SecQuantity">
+          <DataField>SecQuantity</DataField>
+        </Field>
+        <Field Name="SecQuantityFormat">
+          <DataField>SecQuantityFormat</DataField>
+        </Field>
+        <Field Name="VAT_Identifier1">
+          <DataField>VAT_Identifier1</DataField>
+        </Field>
+        <Field Name="VAT_Perc1">
+          <DataField>VAT_Perc1</DataField>
+        </Field>
+        <Field Name="VAT_Perc1Format">
+          <DataField>VAT_Perc1Format</DataField>
+        </Field>
+        <Field Name="VAT_Description1">
+          <DataField>VAT_Description1</DataField>
+        </Field>
+        <Field Name="VAT_Base1">
+          <DataField>VAT_Base1</DataField>
+        </Field>
+        <Field Name="VAT_Base1Format">
+          <DataField>VAT_Base1Format</DataField>
+        </Field>
+        <Field Name="VAT_Amount1">
+          <DataField>VAT_Amount1</DataField>
+        </Field>
+        <Field Name="VAT_Amount1Format">
+          <DataField>VAT_Amount1Format</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount1">
+          <DataField>VAT_InvoiceDiscountAmount1</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount1Format">
+          <DataField>VAT_InvoiceDiscountAmount1Format</DataField>
+        </Field>
+        <Field Name="VAT_ClauseCode1">
+          <DataField>VAT_ClauseCode1</DataField>
+        </Field>
+        <Field Name="VAT_ClauseDescription1">
+          <DataField>VAT_ClauseDescription1</DataField>
+        </Field>
+        <Field Name="VAT_Identifier2">
+          <DataField>VAT_Identifier2</DataField>
+        </Field>
+        <Field Name="VAT_Perc2">
+          <DataField>VAT_Perc2</DataField>
+        </Field>
+        <Field Name="VAT_Perc2Format">
+          <DataField>VAT_Perc2Format</DataField>
+        </Field>
+        <Field Name="VAT_Description2">
+          <DataField>VAT_Description2</DataField>
+        </Field>
+        <Field Name="VAT_Base2">
+          <DataField>VAT_Base2</DataField>
+        </Field>
+        <Field Name="VAT_Base2Format">
+          <DataField>VAT_Base2Format</DataField>
+        </Field>
+        <Field Name="VAT_Amount2">
+          <DataField>VAT_Amount2</DataField>
+        </Field>
+        <Field Name="VAT_Amount2Format">
+          <DataField>VAT_Amount2Format</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount2">
+          <DataField>VAT_InvoiceDiscountAmount2</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount2Format">
+          <DataField>VAT_InvoiceDiscountAmount2Format</DataField>
+        </Field>
+        <Field Name="VAT_ClauseCode2">
+          <DataField>VAT_ClauseCode2</DataField>
+        </Field>
+        <Field Name="VAT_ClauseDescription2">
+          <DataField>VAT_ClauseDescription2</DataField>
+        </Field>
+        <Field Name="VAT_Identifier3">
+          <DataField>VAT_Identifier3</DataField>
+        </Field>
+        <Field Name="VAT_Perc3">
+          <DataField>VAT_Perc3</DataField>
+        </Field>
+        <Field Name="VAT_Perc3Format">
+          <DataField>VAT_Perc3Format</DataField>
+        </Field>
+        <Field Name="VAT_Description3">
+          <DataField>VAT_Description3</DataField>
+        </Field>
+        <Field Name="VAT_Base3">
+          <DataField>VAT_Base3</DataField>
+        </Field>
+        <Field Name="VAT_Base3Format">
+          <DataField>VAT_Base3Format</DataField>
+        </Field>
+        <Field Name="VAT_Amount3">
+          <DataField>VAT_Amount3</DataField>
+        </Field>
+        <Field Name="VAT_Amount3Format">
+          <DataField>VAT_Amount3Format</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount3">
+          <DataField>VAT_InvoiceDiscountAmount3</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount3Format">
+          <DataField>VAT_InvoiceDiscountAmount3Format</DataField>
+        </Field>
+        <Field Name="VAT_ClauseCode3">
+          <DataField>VAT_ClauseCode3</DataField>
+        </Field>
+        <Field Name="VAT_ClauseDescription3">
+          <DataField>VAT_ClauseDescription3</DataField>
+        </Field>
+        <Field Name="VAT_Identifier4">
+          <DataField>VAT_Identifier4</DataField>
+        </Field>
+        <Field Name="VAT_Perc4">
+          <DataField>VAT_Perc4</DataField>
+        </Field>
+        <Field Name="VAT_Perc4Format">
+          <DataField>VAT_Perc4Format</DataField>
+        </Field>
+        <Field Name="VAT_Description4">
+          <DataField>VAT_Description4</DataField>
+        </Field>
+        <Field Name="VAT_Base4">
+          <DataField>VAT_Base4</DataField>
+        </Field>
+        <Field Name="VAT_Base4Format">
+          <DataField>VAT_Base4Format</DataField>
+        </Field>
+        <Field Name="VAT_Amount4">
+          <DataField>VAT_Amount4</DataField>
+        </Field>
+        <Field Name="VAT_Amount4Format">
+          <DataField>VAT_Amount4Format</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount4">
+          <DataField>VAT_InvoiceDiscountAmount4</DataField>
+        </Field>
+        <Field Name="VAT_InvoiceDiscountAmount4Format">
+          <DataField>VAT_InvoiceDiscountAmount4Format</DataField>
+        </Field>
+        <Field Name="VAT_ClauseCode4">
+          <DataField>VAT_ClauseCode4</DataField>
+        </Field>
+        <Field Name="VAT_ClauseDescription4">
+          <DataField>VAT_ClauseDescription4</DataField>
+        </Field>
+        <Field Name="ShowVATClauseTab">
+          <DataField>ShowVATClauseTab</DataField>
+        </Field>
+        <Field Name="PaymentLine_DueDate1">
+          <DataField>PaymentLine_DueDate1</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount1">
+          <DataField>PaymentLine_Amount1</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount1Format">
+          <DataField>PaymentLine_Amount1Format</DataField>
+        </Field>
+        <Field Name="PaymentLine_DueDate2">
+          <DataField>PaymentLine_DueDate2</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount2">
+          <DataField>PaymentLine_Amount2</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount2Format">
+          <DataField>PaymentLine_Amount2Format</DataField>
+        </Field>
+        <Field Name="PaymentLine_DueDate3">
+          <DataField>PaymentLine_DueDate3</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount3">
+          <DataField>PaymentLine_Amount3</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount3Format">
+          <DataField>PaymentLine_Amount3Format</DataField>
+        </Field>
+        <Field Name="PaymentLine_DueDate4">
+          <DataField>PaymentLine_DueDate4</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount4">
+          <DataField>PaymentLine_Amount4</DataField>
+        </Field>
+        <Field Name="PaymentLine_Amount4Format">
+          <DataField>PaymentLine_Amount4Format</DataField>
+        </Field>
+        <Field Name="VATLineCurrencyCode">
+          <DataField>VATLineCurrencyCode</DataField>
+        </Field>
+        <Field Name="VATLineTotal">
+          <DataField>VATLineTotal</DataField>
+        </Field>
+        <Field Name="VATLineTotalFormat">
+          <DataField>VATLineTotalFormat</DataField>
+        </Field>
+        <Field Name="VATLineInvDiscTotal">
+          <DataField>VATLineInvDiscTotal</DataField>
+        </Field>
+        <Field Name="VATLineInvDiscTotalFormat">
+          <DataField>VATLineInvDiscTotalFormat</DataField>
+        </Field>
+        <Field Name="VATLineBaseTotal">
+          <DataField>VATLineBaseTotal</DataField>
+        </Field>
+        <Field Name="VATLineBaseTotalFormat">
+          <DataField>VATLineBaseTotalFormat</DataField>
+        </Field>
+        <Field Name="VATLineAmountTotal">
+          <DataField>VATLineAmountTotal</DataField>
+        </Field>
+        <Field Name="VATLineAmountTotalFormat">
+          <DataField>VATLineAmountTotalFormat</DataField>
+        </Field>
+        <Field Name="VATLineAmountInclVATTotal">
+          <DataField>VATLineAmountInclVATTotal</DataField>
+        </Field>
+        <Field Name="VATLineAmountInclVATTotalFormat">
+          <DataField>VATLineAmountInclVATTotalFormat</DataField>
+        </Field>
+        <Field Name="PrintVat">
+          <DataField>PrintVat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

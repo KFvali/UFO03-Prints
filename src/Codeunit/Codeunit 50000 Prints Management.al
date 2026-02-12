@@ -1,4 +1,26 @@
-codeunit 50000 "UFO03 Prints Management"
+namespace Keyfor.UFO03.Prints;
+
+using Microsoft.Sales.Document;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.History;
+using Microsoft.Sales.Archive;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Document;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Bank.BankAccount;
+using Microsoft.Foundation.PaymentTerms;
+using Microsoft.Foundation.Company;
+using Microsoft.Foundation.Shipping;
+using Microsoft.Foundation.Comment;
+using Microsoft.Foundation.Auditcodes;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Transfer;
+using Microsoft.Inventory.Tracking;
+using Microsoft.CRM.Team;
+using Microsoft.CRM.Contact;
+using System.Environment;
+
+codeunit 50000 "Prints Management"
 {
     trigger OnRun()
     begin
@@ -530,7 +552,7 @@ codeunit 50000 "UFO03 Prints Management"
         NetThings: Decimal;
     begin
         case RBHeader."EOS Report ID" of
-            Report::"UFO03 Sales Document":
+            Report::"Sales Document":
                 begin
                     RBLine.SetRange("EOS Line type", RBLine."EOS Line type"::EOSDocumentLine);
                     RBLine.SetRange("EOS Type", RBLine."EOS Type"::Item);
