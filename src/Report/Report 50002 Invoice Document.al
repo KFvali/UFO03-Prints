@@ -10,26 +10,19 @@ using Microsoft.Service.History;
 using Microsoft.Purchases.History;
 using Microsoft.Purchases.Document;
 using Microsoft.Purchases.Archive;
-using Microsoft.Purchases.Vendor;
 using Microsoft.Bank.BankAccount;
-using Microsoft.Foundation.PaymentTerms;
 using Microsoft.Foundation.Company;
 using Microsoft.Foundation.Shipping;
 using Microsoft.Foundation.Comment;
-using Microsoft.Foundation.Auditcodes;
 using Microsoft.Foundation.Address;
 using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Transfer;
-using Microsoft.Inventory.Tracking;
-using Microsoft.Inventory.Location;
 using Microsoft.Finance.VAT.Clause;
 using Microsoft.Finance.VAT.Setup;
 using Microsoft.CRM.Team;
 using Microsoft.CRM.Contact;
 using Microsoft.HumanResources.Employee;
 using System.Environment;
-using System.Security.AccessControl;
-using System.Security.User;
 using System.Utilities;
 
 report 50002 "Invoice Document"
