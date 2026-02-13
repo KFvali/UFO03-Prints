@@ -1,7 +1,48 @@
-report 50011 "UFO03 Shipment Document PSA2"
+namespace Keyfor.UFO03.Prints;
+
+using Microsoft.Sales.Document;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.History;
+using Microsoft.Sales.Archive;
+using Microsoft.Sales.Receivables;
+using Microsoft.Sales.Comment;
+using Microsoft.Service.Document;
+using Microsoft.Service.History;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Document;
+using Microsoft.Purchases.Archive;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Bank.BankAccount;
+using Microsoft.Foundation.PaymentTerms;
+using Microsoft.Foundation.Company;
+using Microsoft.Foundation.Shipping;
+using Microsoft.Foundation.Comment;
+using Microsoft.Foundation.Auditcodes;
+using Microsoft.Foundation.Address;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Transfer;
+using Microsoft.Inventory.Tracking;
+using Microsoft.Inventory.Location;
+using Microsoft.Inventory.Item.Catalog;
+using Microsoft.Finance.VAT.Clause;
+using Microsoft.Finance.VAT.Setup;
+using Microsoft.CRM.Team;
+using Microsoft.CRM.Contact;
+using Microsoft.Utilities;
+using Microsoft.Pricing.PriceList;
+using Microsoft.HumanResources.Employee;
+using System.Environment;
+using System.Security.AccessControl;
+using System.Security.User;
+using System.Utilities;
+using System.Text;
+using System.Datetime;
+using System.Environment.Configuration;
+
+report 50010 "Shipment Document PSA"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = 'R50029_TEST2.rdlc';
+    RDLCLayout = 'R50029_TEST.rdlc';
 
     CaptionML = ENU = 'Shipment Document PSA', ITA = 'Documento di Trasporto PSA';
     Permissions = TableData "VAT Clause" = r,
@@ -195,22 +236,15 @@ report 50011 "UFO03 Shipment Document PSA2"
             dataitem(CopyLoop; "Integer")
             {
                 DataItemTableView = sorting(Number);
-                //             column(ReportTitle; RBHeader.GetReportTitle(ReportTitle)) { }
-                //             column(CopyNo; Number) { }
-                //             column(PartnerItemNoYesNo; PartnerItemNoYesNo) { }
+                column(CopyNo; Number) { }
                 column(DocumentNo; HeaderLoop."EOS No.") { }
                 column(PostingDate; HeaderLoop."EOS Posting Date") { }
-                //             column(PlannedDeliveryDate; PlannedDeliveryDatetime) { }
-                //             column(ExactDeliveryDateTime; ExactDeliveryDateTime) { }
                 column(DocumentDate; SalesShipmentHeader."Document Date") { }
                 column(Salesperson; Salesperson.Name) { }
                 column(Operator; Employee.FullName()) { }
                 column(SellToCustNo; HeaderLoop."EOS Sell-to/Buy-From No.") { }
-                //             column(SellToAddress; RBHeader.GetSellToBuyFromAddr()) { }
                 column(BillToNo; HeaderLoop."EOS Bill-to/Pay-to No.") { }
-                //             column(BillToAddress; RBHeader.GetBillToPayToAddr()) { }
                 column(ShipToCode; HeaderLoop."EOS Ship-to Code") { }
-                //             column(ShipToAddress; RBHeader.GetShipToAddr()) { }
                 column(CustomerContact; SellToContact.Name) { }
                 column(CustomerEMail; SellToContact."E-Mail") { }
                 column(PaymentTerms; HeaderLoop.PaymentTerms_GetDescInLanguage()) { }
@@ -218,18 +252,7 @@ report 50011 "UFO03 Shipment Document PSA2"
                 column(Reason; HeaderLoop.ReasonCode_GetDescInLanguage()) { }
                 column(VATRegNo; HeaderLoop."EOS VAT Registration No.") { }
                 column(FiscalCode; HeaderLoop."EOS Fiscal Code") { }
-                //             column(ShptMethod; ShptMethod.GetDescInLanguage(RBHeader."Language Code")) { }
-                //             column(ShptBy; FORMAT(DocShpInfo."Shipment by")) { }
-                //             column(ShpAgent; RBHeader.GetShippingAgentText()) { }
-                //             column(GoodsAppearance; GoodsAppearance.GetDescInLanguage(RBHeader."Language Code")) { }
-                //             column(ShipmentStartingDateTime; STRSUBSTNO('%1 %2', DocShpInfo."Shipment Starting Date", DocShpInfo."Shipment Starting Time")) { }
                 column(WorkDate; WORKDATE) { }
-                //             column(ReturnAddress; DocShpInfo."Return Address") { }
-                //             column(NoOfParcels; DocShpInfo."No. of Parcels") { }
-                //             column(GrossWeight; [FORMAT(GrossWeight,STRLEN(FORMAT(GrossWeight)), 4) ]) { }
-                //             column(NetWeight; FORMAT(NetWeight)) { }
-                //             column(Volume; DocShpInfo.Volume) { }
-                //             column(ShippingNote; DocShpInfo."Shipping Note") { }
                 column(AddressPosition; Format(ReportSetup."EOS Address Position", 0, 9)) { }
                 column(CompanyInfoPicture; CompanyInfo.Picture) { }
                 column(ESCMID_ID_TXT; ESCMID_ID) { }
@@ -244,8 +267,6 @@ report 50011 "UFO03 Shipment Document PSA2"
                 column(NoPackages; NoOfParcels) { }
                 column(Shpt_Reason_Code; ShipmentReason) { }
                 column(Shpt_reason_Code_Caption; ShipmentReasonCaption) { }
-                //             column(Licence_Plate_No; TargaMezzo) { }
-                //             column(PersonName; NomeAutista) { }
                 column(ShippingAgent; ShippingAgent) { }
                 column(Sender; Sender) { }
                 column(Recipient; Recipient) { }
@@ -260,9 +281,7 @@ report 50011 "UFO03 Shipment Document PSA2"
                 column(UserFullName; User."Full Name") { }
                 column(ReasonCode; HeaderLoop."EOS Reason Code") { }
                 column(ReasonCodeSpedizione; SalesShipmentHeader."Reason Code") { }
-                //             column(AgentAddr; AgentAddress) { }
                 column(HeadDispatchOrderNo; ESCMDispatchOrder."No.") { }
-                //            column(CustLanguage; CustLanguage) { }
                 column(DatiDestNome; DatiDestNome) { }
                 column(DatiDestIndirizzo; DatiDestIndirizzo) { }
                 column(DatiDestPostCode; DatiDestPostCode) { }
@@ -275,30 +294,17 @@ report 50011 "UFO03 Shipment Document PSA2"
                 column(LuogoDestCity; LuogoDestCity) { }
                 column(LuogoDestCounty; LuogoDestCounty) { }
                 column(LuogoDestCountry; LuogoDestCountry) { }
-                // column(CompanyName; ESCMSetup.Name) { }
-                // column(CompanyAddress; ESCMSetup.Address) { }
-                // column(CompanyCity; ESCMSetup.City) { }
-                // column(CompanyPostCode; ESCMSetup."Post Code") { }
-                // column(CompanyCountry; ESCMSetup."Country/Region Code") { }
-                // column(CompanyCounty; ESCMSetup.County) { }
-                // column(UnloadingPoint; UnloadingPoint) { }
-                // column(UnloadingPlant; UnloadingPlant) { }
-                // column(RecordNo; RecordNo) { }
-                // column(PageNo; PageNo) { }
-                // column(PageNoReal; PageNoReal) { }
-                // column(IsLastPage; PageNoReal = NoOfPages) { }
                 dataitem(LineLoop; "EOS Report Buffer Line")
                 {
                     DataItemLinkReference = HeaderLoop;
                     DataItemLink = "EOS Entry ID" = field("EOS Entry ID");
                     DataItemTableView = sorting("EOS Entry ID", "EOS Line No.");
                     UseTemporary = true;
-
                     column(Line_Type; Format(LineLoop."EOS Type", 0, 2)) { }
                     column(Line_LineType; Format(LineLoop."EOS Line type", 0, 2)) { }
                     column(Line_Style; Format("EOS Line Style", 0, 2)) { }
                     column(Line_ExtensionCode; LineLoop."EOS Extension Code") { }
-                    column(Line_LineNo; LineLoop."EOS Line No.") { }
+                    //column(Line_LineNo; LineLoop."EOS Line No.") { }
                     column(Line_ItemNo; LineLoop."EOS No.") { }
                     column(Line_Description; LineLoop."EOS Description") { }
                     column(showvariant; showvariant) { }
@@ -317,7 +323,7 @@ report 50011 "UFO03 Shipment Document PSA2"
                     column(Line_VATIdentifier; VATIdentifier) { }
                     column(Line_ShipmentDate; LineLoop."EOS Shipment Date") { }
                     column(Line_Type_Desc; Format(LineLoop."EOS Type")) { }
-                    column(Line_OrderQuantity; LineLoop."EOS Source Line Quantity") { }
+                    //column(Line_OrderQuantity; LineLoop."EOS Source Line Quantity") { }
                     column(CstmLneTxt1; LineLoop.GetCustomFieldTextValue('CustomText1')) { }
                     column(CstmLneTxt2; LineLoop.GetCustomFieldTextValue('CustomText2')) { }
                     column(CstmLneTxt3; LineLoop.GetCustomFieldTextValue('CustomText3')) { }
@@ -360,37 +366,169 @@ report 50011 "UFO03 Shipment Document PSA2"
                     column(CstmLneInt3; LineLoop.GetCustomFieldIntegerValue('CustomInteger3')) { }
                     column(CstmLneInt4; LineLoop.GetCustomFieldIntegerValue('CustomInteger4')) { }
                     column(CstmLneInt5; LineLoop.GetCustomFieldIntegerValue('CustomInteger5')) { }
-                    //             column(Line_LineNo; Counter) { }
-                    //             column(Line_OrderQuantity; SalesOrderLine.Quantity) { }
-                    //             column(Line_ItemDesc; RBLine."Item Description") { }
-                    //             column(Line_ESCMFillingQuantity; SalesShipmentLine."ESCM Filling Quantity") { }
-                    //             column(Line_ESCMPackageCode; SalesShipmentLine."ESCM Package Code") { }
-                    //             column(Line_Qty_ESCM; Qty_ESCM) { }
-                    //             column(DOP_LineNo; "ESCM Dispatch Order Package"."Line No.") { }
-                    //             column(DOP_FillingQty; "ESCM Dispatch Order Package"."ESCM Filling Quantity") { }
-                    //             column(DOP_ItemNo; "ESCM Dispatch Order Package"."Item No.") { }
-                    //             column(DOP_ItemDescription; "ESCM Dispatch Order Package"."Item Description") { }
-                    //             column(DOP_LineCounter; CounterDispOrd) { }
-                    //             column(DOP_UoM; "ESCM Dispatch Order Package"."Unit of Measure Code") { }
-                    //             column(DOP_TotalQty; TotalQty) { }
-                    //             column(DOP_PackageCode; "ESCM Dispatch Order Package"."ESCM Package Code") { }
-                    //             column(DOP_ItemDesc; ESCMPackage.Description) { }
-                    //             column(DOP_Qty; Qty_ESCM2) { }
-                    //             column(DOP_Helper; "ESCM Dispatch Order Package"."Helper Packages") { }
-                    //             column(DOP_PartnerItemNo; "ESCM Dispatch Order Package"."Partner Item No.") { }
-                    //             column(ItemVisibility; ItemVisibility) { }
-                    //             column(DOP_LabelNo; "ESCM Dispatch Order Package"."First Goods Label No.") { }
-                    //             column(DOP_DeliveryCallNo; DeliveryCallNo) { }
-                    //             column(DOP_DocEsterno; NoDocEsterno) { }
-                    //             column(DOP_PalletLabelNo; PalletLabelNoSenzaZeri) { }
-                    //             column(DOP_ExpirationDate; DataScadenza) { }
-                    //             column(DOP_LotNo; LotNo) { }
-                    //             column(FirstLabelNo; FirstLabelNoSenzaZeri) { }
-                    //             column(LastLabelNo; LastLabelNoSenzaZeri) { }
-                    //             column(PackageCodeNonPallet; PackageCodeNonPallet) { }
+                    dataitem(DispatchOrderPackage; "YAV-DIS Dispatch Order Package")
+                    {
+                        DataItemLinkReference = LineLoop;
+                        DataItemLink = "Document No." = field("EOS Document No."), "Document Line No." = field("EOS Line No.");
+                        DataItemTableView = sorting("Line No.");
+                        UseTemporary = true;
+                        column(Line_LineNo; Counter) { }
+                        column(Line_OrderQuantity; SalesOrderLine.Quantity) { }
+                        // --> 20260210
+                        //column(Line_ItemDesc; RBLine."Item Description") { }
+                        //column(Line_ESCMFillingQuantity; SalesShipmentLine."ESCM Filling Quantity") { }
+                        //column(Line_ESCMPackageCode; SalesShipmentLine."ESCM Package Code") { }
+                        column(Line_Qty_ESCM; Qty_ESCM) { }
+                        column(DOP_LineNo; "Line No.") { }
+                        column(DOP_FillingQty; "Filling Quantity") { }
+                        column(DOP_ItemNo; "Item No.") { }
+                        column(DOP_ItemDescription; "Item Description") { }
+                        column(DOP_LineCounter; CounterDispOrd) { }
+                        column(DOP_UoM; "Unit of Measure Code") { }
+                        column(DOP_TotalQty; TotalQty) { }
+                        column(DOP_PackageCode; "Package Type Code") { }
+                        column(DOP_ItemDesc; ESCMPackage.Description) { }
+                        column(DOP_Qty; Qty_ESCM2) { }
+                        column(DOP_Helper; "Helper Packages") { }
+                        column(DOP_PartnerItemNo; "Partner Item No.") { }
+                        column(ItemVisibility; ItemVisibility) { }
+                        //column(DOP_LabelNo; "First Goods Label No.") { }
+                        column(DOP_DeliveryCallNo; DeliveryCallNo) { }
+                        column(DOP_DocEsterno; NoDocEsterno) { }
+                        column(DOP_PalletLabelNo; PalletLabelNoSenzaZeri) { }
+                        column(DOP_ExpirationDate; DataScadenza) { }
+                        column(DOP_LotNo; LotNo) { }
+                        column(FirstLabelNo; FirstLabelNoSenzaZeri) { }
+                        column(LastLabelNo; LastLabelNoSenzaZeri) { }
+                        column(PackageCodeNonPallet; PackageCodeNonPallet) { }
 
-                    column(Line_Amount_DDT; LineAmount) { }
-                    column(SecQuantity; SecQuantityToPrint) { }
+                        trigger OnPreDataItem()
+                        var
+
+                        begin
+                            DispatchOrderPackage.SetRange("Dispatch Order Type", ESCMDispatchOrderPackage."Dispatch Order Type");
+                            DispatchOrderPackage.SetRange("Dispatch Order No.", ESCMDispatchOrderPackage."Dispatch Order No.");
+                            DispatchOrderPackage.SetRange("Document Type", ESCMDispatchOrderPackage."Document Type");
+                            DispatchOrderPackage.SetRange("Document No.", ESCMDispatchOrderPackage."Document No.");
+                            DispatchOrderPackage.SetRange("Document Line No.", ESCMDispatchOrderPackage."Document Line No.");
+                        end;
+
+                        trigger OnAfterGetRecord()
+                        var
+                            c: Codeunit "YAV-DIS Label Mgt.";
+                            lESCMDispatchOrderPackage: Record "YAV-DIS Dispatch Order Package";
+                            lESCMDispatchOrderPackage2: Record "YAV-DIS Dispatch Order Package";
+                        begin
+                            CLEAR(TotalQty);
+                            CLEAR(Qty_ESCM);
+                            CLEAR(ItemVisibility);
+                            CLEAR(NoOrdVend);
+                            CLEAR(NoOrdVendProg);
+                            CLEAR(DataScadenza);
+                            CLEAR(LotNo);
+                            CLEAR(PalletLabelNo);
+                            CLEAR(FirstLabelNo);
+                            CLEAR(FirstLabelNoSenzaZeri);
+                            CLEAR(LastLabelNo);
+                            CLEAR(LastLabelNoSenzaZeri);
+                            CLEAR(PalletLabelNoSenzaZeri);
+
+                            IF ((DispatchOrderPackage."Filling Quantity" = 0) AND
+                              (DispatchOrderPackage."Package Function" = DispatchOrderPackage."Package Function"::"Shipping Unit")) OR
+                              (DispatchOrderPackage."Helper Packages")
+                            THEN
+                                ItemVisibility := FALSE
+                            ELSE
+                                ItemVisibility := TRUE;
+
+                            if ((DispatchOrderPackage."Filling Quantity" = 0) and
+                              (DispatchOrderPackage."Package Function" = DispatchOrderPackage."Package Function"::"Shipping Unit")) or
+                              (DispatchOrderPackage."Helper Packages") then
+                                CurrReport.SKIP;
+
+                            CounterDispOrd += 1;
+
+                            if not ESCMPackage.get(DispatchOrderPackage."Package Type Code") then
+                                clear(ESCMPackage);
+
+                            Qty_ESCM := DispatchOrderPackage.Quantity;
+                            TotalQty := DispatchOrderPackage."Filling Quantity" * Qty_ESCM;
+
+                            CLEAR(Qty_ESCM2);
+                            IF DispatchOrderPackage."Carrier Package Link Code" <> '' THEN BEGIN
+                                TMPESCMDispatchOrderPackage.INIT;
+                                TMPESCMDispatchOrderPackage := DispatchOrderPackage;
+                                TMPESCMDispatchOrderPackage.INSERT;
+
+                                TMPESCMDispatchOrderPackage.RESET;
+                                TMPESCMDispatchOrderPackage.SETRANGE("Carrier Package Link Code", DispatchOrderPackage."Carrier Package Link Code");
+                                IF TMPESCMDispatchOrderPackage.COUNT = 1 THEN
+                                    Qty_ESCM2 := Qty_ESCM
+                                ELSE
+                                    Qty_ESCM2 := 0;
+                            END ELSE
+                                Qty_ESCM2 := Qty_ESCM;
+
+                            // ESCMLabel.Reset();
+                            // ESCMLabel.SetRange("Source Record ID", DispatchOrderPackage.RecordID);
+                            // if ESCMLabel.FindFirst() then begin
+                            //     LotNo := ESCMLabel."Lot No.";
+                            //     DataScadenza := FORMAT(ESCMLabel."Expiration date", 0, '<Day,2>/<Month,2>/<Year4>');
+                            //     ESCMLabel.SETRANGE("Dispatch Order Pack. Line No.", DispatchOrderPackage."Line No.");
+                            //     IF ESCMLabel.FINDFIRST THEN
+                            //         FirstLabelNo := ESCMLabel.Code;
+                            //     IF ESCMLabel.FINDLAST THEN
+                            //         LastLabelNo := ESCMLabel.Code;
+                            // END;
+
+                            FirstLabelNoSenzaZeri := DelChr(FirstLabelNo, '<', '0');
+                            LastLabelNoSenzaZeri := DelChr(LastLabelNo, '<', '0');
+
+                            SalesShipmentLine.SetFilter("Document No.", DispatchOrderPackage."Document No.");
+                            SalesShipmentLine.SetRange("Line No.", DispatchOrderPackage."Document Line No.");
+                            if SalesShipmentLine.findfirst() then begin
+                                NoOrdVend := SalesShipmentLine."Order No.";
+                                NoOrdVendProg := SalesShipmentLine."Blanket Order No.";
+                                DeliveryCallNo := SalesShipmentLine."YAV-AUT Call-Off No.";
+                                // --> 20260210
+                                //PackageCodeNonPallet := SalesShipmentLine."Package Code";
+                                if NoOrdVendProg <> '' then
+                                    SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::"Blanket Order");
+                                SalesHeader.setfilter("No.", NoOrdVendProg);
+                                if SalesHeader.FindFirst() then begin
+                                    NoDocEsterno := SalesHeader."External Document No.";
+                                end else if NoOrdVend <> '' then
+                                        SalesHeader.SetRange("Document Type", SalesHeader."Document Type"::Order);
+                                SalesHeader.setfilter("No.", NoOrdVend);
+                                if SalesHeader.FindFirst() then begin
+                                    NoDocEsterno := SalesHeader."External Document No.";
+                                end;
+                            end;
+
+                            lESCMDispatchOrderPackage.SETRANGE("Dispatch Order Type", DispatchOrderPackage."Dispatch Order Type");
+                            lESCMDispatchOrderPackage.SETRANGE("Dispatch Order No.", DispatchOrderPackage."Dispatch Order No.");
+                            lESCMDispatchOrderPackage.SETRANGE("Document Type", DispatchOrderPackage."Document Type");
+                            lESCMDispatchOrderPackage.SETRANGE("Document No.", DispatchOrderPackage."Document No.");
+                            lESCMDispatchOrderPackage.SETRANGE("Document Line No.", DispatchOrderPackage."Document Line No.");
+                            lESCMDispatchOrderPackage.SETRANGE("Line No.", DispatchOrderPackage."Line No.");
+                            lESCMDispatchOrderPackage.SETRANGE("Package Function", DispatchOrderPackage."Package Function"::Element);
+                            IF lESCMDispatchOrderPackage.FINDFIRST THEN BEGIN
+                                IF lESCMDispatchOrderPackage."Belongs to Line No." <> 0 THEN BEGIN
+                                    lESCMDispatchOrderPackage.SETRANGE("Dispatch Order Type", lESCMDispatchOrderPackage."Dispatch Order Type");
+                                    lESCMDispatchOrderPackage.SETRANGE("Dispatch Order No.", lESCMDispatchOrderPackage."Dispatch Order No.");
+                                    lESCMDispatchOrderPackage2.SETRANGE("Document Type", lESCMDispatchOrderPackage."Document Type");
+                                    lESCMDispatchOrderPackage.SETRANGE("Document No.", lESCMDispatchOrderPackage."Document No.");
+                                    lESCMDispatchOrderPackage2.SETRANGE("Line No.", lESCMDispatchOrderPackage."Belongs to Line No.");
+                                    IF lESCMDispatchOrderPackage2.FINDFIRST THEN BEGIN
+                                        lESCMDispatchOrderPackage2.CALCFIELDS("First Goods Label No.");
+                                        PalletLabelNo := lESCMDispatchOrderPackage2."First Goods Label No.";
+                                        PalletLabelNoSenzaZeri := DELCHR(PalletLabelNo, '<', '0');
+                                    END;
+                                END;
+                            END;
+                        end;
+
+                    }
 
                     trigger OnAfterGetRecord()
                     var
@@ -444,60 +582,61 @@ report 50011 "UFO03 Shipment Document PSA2"
 
                         Counter += 1;
                     end;
+
                 }
-                dataitem(Totals; "Integer")
-                {
-                    DataItemTableView = sorting(Number) where(Number = const(1));
-                    column(VAT_Identifier1; VAT_Identifier[1]) { }
-                    column(VAT_Perc1; VAT_Perc[1]) { }
-                    column(VAT_Description1; VAT_Description[1]) { }
-                    column(VAT_Base1; VAT_Base[1]) { }
-                    column(VAT_Amount1; VAT_Amount[1]) { }
-                    column(VAT_InvoiceDiscountAmount1; VAT_InvoiceDiscountAmount[1]) { }
-                    column(VAT_ClauseCode1; VAT_ClauseCode[1]) { }
-                    column(VAT_ClauseDescription1; VAT_ClauseDescription[1]) { }
-                    column(VAT_Identifier2; VAT_Identifier[2]) { }
-                    column(VAT_Perc2; VAT_Perc[2]) { }
-                    column(VAT_Description2; VAT_Description[2]) { }
-                    column(VAT_Base2; VAT_Base[2]) { }
-                    column(VAT_Amount2; VAT_Amount[2]) { }
-                    column(VAT_InvoiceDiscountAmount2; VAT_InvoiceDiscountAmount[2]) { }
-                    column(VAT_ClauseCode2; VAT_ClauseCode[2]) { }
-                    column(VAT_ClauseDescription2; VAT_ClauseDescription[2]) { }
-                    column(VAT_Identifier3; VAT_Identifier[3]) { }
-                    column(VAT_Perc3; VAT_Perc[3]) { }
-                    column(VAT_Description3; VAT_Description[3]) { }
-                    column(VAT_Base3; VAT_Base[3]) { }
-                    column(VAT_Amount3; VAT_Amount[3]) { }
-                    column(VAT_InvoiceDiscountAmount3; VAT_InvoiceDiscountAmount[3]) { }
-                    column(VAT_ClauseCode3; VAT_ClauseCode[3]) { }
-                    column(VAT_ClauseDescription3; VAT_ClauseDescription[3]) { }
-                    column(VAT_Identifier4; VAT_Identifier[4]) { }
-                    column(VAT_Perc4; VAT_Perc[4]) { }
-                    column(VAT_Description4; VAT_Description[4]) { }
-                    column(VAT_Base4; VAT_Base[4]) { }
-                    column(VAT_Amount4; VAT_Amount[4]) { }
-                    column(VAT_InvoiceDiscountAmount4; VAT_InvoiceDiscountAmount[4]) { }
-                    column(VAT_ClauseCode4; VAT_ClauseCode[4]) { }
-                    column(VAT_ClauseDescription4; VAT_ClauseDescription[4]) { }
-                    column(ShowVATClauseTab; VAT_ClauseCode[1] + VAT_ClauseCode[2] + VAT_ClauseCode[3] + VAT_ClauseCode[4] <> '') { }
-                    column(PaymentLine_DueDate1; PaymentLine_DueDate[1]) { }
-                    column(PaymentLine_Amount1; PaymentLine_Amount[1]) { }
-                    column(PaymentLine_DueDate2; PaymentLine_DueDate[2]) { }
-                    column(PaymentLine_Amount2; PaymentLine_Amount[2]) { }
-                    column(PaymentLine_DueDate3; PaymentLine_DueDate[3]) { }
-                    column(PaymentLine_Amount3; PaymentLine_Amount[3]) { }
-                    column(PaymentLine_DueDate4; PaymentLine_DueDate[4]) { }
-                    column(PaymentLine_Amount4; PaymentLine_Amount[4]) { }
-                    column(VATLineCurrencyCode; HeaderLoop."EOS Currency Code") { }
-                    column(VATLineTotal; VATLineTotal) { }
-                    column(VATLineInvDiscTotal; VATLineInvDiscTotal) { }
-                    //column(VATLineBaseTotal; VATLineBaseTotal) { }
-                    column(VATLineBaseTotal; ROUND(VATLineBaseTotal, 0.01, '=')) { }
-                    column(VATLineAmountTotal; VATLineAmountTotal) { }
-                    column(VATLineAmountInclVATTotal; VATLineAmountInclVATTotal) { }
-                    column(PrintVat; PrintVAT) { }
-                }
+            }
+            dataitem(Totals; "Integer")
+            {
+                DataItemTableView = sorting(Number) where(Number = const(1));
+                column(VAT_Identifier1; VAT_Identifier[1]) { }
+                column(VAT_Perc1; VAT_Perc[1]) { }
+                column(VAT_Description1; VAT_Description[1]) { }
+                column(VAT_Base1; VAT_Base[1]) { }
+                column(VAT_Amount1; VAT_Amount[1]) { }
+                column(VAT_InvoiceDiscountAmount1; VAT_InvoiceDiscountAmount[1]) { }
+                column(VAT_ClauseCode1; VAT_ClauseCode[1]) { }
+                column(VAT_ClauseDescription1; VAT_ClauseDescription[1]) { }
+                column(VAT_Identifier2; VAT_Identifier[2]) { }
+                column(VAT_Perc2; VAT_Perc[2]) { }
+                column(VAT_Description2; VAT_Description[2]) { }
+                column(VAT_Base2; VAT_Base[2]) { }
+                column(VAT_Amount2; VAT_Amount[2]) { }
+                column(VAT_InvoiceDiscountAmount2; VAT_InvoiceDiscountAmount[2]) { }
+                column(VAT_ClauseCode2; VAT_ClauseCode[2]) { }
+                column(VAT_ClauseDescription2; VAT_ClauseDescription[2]) { }
+                column(VAT_Identifier3; VAT_Identifier[3]) { }
+                column(VAT_Perc3; VAT_Perc[3]) { }
+                column(VAT_Description3; VAT_Description[3]) { }
+                column(VAT_Base3; VAT_Base[3]) { }
+                column(VAT_Amount3; VAT_Amount[3]) { }
+                column(VAT_InvoiceDiscountAmount3; VAT_InvoiceDiscountAmount[3]) { }
+                column(VAT_ClauseCode3; VAT_ClauseCode[3]) { }
+                column(VAT_ClauseDescription3; VAT_ClauseDescription[3]) { }
+                column(VAT_Identifier4; VAT_Identifier[4]) { }
+                column(VAT_Perc4; VAT_Perc[4]) { }
+                column(VAT_Description4; VAT_Description[4]) { }
+                column(VAT_Base4; VAT_Base[4]) { }
+                column(VAT_Amount4; VAT_Amount[4]) { }
+                column(VAT_InvoiceDiscountAmount4; VAT_InvoiceDiscountAmount[4]) { }
+                column(VAT_ClauseCode4; VAT_ClauseCode[4]) { }
+                column(VAT_ClauseDescription4; VAT_ClauseDescription[4]) { }
+                column(ShowVATClauseTab; VAT_ClauseCode[1] + VAT_ClauseCode[2] + VAT_ClauseCode[3] + VAT_ClauseCode[4] <> '') { }
+                column(PaymentLine_DueDate1; PaymentLine_DueDate[1]) { }
+                column(PaymentLine_Amount1; PaymentLine_Amount[1]) { }
+                column(PaymentLine_DueDate2; PaymentLine_DueDate[2]) { }
+                column(PaymentLine_Amount2; PaymentLine_Amount[2]) { }
+                column(PaymentLine_DueDate3; PaymentLine_DueDate[3]) { }
+                column(PaymentLine_Amount3; PaymentLine_Amount[3]) { }
+                column(PaymentLine_DueDate4; PaymentLine_DueDate[4]) { }
+                column(PaymentLine_Amount4; PaymentLine_Amount[4]) { }
+                column(VATLineCurrencyCode; HeaderLoop."EOS Currency Code") { }
+                column(VATLineTotal; VATLineTotal) { }
+                column(VATLineInvDiscTotal; VATLineInvDiscTotal) { }
+                //column(VATLineBaseTotal; VATLineBaseTotal) { }
+                column(VATLineBaseTotal; ROUND(VATLineBaseTotal, 0.01, '=')) { }
+                column(VATLineAmountTotal; VATLineAmountTotal) { }
+                column(VATLineAmountInclVATTotal; VATLineAmountInclVATTotal) { }
+                column(PrintVat; PrintVAT) { }
 
                 trigger OnAfterGetRecord()
                 begin
@@ -528,7 +667,6 @@ report 50011 "UFO03 Shipment Document PSA2"
                     SetRange(Number, 1, 1 + HeaderLoop."EOS No. of Copies");
                 end;
             }
-
             trigger OnAfterGetRecord()
             var
                 SellToCust: Record "Customer";
@@ -866,162 +1004,11 @@ report 50011 "UFO03 Shipment Document PSA2"
                         CaptionML = ENU = 'Hide prices', ITA = 'Nascondi prezzi';
                         ApplicationArea = All;
                     }
-                    // field(PrintVAT; PrintVAT)
-                    // {
-                    //     CaptionML = ENU = 'Hide VAT', ITA = 'Nascondi IVA';
-                    //     ApplicationArea = All;
-                    // }
                 }
             }
         }
 
-        trigger OnOpenPage()
-        var
-            SubscriptionMgt: Codeunit "EOS EX009 Subscription";
-        begin
-            RequestOptionsPage.Caption := RequestOptionsPage.Caption() + SubscriptionMgt.GetLicenseText(true);
 
-            DetectCurrentDocument();
-        end;
-    }
-
-    labels
-    {
-        label(ReportTitle; ENU = 'Transport Document', ITA = 'Documento di Trasporto')
-        label(ReporttitleText; ENU = 'ADR transport document pursuant to section 5.4.1 of the ADR Transport sheet (DM 554/2009)', ITA = 'Documento di trasporto ADR ai sensi della sezione 5.4.1 dell''ADR Scheda di trasporto (DM 554/2009)')
-        //'Documento di trasporto ADR ai sensi della sezione 5.4.1 dell''ADR Scheda di trasporto (DM 554/2009)';
-        label(RecipientCaption; ENU = 'Recepient', ITA = 'Destinatario')
-        //label(PlaceCaption; ENU = 'Place of Destination (Delivery address)', ITA = 'Luogo di destinazione')
-        label(PlaceCaption; ENU = 'Recipient', ITA = 'Destinatario')
-        //label(BillToAddress_Caption; ENU = 'Billing address', ITA = 'Spett.le')
-        label(BillToAddress_Caption; ENU = 'Invoice holder', ITA = 'Intestatario')
-        label(CIGCaption; ENU = 'CIG', ITA = 'CIG')
-        label(CUPCaption; ENU = 'CUP', ITA = 'CUP')
-        label(CustomerVendorContact_Caption; ENU = 'Contact', ITA = 'Contatto')
-        label(CustomerVendorMail_Caption; ENU = 'E-Mail', ITA = 'E-Mail')
-        label(CustomerVendorNo_Caption; ENU = 'Customer No.', ITA = 'Nr. Cliente')
-        label(DocumentNo_Caption; ENU = 'No.', ITA = 'Nr.')
-        label(FiscalCode_Caption; ENU = 'Fiscal code', ITA = 'Codice Fiscale')
-        //label(GoodsAppearance_Caption; ENU = 'Goods appearance', ITA = 'Aspetto dei beni')
-        label(GoodsAppearance_Caption; ENU = 'Goods appearance', ITA = 'Aspetto esteriore dei beni')
-        label(TransportbyThe_Caption; ENU = 'Transport by the', ITA = 'Trasporto a cura del')
-        label(GrossWeight_Caption; ENU = 'Gross weight', ITA = 'Peso')
-        label(Line_Amount_Caption; ENU = 'Amount', ITA = 'Importo')
-        label(Line_Description_Caption; ENU = 'Description', ITA = 'Descrizione')
-        label(Line_ItemNo_Caption; ENU = 'No.', ITA = 'Nr.')
-        label(Line_LineDiscountPerc_Caption; ENU = 'Disc. %', ITA = 'Sconto %')
-        label(Line_OrderQuantity_Caption; ENU = 'Order Quantity', ITA = 'Quantità Ordine')
-        label(Line_Quantity_Caption; ENU = 'Q.ty', ITA = 'Q.tà')
-        label(Line_ShipmentDate_Caption; ENU = 'Shpt. Date', ITA = 'Data di Spedizione')
-        label(Line_Type_Descr_Caption; ENU = 'Type', ITA = 'Tipo')
-        label(Line_UnitPrice_Caption; ENU = 'Price', ITA = 'Prezzo')
-        //label(Line_UoM_Caption; ENU = 'U.M.', ITA = 'U.M.')
-        label(Line_UoM_Caption; ENU = 'UM', ITA = 'UM')
-        //label(Line_VATIdentifier_Caption; ENU = 'VAT', ITA = 'Cod.IVA')
-        label(Line_VATIdentifier_Caption; ENU = 'VAT', ITA = 'IVA')
-        label(NetWeightCaption; ENU = 'Net', ITA = 'Netto')
-        label(GrossWeightCaption; ENU = 'Gross', ITA = 'Lordo')
-        label(WeightCaption; ENU = 'Weight', ITA = 'Peso')
-        label(NoOfParcels_Caption; ENU = 'Parcels', ITA = 'Nr. Colli')
-        label(OperatorName_Caption; ENU = 'Contact', ITA = 'Contatto')
-        label(OrderConf_Title; ENU = 'Order Confirmation', ITA = 'Conferma Ordine')
-        label(OrderDate_Caption; ENU = 'Order Date', ITA = 'Data Ordine')
-        label(Our_Bank; ENU = 'Our Bank Account', ITA = 'Banca di canalizzazione')
-        label(Page_Caption; ENU = 'Page', ITA = 'Pagina')
-        label(Payment_Amount_Caption; ENU = 'Amount', ITA = 'Importo')
-        label(Payment_DueDate_Caption; ENU = 'Due Date', ITA = 'Data Scadenza')
-        label(PaymentMethod_Caption; ENU = 'Payment method', ITA = 'Metodo di pagamento')
-        label(PaymentTerms_Caption; ENU = 'Payment terms', ITA = 'Condizione di pagamento')
-        label(PostingDate_Caption; ENU = 'Date', ITA = 'Data')
-        label(Reason_Caption; ENU = 'Transport reason', ITA = 'Causale del trasporto')
-        label(ReturnAddr_Caption; ENU = 'Return address', ITA = 'Indirizzo mittente')
-        label(Salesperson_Caption; ENU = 'Salesperson', ITA = 'Agente')
-        label(ShipmentDate_Caption; ENU = 'Shpt. Date', ITA = 'Data di Spedizione')
-        //label(ShipToAddress_Caption; ENU = 'Shipping address', ITA = 'Luogo di destinazione')
-        label(ShipToAddress_Caption; ENU = 'Delivery point', ITA = 'Punto di consegna')
-        label(ShpAgent_Caption; ENU = 'Shipping agent', ITA = 'Vettore')
-        label(ShptBy_Caption; ENU = 'Shpt. by', ITA = 'Agente')
-        //label(ShptMethod_Caption; ENU = 'Shipment meth.', ITA = 'Porto')
-        label(ShptMethod_Caption; ENU = 'Shipment meth.', ITA = 'Resa')
-        label(ShptStart_Caption; ENU = 'Shipment Start', ITA = 'Inizio del trasporto o consegna data e ora')
-        //label(SigRecipient_Caption; ENU = 'Signature - Recipient', ITA = 'Firma del destinatario')
-        label(SigRecipient_Caption; ENU = 'Signature - Recipient', ITA = 'Firma destinatario')
-        label(SigDriver_Caption; ENU = 'Signature - Recipient', ITA = 'Firma conducente')
-        //label(SigShpAgent_Caption; ENU = 'Signature - Ship. agent', ITA = 'Firma dell''incaricato al trasporto o vettore')
-        label(SigCompiler_Caption; ENU = 'Signature - Ship. agent', ITA = 'Firma destinatario')
-        label(Total_DocumentTotalCaption; ENU = 'Document Total', ITA = 'Totale imponibile')
-        label(Total_DocumentTotalVatExclCaption; ENU = 'Document Total Vat Excl.', ITA = 'Totale documento escl. IVA')
-        label(Total_NetAmountToPayCaption; ENU = 'Net Amount To Pay', ITA = 'Importo netto da pagare')
-        label(Total_TotalAmountCaption; ENU = 'Total VAT', ITA = 'Totale IVA')
-        label(Total_TotalBaseCaption; ENU = 'Total Base', ITA = 'Totale Base')
-        label(Total_TotalCaption; ENU = 'Total', ITA = 'Totale')
-        label(Total_TotalInvDiscCaption; ENU = 'Invoice Discount', ITA = 'Sc. Fattutra')
-        label(ValidTo_Caption; ENU = 'Validity', ITA = 'Validità')
-        label(VAT_InvDisc_Caption; ENU = 'Inv. Disc.', ITA = 'Sc. Fatt.')
-        label(VAT_Line_VATIdentifier_Caption; ENU = 'VAT Code', ITA = 'Codice IVA')
-        label(VAT_VATAmount_Caption; ENU = 'Amount', ITA = 'Importo')
-        label(VAT_VATBase_Caption; ENU = 'Base', ITA = 'Base')
-        label(VAT_VATPercent_Caption; ENU = 'VAT %', ITA = '% IVA')
-        label(VAT_VATText_Caption; ENU = 'Description', ITA = 'Descrizione')
-        label(VATClausesCaption; ENU = 'VAT Additional Info:', ITA = 'Info. Aggiuntive IVA')
-        label(VATRegNo_Caption; ENU = 'VAT Reg.', ITA = 'Partita IVA') //P.IVA
-        label(Volume_Caption; ENU = 'Volume', ITA = 'Volume')
-        label(YourReference_Caption; ENU = 'Your reference', ITA = 'Vostro Riferimento')
-        label(BankReference_Caption; ENU = 'Your bank references', ITA = 'Vs. riferimenti bancari')
-        label(YourBankAccountRef_Caption; ENU = 'Our bank references', ITA = 'Ns. riferimenti bancari')
-        label(CustomerBankReference_Caption; ENU = 'Customer Bank', ITA = 'Banca Cliente')
-        label(TextLicenseCpt; ENU = 'DECLARATION OF GOODS TRANSPORTED ON OWN ACCOUNT PURSUANT TO ART. 39 L. N. 298/74 AND SUCC. MOD', ITA = 'DICHIARAZIONE MERCI TRASPORTATE IN CONTO PROPRIO AI SENSI DELL''ART. 39 L.N. 298/74 E SUCC. MOD.')//Declarazione
-        label(TextLicense2; ENU = 'TRANSPORT NOT EXCEEDING THE EXEMPTION LIMITS REQUIREMENTS TO 1.1.3.6 Tot. Dangerous goods:', ITA = 'TRASPORTO NON SUPERIORE AI LIMITI DI ESENZIONE PRESCRITTI AL 1.1.3.6 Tot. merci pericolose: KG/LT 900,000') //TRASPORTO NON SUPERIORE AI LIMITI DI ESENZIONE PRESCRIZIONI AL 1.1.3.6 Tot. merci pericole:
-        //label(TextArt62; ENU = 'IT IS A NON-DETERIORABLE AGRICULTURAL PRODUCT. SINGLE ASSIGNMENT. Art. 62 c.1, DL 1/2012 - L.27 / 2012', ITA = 'TRATTASI DI PRODOTTI AGRICOLI NON DETERIORABILI. UNICA CESSIONE . Art. 62 c.1, DL 1/2012 - L.27/2012')//Declarazione Art 62              
-        label(TextArt62; ENU = 'THIS IS A SALE OF NON-PERISHABLE AGRICULTURAL PRODUCTS. DELIVERY PERIOD: CALENDAR MONTH - Legislative Decree 198/2021', ITA = 'TRATTASI DI CESSIONE DI PRODOTTI AGRICOLI NON DEPERIBILI. PERIODO DI CONSEGNA: MESE SOLARE - D.Lgs. 198/2021')//Declarazione Art 62              
-        label(SigCompilier_Caption; ENU = 'Compiler Signature', ITA = 'Firma Compilatore')// Firma del compilatore
-        label(TaxDiscount_Caption; ENU = 'Tax Discount', ITA = 'Bolli')//Bolli
-        label(CarrierGenInfo_Caption; ENU = 'General Information of the carrier', ITA = 'Generalità del vettore')//Generalità del vettore
-        label(PhytoLicense_CaptionM; ENU = 'Phytosanitary Certification', ITA = 'Autorizzazione Fitosanitaria') //Abilitazione Fitosanitaria
-        label(TransportationBythe_Caption; ENU = 'Transportation by the', ITA = 'Trasporto a cura del')//Trasporto acura del 
-        label(CollectionCosts; ENU = 'Collection Costs', ITA = 'SPESE INCASSO') //Totale Incasso
-        label(GoodsTotal_Caption; ENU = 'Goods Total', ITA = 'TOTALE MERCE') //Totale  Merce
-        label(LoadingPlace_Caption; ENU = 'Goods Loading Place', ITA = 'Luogo di carico della merce') // Luogo di carico della merce
-        label(text1; ENU = 'CONTRIBUTION TO FOOD SAFETY PERFORMED WHERE DUE', ITA = 'CONTRIBUTO PER LA SICUREZZA ALIMENTARE ASSOLTO OVE DOVUTO') //CONTRIBUTO PER LA SICUREZZA ALIMENTARE ASSOLTO OVE DOVUTO
-        label(text2; ENU = 'CONTRIBUTION TO THE COMPLIANCE PERFORMED WHERE DUE', ITA = 'CONTRIBUTO CONAI ASSOLTO OVE DOVUTO') //CONTRIBUTO CONAI ASSOLTO OVE DOVUTO
-        label(text3; ENU = 'POLIECO CONTRIBUTION COMPLETED', ITA = 'CONTRIBUTO POLIECO ASSOLTO') //CONTRIBUTO POLIECO ASSOLTO
-        label(PhytoItemRegNo_Caption; ENU = 'N.Reg.', ITA = 'Nr. Reg.')
-        label(ABI_Caption; ENU = 'ABI', ITA = 'ABI')
-        label(CAB_Caption; ENU = 'CAB', ITA = 'CAB')
-        label(Valuta_Caption; ENU = 'Currency', ITA = 'Valuta')
-        label(IBAN_Caption; ENU = 'IBAN', ITA = 'IBAN')
-        label(FirmaLegRappr_Caption; ENU = 'Legal Representative Signature', ITA = 'Firma Legale Rappresentante')
-        label(Note_Caption; ENU = 'Notes', ITA = 'Note')
-        label(CompanyPIva_caption; ENU = 'P.iva e C.F.', ITA = 'P.iva e C.F.')
-        label(CompanyRea_caption; ENU = 'Iscr. cciaa Terni n. rea', ITA = 'Iscr. cciaa Terni n. rea')
-        label(IBANCompany_caption; ENU = 'IBAN', ITA = 'IBAN')
-        label(Giornochiusura_caption; ENU = 'Closing day', ITA = 'Giorno chiusura')
-        label(OrdineNr_caption; ENU = 'Our order', ITA = 'Ns ordine')
-        label(Fresco_caption; ENU = 'Fresco:', ITA = 'Fresco:')
-        label(Surg_caption; ENU = 'Surg.:', ITA = 'Surg.:')
-        label(Secco_caption; ENU = 'Secco:', ITA = 'Secco:')
-        label(Conai1_caption; ENU = 'CONAI contribution paid where due', ITA = 'Contributo CONAI assolto ove dovuto. ')
-        label(Conai2_caption; ENU = 'Fee including environmental contribution', ITA = 'Corrispettivo comprensivo del contributo ambientale')
-        label(Conai3_caption; ENU = 'Complies with the obligations under art. 62, paragraph 1, of the decree Law 24 January 2012, n. 1, converted with amendments by law 24 March 2012, n. 27', ITA = 'Assolve gli obblighi di cui all''art. 62, comma 1, del decr. Legge 24 gennaio 2012, n. 1, convertito con modificazioni dalla legge 24 marzo 2012, n. 27')
-        label(Piede1_caption; ENU = 'The Recipient', ITA = 'Il Destinatario ')
-        label(Piede2_caption; ENU = 'UPON RECEIPT OF THE GOODS, CARRIES OUT THE ORGANOLEPTIC AND QUANTITATIVE CONTROL OF THE ABOVE LISTED, DECLARING', ITA = 'AL RICEVIMENTO DELLA MERCE, EFFETTUA IL CONTROLLO ORGANOLETTICO E QUANTITATIVO DI QUANTO SOPRA ELENCATO, DICHIARANDO ')
-        label(Piede3_caption; ENU = 'TO HAVE READ AND APPROVED SEPARATELY THE CLAUSES REPORTED IN THE FOLLOWING DOCUMENT.', ITA = 'DI AVER LETTO E APPROVATO DISTINTAMENTE LE CLAUSOLE RIPORTATE NEL SEGUENTE DOCUMENTO. ')
-        label(Piede4_caption; ENU = 'This supply is considered paid upon unloading only if expressly indicated and signed by one of our managers delegated to collection.', ITA = 'La presente fornitura si intende pagata allo scarico solo se espressamente indicato e firmato da un nostro responsabile delegato all''incasso.')
-        label(Piede5_caption; ENU = 'THE COMPANY COMPLIES WITH THE CURRENT REGULATIONS ON SELF-CONTROL (HACCP)', ITA = 'L''AZIENDA RISPETTA LA NORMATIVA IN VIGORE IN MATERIA DI AUTOCONTROLLO (HACCP)')
-        label(Piede6_caption; ENU = '(*) SM = Discount on Goods; ID = Company VAT; IC = Customer VAT; SO = Replacement', ITA = '(*) SM = Sconto in Merce; ID = Iva Carico Ditta; IC = Iva Carico Cliente; SO = Sostituzione')
-        label(Piede7_caption; ENU = 'The undersigned holder of the license for the transport of goods on his own account, declares that the goods transported are his property', ITA = 'Il sottoscritto titolare della licenza di autotrasporto di cose per conto proprio, dichiara che le cose trasportate sono di sua proprietà')
-        label(Piede8_caption; ENU = 'ENVIRONMENTAL CONTRIBUTION ON ANIMAL AND VEGETABLE OILS AND FATS FOR FOOD USE PAID WHERE DUE', ITA = 'CONTRIBUTO AMBIENTALE SUGLI OLI E GRASSI ANIMALI E VEGETALI PER USO ALIMENTARE ASSOLTO OVE DOVUTO')
-        label(Piede9_caption; ENU = 'INFORMATION AND REQUEST FOR CONSENT TO THE PROCESSING OF PERSONAL DATA IN ACCORDANCE WITH EU REGULATION 679/2016 AND CURRENT ITALIAN LEGISLATION ON THE SUBJECT', ITA = 'INFORMATIVA E RICHIESTA CONSENSO AL TRATTAMENTO DEI DATI PERSONALI AI SENSI DEL REGOLAMENTO UE 679/2016 E NORMATIVA ITALIANA VIGENTE IN MATERIA')
-        label(Piede10_caption; ENU = 'The processing of personal data is carried out, in full compliance with the aforementioned legislation, in compliance with the fundamental rights and freedoms of the interested party, ', ITA = 'Il trattamento dei dati personali si svolge, nel pieno rispetto della normativa suddetta, nel rispetto dei diritti e delle libertà fondamentali dell''interessato, ')
-        label(Piede11_caption; ENU = 'with particular reference to confidentiality and the right to protection. The processing is carried out to fulfill administrative-accounting and fiscal obligations, ', ITA = 'con particolare riferimento alla riservatezza e al diritto alla protezione. Il trattamento viene effettuato per adempiere ad obblighi amministrativo-contabili e fiscali, ')
-        label(Piede12_caption; ENU = 'as per the information available at www.amelia3.it, which we ask you to read', ITA = 'come da informativa reperibile all''indirizzo www.amelia3.it, della quali Vi preghiamo di prendere visione')
-        label(SpedizioneInf_caption; ENU = 'Shipments under 100 euros logistics contribution 3.90 euros', ITA = 'Spedizioni inferiori a 100 euro contributo logistico 3,90 euro')
-        label(Autista_caption; ENU = 'THE DRIVER IS NOT AUTHORIZED TO COLLECT INVOICES', ITA = 'L''AUTISTA NON E'' AUTORIZZATO AD INCASSARE LE FATTURE')
-        label(QtaCo_Caption; ENU = 'Q.tà CO', ITA = 'Q.tà CO')
-        label(Om_Caption; ENU = 'Om(*)', ITA = 'Om(*)')
-        //label(PrezzoUnitario_Caption; ENU = 'Unit price', ITA = 'Prezzo Unitario')
-        label(PrezzoUnitario_Caption; ENU = 'Price', ITA = 'Prezzo')
-        label(AmountColumn_Caption; ENU = 'Amount', ITA = 'Importo')
     }
 
     trigger OnInitReport()
@@ -1069,40 +1056,11 @@ report 50011 "UFO03 Shipment Document PSA2"
 
     trigger OnPostReport()
     var
-        //ReportDebug: Codeunit "MMA03 Report Debug";
         ReportID: Integer;
         AdvRptDebug: Codeunit "EOS AdvRpt Debug";
     begin
         AdvRptDebug.AddEventLog('OnPostReport', 'Stop', '');
-
-        // >>> KF DEBUG-MODE
-        // If Debug then begin
-        //     ReportID := ReportDebug.GetNumberFromString(CurrReport.ObjectId(false));
-        //     ReportDebug.ExportReportDataset(ReportID, RecRef);
-        // end;
-        // <<< KF DEBUG-MODE
     end;
-
-    // local procedure SetRecRefForDebugMode(TableID: Integer; DocumentType: Integer; DocumentNo: Code[20])
-    // var
-    // begin
-    //     // >>> KF DEBUG-MODE
-    //     case TableID of
-    //         110:
-    //             begin
-    //                 RecRef.Close();
-    //                 RecRef.Open(110);
-    //                 RecRef.Copy(FakeSalesShipmentHeader);
-    //             end;
-    //         6650:
-    //             begin
-    //                 RecRef.Close();
-    //                 RecRef.Open(6650);
-    //                 RecRef.Copy(FakeReturnShipmentHeader);
-    //             end;
-    //     end;
-    //     // <<< KF DEBUG-MODE
-    // end;
 
     local procedure SetupLanguage(DocVariant: Variant)
     var
@@ -1590,6 +1548,29 @@ report 50011 "UFO03 Shipment Document PSA2"
         ESCMSetup: record "YAV-DIS Setup";
         PlannedDeliveryDatetime: text;
         ExactDeliveryDateTime: text;
-
+        SalesHeader: Record "Sales Header";
+        NoDocEsterno: Code[35];
+        PalletLabelNo: Code[20];
+        ESCMLabel: Record "YAV-LIB Label";
+        LotNo: Code[10];
+        DataScadenza: Text;
+        LabelNo: Code[20];
+        FirstLabelNo: Code[20];
+        LastLabelNo: Code[20];
+        FirstLabelNoSenzaZeri: Code[20];
+        LastLabelNoSenzaZeri: Code[20];
+        PalletLabelNoSenzaZeri: Code[20];
+        UnloadingPoint: Text;
+        UnloadingPlant: Text;
+        PackageCodeNonPallet: Code[20];
+        TMPESCMDispatchOrderPackage: Record "YAV-DIS Dispatch Order Package";
+        NoOrdVend: Code[20];
+        NoOrdVendProg: Code[20];
+        Qty_ESCM2: Integer;
+        ItemVisibility: Boolean;
+        ESCMPackage: Record "YAV-DIS Package";
+        TotalQty: Decimal;
+        DeliveryCallNo: Text;
+        CounterDispOrd: Integer;
+        ESCMLabelEntry: Record "YAV-LIB Label Entry";
 }
-

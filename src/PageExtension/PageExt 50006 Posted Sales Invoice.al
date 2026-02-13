@@ -20,7 +20,7 @@ pageextension 50006 "Posted Sales Invoice" extends "Posted Sales Invoice"
                 trigger OnAction()
                 var
                     SalesInvoiceHeader: Record "Sales Invoice Header";
-                    InvoiceDocumentFD: Report "UFO03 Invoice Document - FD";
+                    InvoiceDocumentFD: Report "Invoice Document - FD";
                 begin
                     SalesInvoiceHeader.Reset();
                     SalesInvoiceHeader.Get(Rec.RecordId);

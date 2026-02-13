@@ -755,9 +755,9 @@ codeunit 50000 "Prints Management"
             112:
                 begin
                     if format(RecordRef.Field(SalesInvoiceHeader.FieldNo("Operation Type")).Value) = 'VEN' then
-                        NewReportId := Report::"UFO03 Invoice Document"
+                        NewReportId := Report::"Invoice Document"
                     else if format(RecordRef.Field(SalesInvoiceHeader.FieldNo("Operation Type")).Value) = 'VEN-DIFF' then
-                        NewReportId := Report::"UFO03 Invoice Document - FD";
+                        NewReportId := Report::"Invoice Document - FD";
 
                     // FattAccomp := RecordRef.Field(SalesInvoiceHeader.FieldNo("MMA04 Accomp. Inv.")).Value;
                     // // if (format(RecordRef.Field(SalesInvoiceHeader.FieldNo("No.")).Value).Contains('FV1-')) or

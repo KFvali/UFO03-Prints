@@ -1,15 +1,45 @@
-report 50002 "UFO03 Invoice Document"
+namespace Keyfor.UFO03.Prints;
 
+using Microsoft.Sales.Document;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.History;
+using Microsoft.Sales.Archive;
+using Microsoft.Service.Document;
+using Microsoft.Service.History;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Document;
+using Microsoft.Purchases.Archive;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Bank.BankAccount;
+using Microsoft.Foundation.PaymentTerms;
+using Microsoft.Foundation.Company;
+using Microsoft.Foundation.Shipping;
+using Microsoft.Foundation.Comment;
+using Microsoft.Foundation.Auditcodes;
+using Microsoft.Foundation.Address;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Transfer;
+using Microsoft.Inventory.Tracking;
+using Microsoft.Inventory.Location;
+using Microsoft.Finance.VAT.Clause;
+using Microsoft.CRM.Team;
+using Microsoft.CRM.Contact;
+using Microsoft.HumanResources.Employee;
+using System.Environment;
+using System.Security.AccessControl;
+using System.Security.User;
+using System.Utilities;
+
+report 50001 "STD Shipping Document"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = 'UFO03 Invoice Document.rdlc';
+    RDLCLayout = 'STD Shipping Document.rdlc';
 
-    CaptionML = ENU = 'Invoice Document', ITA = 'Fattura Accompagnatoria';
+    CaptionML = ENU = 'Shipping Document', ITA = 'Documento di Trasporto';
     Permissions = TableData "VAT Clause" = r,
                   TableData "VAT Clause Translation" = r;
     PreviewMode = PrintLayout;
     UsageCategory = None;
-
 
     dataset
     {
@@ -150,7 +180,6 @@ report 50002 "UFO03 Invoice Document"
                 CurrReport.Break();
             end;
         }
-
         dataitem(FakePurchaseHeaderArchive; "Purchase Header Archive")
         {
             DataItemTableView = sorting("Document Type", "No.", "Doc. No. Occurrence", "Version No.");
@@ -206,32 +235,41 @@ report 50002 "UFO03 Invoice Document"
                 column(CompanyVAT; CompanyInfo."VAT Registration No.") { }
                 column(CompanyIban; CompanyInfo.IBAN) { }
                 column(CompanyShareCapitalTxt; RigaCapitaleSociale) { }
-                //Start iad+ 05.03.21
-                //ORG:column(ReportTitle; HeaderLoop."EOS Report Title") { }
-                // column(ReportCustomText; CustomSetup.GetReportText()) { }//22.04.2021 Gestione testi custom report IAD+ 
-                // column(SignatureImage; CustomSetup."MMA04 Signature Image") { }//23.04.2021 Firma (csetup mazzoni)
+                //column(ReportTitle; HeaderLoop."EOS Report Title") { }
+
+                // column(ReportCustomText; CustomSetup.getReporttext()) { }//22.04.2021 Gestione testi custom report IAD+
+                // column(SignatureImage; CustomSetup."MMA04 Signature Image") { }//23.04.2021 Firma (setup mazzoni)
                 column(CopyNo; Number) { }
                 column(DocumentNo; HeaderLoop."EOS No.") { }
                 column(PostingDate; HeaderLoop."EOS Posting Date") { }
-                //Start mpd+ 08.02.21
-                //ORG:column(Salesperson; Salesperson.Name) { }
-                column(Salesperson; Salesperson.Code) { }
+                column(OurOrderNo; NsOrdine) { }
+                column(OurOrderDate; DataOrdine) { }
+                column(SourceID; HeaderLoop."EOS Source Table ID") { }
+                column(Salesperson; Salesperson.Code) { } //mdp+ 12.01.21
+                //Start mpd+ 010221
                 column(CupCode; CupCode_Value) { }
                 column(CigCode; CigCode_Value) { }
                 column(OurBankRef; OurBankRef) { }
+                //Stop mpd+ 010221
+                //Start iad+ 020321
                 column(OurBankRef1; OurBankRef1) { }
-                //Stop mpd+ 08.02.21
+                //Stop iad+ 020321
                 column(OperatorName; Employee.FullName()) { }
                 column(SelltoBuyFromNo; HeaderLoop."EOS Sell-to/Buy-From No.") { }
                 column(SellToBuyFromAddr; HeaderLoop.GetSellToBuyFromAddr()) { }
                 column(BillToNo; HeaderLoop."EOS Bill-to/Pay-to No.") { }
-                //Start  22.03.21 fix county /iad
+                //Start  22032021 fix county /iad
                 //ORG column(BillToAddress; HeaderLoop.GetBillToPayToAddr()) { }
 
                 //ORG  column(ShipToAddress; HeaderLoop.GetShipToAddr()) { }
                 column(ShipToAddress; GetShipToFormattedAddress()) { }
                 column(BillToAddress; GetBillToFormattedAddress()) { }
-                //Start  22.03.21 fix county /iad
+                //Start  22032021 fix county /iad
+
+                //Start npa 21.05.2021
+                column(HideAddressCaption; HideAddressCaption) { }
+                //Stop npa 21.05.2021
+                column(LocationAddress; MMA_LocationAddr()) { }
                 column(CustomerVendorContact; BuyFromContact.Name) { }
                 column(CustomerVendorEMail; BuyFromContact."E-Mail") { }
                 column(PaymentTerms; HeaderLoop.PaymentTerms_GetDescInLanguage()) { }
@@ -243,13 +281,12 @@ report 50002 "UFO03 Invoice Document"
                 column(ShptMethod; ShipmentMethodDesc) { }
                 column(ShptBy; Format(HeaderLoop."EOS Shipment by")) { }
                 column(ShpAgent; HeaderLoop.GetShippingAgentText()) { }
-                //column(GoodsAppearance; HeaderLoop."EOS Goods Appearance") { }
+                column(GoodsAppearance; HeaderLoop."EOS Goods Appearance") { }
                 column(ShipmentStartingDateTime; StrSubstNo('%1 %2', DT2Date(HeaderLoop."EOS Shipment Starting Date"), DT2Time(HeaderLoop."EOS Shipment Starting Date"))) { }
                 column(ReturnAddress; HeaderLoop."EOS Return Address") { }
                 column(NoOfParcels; HeaderLoop."EOS No. of Parcels") { }
                 column(GrossWeight; HeaderLoop."EOS Gross Weight Dec") { }
-                //column(NetWeight; HeaderLoop."EOS Net Weight Dec") { }
-
+                column(NetWeight; HeaderLoop."EOS Net Weight Dec") { }
                 column(Volume; HeaderLoop."EOS Volume Dec") { }
                 column(AddressPosition; Format(ReportSetup."EOS Address Position", 0, 9)) { }
                 column(OurBank; HeaderLoop."EOS Bank IBAN") { }
@@ -259,13 +296,14 @@ report 50002 "UFO03 Invoice Document"
                 column(ValidTo; HeaderLoop."EOS Valid to") { }
                 column(VATExclDeclaration; HeaderLoop."EOS Footer Line") { }
                 column(VATLineAmountToPay; HeaderLoop."EOS Amount Including VAT") { }
-
                 //Start iad
-                // column(ShowLicenseReqText; CheckLicenseReqItem(HeaderLoop."EOS No.", HeaderLoop."EOS Source Table ID")) { }
+                column(ShowArt62Text; CheckArt62Item(HeaderLoop."EOS No.", HeaderLoop."EOS Source Table ID")) { }
+                column(ShowLicenseReqText; CheckLicenseReqItem(HeaderLoop."EOS No.", HeaderLoop."EOS Source Table ID")) { }
                 column(TextLicenseCptNew; TextLicense) { } //mpd+ 29.12.20
-                                                           //Stop iad
-                                                           //Start mpd+ 06.12.21
+                //Stop iad
+                //Start mpd+ 06.12.21
                 column(CustomerPestLicense; CustomerPesticideLicense) { }
+                //Stop mpd+ 06.12.21
                 column(CstmHdrTxt1; HeaderLoop.GetCustomFieldTextValue('CustomText1')) { }
                 column(CstmHdrTxt2; HeaderLoop.GetCustomFieldTextValue('CustomText2')) { }
                 column(CstmHdrTxt3; HeaderLoop.GetCustomFieldTextValue('CustomText3')) { }
@@ -310,19 +348,26 @@ report 50002 "UFO03 Invoice Document"
                 column(CstmHdrFieldValue1; HeaderLoop.GetCustomFieldTextValue('CustomFieldValue1')) { }
                 column(CstmHdrFieldLabel2; HeaderLoop.GetCustomFieldTextValue('CustomFieldLabel2')) { }
                 column(CstmHdrFieldValue2; HeaderLoop.GetCustomFieldTextValue('CustomFieldValue2')) { }
+                column(PrintText1; PrintText1) { }
+                //Start mpd+ 29.12.20
+                // column(ShippingComments; StrSubstNo('%1 %2 %3 %4 %5 %6 %7 %8 %9 %10', ShippingComments[1], ShippingComments[2], ShippingComments[3], ShippingComments[4], ShippingComments[5],
+                //                                                         ShippingComments[6], ShippingComments[7], ShippingComments[8], ShippingComments[9], ShippingComments[10]))
+                // { }
                 column(ShippingComments; ShippingCommentsText) { } //Didascalia Trasporto Conto Proprio
-                                                                   //Stop mpd+ 29.12.20
+                //Stop mpd+ 29.12.20
+                column(IsCustomerBank; IsCustomerBank) { }
                 column(ABICode; ABICode) { }
                 column(CABCode; CABCode) { }
                 column(IBANCode; IBANCode) { }
                 column(BankName; BankName) { }
                 column(CurrencyCode; HeaderLoop."EOS Currency Code") { }
                 column(PaymentMethodCode; HeaderLoop."EOS Payment Method Code") { }
+                column(NascondiPrezzi; NascondiPrezzi) { }
                 column(NrColliSecchi; NrColliSecchi) { }
                 column(NrColliSurgelati; NrColliSurgelati) { }
                 column(NrColliFreschi; NrColliFreschi) { }
                 column(GiornoChiusura; GiornoChiusura) { }
-
+                column(CartaIntestata; TenandMediaHeaderImage.Content) { }
                 dataitem(LineLoop; "EOS Report Buffer Line")
                 {
                     DataItemLinkReference = HeaderLoop;
@@ -335,29 +380,29 @@ report 50002 "UFO03 Invoice Document"
                     column(Line_Style; Format("EOS Line Style", 0, 2)) { }
                     column(Line_ExtensionCode; LineLoop."EOS Extension Code") { }
                     column(Line_LineNo; LineLoop."EOS Line No.") { }
+                    //Start IAD 21.12.2020
                     column(Line_ItemNo; LineLoop."EOS No.") { }
-                    //Start iad+ 05.03.21
-                    column(Line_RegNo; PhytoItemRegNo) { }
-                    //Stop iad+ 05.03.21
                     column(Line_Description; LineLoop."EOS Description") { }
-                    column(Line_Description2; LineLoop."EOS Description 2") { }
-                    column(Line_Quantity; LineLoop."EOS Quantity") { DecimalPlaces = 3; }
-                    //Start 220321  /IAD
                     column(showvariant; showvariant) { }
                     column(Line_ItemVariantNo; LineLoop."EOS Variant Code") { }
                     column(Line_ItemVariantDesc; ItemVariantDesc) { }
                     //Stop IAD 21.12.2020
-                    //Stop  220321  /IAD
+                    //Start mpd+ 06.12.21
+                    column(Line_RegNo; PhytoItemRegNo) { }
+                    //Stop mpd+ 06.12.21
+                    column(Line_Description2; LineLoop."EOS Description 2") { }
+                    column(Line_Quantity; LineLoop."EOS Quantity") { DecimalPlaces = 3; }
                     column(Line_UoMCode; CopyStr(LineLoop.GetUdMTraduction(HeaderLoop), 1, 4)) { }
-                    //column(Line_LineDiscountPerc; LineLoop."EOS Discount Text") { }
-                    column(Line_LineDiscountPerc; PercSconto) { }
-                    column(Line_UnitPrice; LineLoop."EOS Unit Price") { DecimalPlaces = 5; }
+                    //column(Line_LineDiscountPerc; LineLoop."EOS Discount Text") { } 
+                    column(Line_LineDiscountPerc; LineLoop."EOS Line Discount %") { }
+                    //column(Line_UnitPrice; LineLoop."EOS Unit Price") { DecimalPlaces = 5; }
+                    column(Line_UnitPrice; UnitPrice) { DecimalPlaces = 5; }
                     column(Line_Amount; LineLoop."EOS Amount" + LineLoop."EOS Inv. Discount Amount") { }
-                    column(Line_VATIdentifier; LineLoop."EOS VAT Identifier") { }
+                    //column(Line_VATIdentifier; LineLoop."EOS VAT Identifier") { }
+                    column(Line_VATIdentifier; VATIdentifier) { }
                     column(Line_ShipmentDate; LineLoop."EOS Shipment Date") { }
                     column(Line_Type_Desc; Format(LineLoop."EOS Type")) { }
                     column(Line_OrderQuantity; LineLoop."EOS Source Line Quantity") { }
-
                     column(CstmLneTxt1; LineLoop.GetCustomFieldTextValue('CustomText1')) { }
                     column(CstmLneTxt2; LineLoop.GetCustomFieldTextValue('CustomText2')) { }
                     column(CstmLneTxt3; LineLoop.GetCustomFieldTextValue('CustomText3')) { }
@@ -398,7 +443,9 @@ report 50002 "UFO03 Invoice Document"
                     column(CstmLneInt3; LineLoop.GetCustomFieldIntegerValue('CustomInteger3')) { }
                     column(CstmLneInt4; LineLoop.GetCustomFieldIntegerValue('CustomInteger4')) { }
                     column(CstmLneInt5; LineLoop.GetCustomFieldIntegerValue('CustomInteger5')) { }
-                    column(DichIntentoTesto; DichIntentoTesto) { }
+
+                    column(Line_Amount_DDT; LineAmount) { }
+                    column(SecQuantity; SecQuantityToPrint) { }
 
                     trigger OnAfterGetRecord()
                     var
@@ -407,16 +454,116 @@ report 50002 "UFO03 Invoice Document"
                         //jobshipline: Record "MMA07 Job Shipment Line";
                         ItemVariant: Record "Item Variant";
                         LocItem: Record Item;
-                        lSalesInvLine: Record "Sales Invoice Line";
-                        DichIntento: Record "EOS VAT Exemption";
-                        DicituraImpostaTxt: TextConst ENU = 'Tax not applied as per declaration of intent with receipt protocol %1', ITA = 'Imposta non applicata come da dichiarazione d''intento con protocollo di ricezione %1';
-
+                        TransferShipmentLine: Record "Transfer Shipment Line";
+                        lSalesLine: Record "Sales Line";
+                        lCustomer: Record "Customer";
                     begin
                         if ImagesSent then begin
                             Clear(HeaderLoop."EOS Header Image");
                             Clear(HeaderLoop."EOS Footer Image");
                         end else
                             ImagesSent := true;
+
+                        if (LineLoop."EOS Source Table ID" = Database::"Transfer Shipment Line") and (LineLoop."EOS Type" = LineLoop."EOS Type"::Item) then begin
+                            if LineLoop."EOS Variant Code" = '' then
+                                if TransferShipmentLine.Get(HeaderLoop."EOS No.", LineLoop."EOS Line No.") then begin
+                                    if TransferShipmentLine."Variant Code" <> '' then
+                                        LineLoop."EOS Variant Code" := TransferShipmentLine."Variant Code";
+                                end;
+                        end;
+
+                        IF NOT SalesShipmentLine.GET(LineLoop."EOS Source ID", LineLoop."EOS Source Line No.") THEN
+                            CLEAR(SalesShipmentLine);
+
+                        // --> gestione doppia unità di misura (MUTUATO DA RENZINI QUINDI DA VERIFICARE!!!)
+                        if LineLoop."EOS Source Table ID" = Database::"Sales Shipment Header" then begin
+                            If SalesShipmentLine."EOS051 Sec. UoM Code" <> '' then begin
+                                LineUM := SalesShipmentLine."EOS051 Sec. UoM Code";
+                                If LineUM = 'PZ' then
+                                    SecQuantity := ROUND(SalesShipmentLine."EOS051 Sec. Quantity", 1, '>')
+                                else
+                                    SecQuantity := SalesShipmentLine."EOS051 Sec. Quantity";
+                                //UnitPrice := SalesShipmentLine."EOS051 Sec. Unit Price";
+                                LineQuantityToPrint := SecQuantity;
+                                if LineLoop."EOS Unit of Measure Code" = 'PZ' then
+                                    LineQuantity := ROUND(LineLoop."EOS Quantity", 1, '>')
+                                else
+                                    LineQuantity := LineLoop."EOS Quantity";
+                                SecQuantityToPrint := LineQuantity;
+                            end else begin
+                                LineUM := LineLoop."EOS Unit of Measure Code";
+                                //Clear(SecQuantity);
+                                If LineUM = 'PZ' then begin
+                                    LineQuantity := ROUND(LineLoop."EOS Quantity", 1, '>');
+                                    SecQuantity := ROUND(LineLoop."EOS Quantity", 1, '>');
+                                end else begin
+                                    LineQuantity := LineLoop."EOS Quantity";
+                                    SecQuantity := LineLoop."EOS Quantity";
+                                end;
+                                // UnitPrice := LineLoop."EOS Unit Price";
+                                LineQuantityToPrint := LineQuantity;
+                                //Clear(SecQuantityToPrint);
+                                SecQuantityToPrint := SecQuantity;
+                            end;
+                        end;
+                        // <-- gestione doppia unità di misura (MUTUATO DA RENZINI QUINDI DA VERIFICARE!!!)
+
+                        if LineLoop."EOS Source Table ID" = Database::"Sales Shipment Header" then begin
+                            lSalesLine.Reset();
+                            lSalesLine.SetRange("Document Type", lSalesLine."Document Type"::Order);
+                            lSalesLine.SetRange("Document No.", LineLoop."EOS Order No.");
+                            lSalesLine.SetRange("Line No.", "EOS Order Line No.");
+                            if lSalesLine.FindFirst() then begin
+                                if LineLoop."EOS VAT Identifier" = '' then
+                                    VATIdentifier := lSalesLine."VAT Identifier"
+                                else
+                                    VATIdentifier := Format(LineLoop."EOS VAT Identifier");
+
+                                // --> gestione prezzi nel DDT (mutuate da Renzini QUINDI DA RETTIFICARE POTENZIALMENTE)
+                                If lCustomer.GET(HeaderLoop."EOS Bill-to/Pay-to No.") then begin
+                                    if NascondiPrezzi = False then begin
+                                        // --> prezzo unitario con o senza qtà secondaria
+                                        if SalesShipmentLine."EOS051 Sec. UoM Code" <> '' then
+                                            UnitPrice := lSalesLine."EOS051 Sec. Unit Price"
+                                        else
+                                            UnitPrice := lSalesLine."Unit Price";
+                                        // <-- prezzo unitario con o senza qtà secondaria    
+                                        // --> gestione sconto di riga
+                                        RecRef3.Close();
+                                        RecRef3.Open(37);
+                                        RecRef3.Copy(lSalesLine);
+                                        GetLineDiscount(RecRef3);
+                                        // <-- gestione sconto di riga
+                                        // --> calcolo importo riga (imponibile) per le sole quantità consegnate
+                                        If (SalesShipmentLine."Qty. Shipped Not Invoiced" = 0) and (SalesShipmentLine."EOS051 Sec. Qty. Sh. Not Inv." = 0) then
+                                            Clear(LineAmount)
+                                        else
+                                            If (SalesShipmentLine."Qty. Shipped Not Invoiced" <> 0) or (SalesShipmentLine."EOS051 Sec. Qty. Sh. Not Inv." <> 0) then begin
+                                                if (SecQuantity <> 0) and (lSalesLine."EOS051 Sec. Quantity" <> 0) then
+                                                    LineAmount := ROUND(lSalesLine."Line Amount" / lSalesLine."EOS051 Sec. Quantity" * SecQuantity, 0.01, '=')
+                                                else
+                                                    if (LineQuantity <> 0) and (lSalesLine.Quantity <> 0) then
+                                                        LineAmount := ROUND(lSalesLine."Line Amount" / lSalesLine.Quantity * LineQuantity, 0.01, '=');
+                                            end;
+                                        // <-- calcolo importo riga (imponibile) per le sole quantità consegnate
+                                        SommaImponibilePerDDT := SommaImponibilePerDDT + LineAmount;
+                                        SommaImponibilePerDDT := ROUND(SommaImponibilePerDDT, 0.01, '=');
+                                        If InvoiceDiscount <> '' then begin
+                                            EVALUATE(InvoiceDiscountInt, InvoiceDiscount);
+                                            // --> sconto di testata (calcolato qui perché ho l'imponibile)
+                                            InvoiceDiscountValue := (SommaImponibilePerDDT * InvoiceDiscountInt) / 100;
+                                            // <-- sconto di testata (calcolato qui perché ho l'imponibile)
+                                        end else
+                                            Clear(InvoiceDiscountValue);
+                                        VATLineBaseTotal := SommaImponibilePerDDT - InvoiceDiscountValue;
+                                        if VATLineBaseTotal < 0 then
+                                            VATLineBaseTotal := 0;
+                                    end
+                                end;
+                            end;
+                        end;
+                        // <-- gestione prezzi nel DDT
+
                         ItemVariant.reset;
                         showvariant := false;
                         if itemVariant.get(LineLoop."EOS No.", LineLoop."EOS Variant Code")
@@ -426,17 +573,12 @@ report 50002 "UFO03 Invoice Document"
                             if itemvariant.Description <> '' then
                                 ItemVariantDesc := itemvariant.Description
                         end;
-                        //Start mpd 06.01.21
-                        // PhytoItemRegNo := '';
-                        // if LocItem.Get(LineLoop."EOS No.") //and LocItem."License Requested" 
-                        // then
-                        //     PhytoItemRegNo := LocItem."MMA04 Reg No Ministery Health";
-                        // //Stop 06.01.21 
 
-                        If "EOS Discount Text" = '0' then
-                            PercSconto := ''
-                        else
-                            PercSconto := "EOS Discount Text";
+                        PhytoItemRegNo := '';
+                        // if LocItem.Get(LineLoop."EOS No.") and LocItem."MMA04 License Requested" then
+                        //     PhytoItemRegNo := LocItem."MMA04 Reg No Ministery Health";
+
+                        //Message('LineInfo %1 %2 %3 %4', LineLoop."EOS Line Style", LineLoop."EOS Line type", LineLoop."EOS Quantity", LineLoop."EOS Type");
 
                         // --> gestione lotti 
                         if LineLoop."EOS Line Type" = LineLoop."EOS Line type"::EOSTrackingLine then begin
@@ -449,19 +591,6 @@ report 50002 "UFO03 Invoice Document"
                                 LineLoop."EOS Description" := COPYSTR(STRSUBSTNO('Nr. lotto %1, nr. seriale %2', LineLoop."EOS Lot No.", LineLoop."EOS Serial No."), 1, MAXSTRLEN(LineLoop."EOS Description"));
                         end;
                         // <-- gestione lotti 
-
-                        Clear(DichIntentoTesto);
-                        lSalesInvLine.Reset();
-                        if lSalesInvLine.get(LineLoop."EOS Document No.", LineLoop."EOS Source Line No.") then
-                            if lSalesInvLine."EOS VAT Exemption No." <> '' then begin
-                                DichIntento.Reset();
-                                DichIntento.SetFilter(Type, '=%1', DichIntento.Type::Customer);
-                                DichIntento.SetFilter("Source No.", lSalesInvLine."EOS VAT Exemption No.");
-                                if DichIntento.FindSet() then
-                                    DichIntentoTesto := StrSubstNo(DicituraImpostaTxt, DichIntento."Document No.")
-                                else
-                                    clear(DichIntentoTesto);
-                            end;
 
                     end;
                 }
@@ -512,20 +641,14 @@ report 50002 "UFO03 Invoice Document"
                     column(VATLineCurrencyCode; HeaderLoop."EOS Currency Code") { }
                     column(VATLineTotal; VATLineTotal) { }
                     column(VATLineInvDiscTotal; VATLineInvDiscTotal) { }
-                    column(VATLineBaseTotal; VATLineBaseTotal) { }
+                    //column(VATLineBaseTotal; VATLineBaseTotal) { }
+                    column(VATLineBaseTotal; ROUND(VATLineBaseTotal, 0.01, '=')) { }
                     column(VATLineAmountTotal; VATLineAmountTotal) { }
                     column(VATLineAmountInclVATTotal; VATLineAmountInclVATTotal) { }
                     column(PrintVat; PrintVAT) { }
                 }
 
                 trigger OnAfterGetRecord()
-                var
-                    VATIdentifier: Record "VAT Identifier";
-                    VATIdentifier2: Record "VAT Identifier";
-                    VATIdentifier3: Record "VAT Identifier";
-                    VATIdentifier4: Record "VAT Identifier";
-                    CustLedgerEntry: Record "Cust. Ledger Entry";
-                    i: Integer;
                 begin
                     if not HeaderLoop."EOS Hide Prices" then begin
                         HeaderLoop.GetVATAmountLines(LineLoop,
@@ -547,63 +670,6 @@ report 50002 "UFO03 Invoice Document"
                     if not CurrReport.Preview() then
                         HeaderLoop.CountPrinted();
 
-                    // ---> gestione parentesi da togliere su descrizioni IVA
-                    if VAT_Description[1] = '' then begin
-                        if VATIdentifier.Get(VAT_Identifier[1]) then
-                            VAT_Description[1] := VATIdentifier.Description
-                    end else begin
-                        if StrPos(VAT_Description[1], '(') > 0 then
-                            VAT_Description[1] := CopyStr(VAT_Description[1], 1, StrPos(VAT_Description[1], '(') - 1)
-                        else
-                            VAT_Description[1] := VAT_Description[1];
-                    end;
-
-                    if VAT_Description[2] = '' then begin
-                        if VATIdentifier2.Get(VAT_Identifier[2]) then
-                            VAT_Description[2] := VATIdentifier2.Description
-                    end else begin
-                        if StrPos(VAT_Description[2], '(') > 0 then
-                            VAT_Description[2] := CopyStr(VAT_Description[2], 1, StrPos(VAT_Description[2], '(') - 1)
-                        else
-                            VAT_Description[2] := VAT_Description[2];
-                    end;
-
-                    if VAT_Description[3] = '' then begin
-                        if VATIdentifier3.Get(VAT_Identifier[3]) then
-                            VAT_Description[3] := VATIdentifier3.Description
-                    end else begin
-                        if StrPos(VAT_Description[3], '(') > 0 then
-                            VAT_Description[3] := CopyStr(VAT_Description[3], 1, StrPos(VAT_Description[3], '(') - 1)
-                        else
-                            VAT_Description[3] := VAT_Description[3];
-                    end;
-
-                    if VAT_Description[4] = '' then begin
-                        if VATIdentifier4.Get(VAT_Identifier[4]) then
-                            VAT_Description[4] := VATIdentifier4.Description
-                    end else begin
-                        if StrPos(VAT_Description[4], '(') > 0 then
-                            VAT_Description[4] := CopyStr(VAT_Description[4], 1, StrPos(VAT_Description[4], '(') - 1)
-                        else
-                            VAT_Description[4] := VAT_Description[4];
-                    end;
-                    // <--- gestione parentesi da togliere su descrizioni IVA
-
-                    // ---> gestione pagamenti e scadenze (non funziona la gestione standard)
-                    i := 1;
-
-                    CustLedgerEntry.Reset();
-                    CustLedgerEntry.SetCurrentKey("Document No.");
-                    CustLedgerEntry.SetRange("Document No.", HeaderLoop."EOS No.");
-                    if CustLedgerEntry.FindSet() then begin
-                        repeat
-                            CustLedgerEntry.CalcFields("Original Amount");
-                            PaymentLine_DueDate[i] := CustLedgerEntry."Due Date";
-                            PaymentLine_Amount[i] := CustLedgerEntry."Original Amount";
-                            i += 1;
-                        until CustLedgerEntry.Next() = 0;
-                    end;
-                    // <--- gestione pagamenti e scadenze (non funziona la gestione standard)
                 end;
 
                 trigger OnPreDataItem()
@@ -614,18 +680,17 @@ report 50002 "UFO03 Invoice Document"
 
             trigger OnAfterGetRecord()
             var
-                Commentline: Record "Comment Line";
-                SalesInvHeader: Record "Sales Invoice Header";
-                SalesShipHeader: Record "Sales Shipment Header";
-                loccustomer: Record Customer;
-                locCustbankAcc: Record "Customer Bank Account";
-                locBankAcc: Record "Bank Account";
-                PaymentMethod: Record "Payment Method";
-                PostCode: Record "Post Code";
                 PrintsManagement: Codeunit "Prints Management";
-                InvoiceShipHeader: Record "Sales Shipment Header";
+                Commentline: Record "Comment Line";
+                SalesShipHeader: record "Sales Shipment Header";
+                ReturnShptHeader: Record "Return Shipment Header";
+                Locsalesheader: Record "Sales Header";
+                loccustomer: Record Customer;
+                locbankAcc: Record "Customer Bank Account";
+                TransferShipmentHeader: Record "Transfer Shipment Header";
+                i: Integer;
                 lCustomer: Record Customer;
-            //ReportsEvents: Codeunit "MMA Reports Events";
+
             begin
                 if not ReportSetup.Get(HeaderLoop."EOS Report Setup Code") then
                     ReportSetup.Init();
@@ -642,9 +707,6 @@ report 50002 "UFO03 Invoice Document"
                 if not SellToContact.Get(HeaderLoop."EOS Sell-to Contact No.") then
                     Clear(SellToContact);
 
-                if not PaymentMethod.Get(HeaderLoop."EOS Payment Method Code") then
-                    Clear(PaymentMethod); //mpd+ 08.02.21
-
                 // >>> 20241022 VL --> commentato perché vecchio di EOS
                 // if ReportSetup."EOS Print Logos" then begin
                 //     HeaderLoop.GetHeaderImage(HeaderImage);
@@ -658,46 +720,22 @@ report 50002 "UFO03 Invoice Document"
                 if not CurrReport.Preview() then
                     HeaderLoop.LogInteraction();
 
-                //Start mpd+ 08.02.21
-                //CustomSetup.get();
                 CigCode_Value := '';
                 CupCode_Value := '';
-                if SalesInvHeader.Get(HeaderLoop."EOS No.") then begin
-                    CigCode_Value := SalesInvHeader."Fattura Tender Code";
-                    CupCode_Value := SalesInvHeader."Fattura Project Code";
-                end;
+                if SalesShipHeader.get(HeaderLoop."EOS No.") then
+                    if Locsalesheader.Get(Locsalesheader."Document Type"::Order, SalesShipHeader."Order No.") then begin
+                        CigCode_Value := Locsalesheader."Fattura Tender Code";
+                        CupCode_Value := Locsalesheader."Fattura Project Code";
+                    end;
 
-                // >>> commentato perché modificata la gestione
-                // OurBankRef := '';
-                // OurBankRef1 := '';
-                // loccustomer.get(HeaderLoop."EOS Bill-to/Pay-to No.");
-                // //if (PaymentMethod."Print Customer Bank Info") then begin
-                // if (loccustomer."Preferred Bank Account Code" <> '') AND
-                // (locCustbankAcc.Get(loccustomer."No.", loccustomer."Preferred Bank Account Code")) then begin
-                //     //ORG OurBankRef := CopyStr(locCustbankAcc.Name, 1, 26); Perche 26?? //IAD
-                //     OurBankRef := CopyStr(locCustbankAcc.Name, 1, 49); //IAD + 21.04.2021
-                //     if locCustbankAcc.ABI <> '' then
-                //         OurBankRef1 += ' ABI:' + locCustbankAcc.ABI;
+                TextLicense := '';
+                if CheckShippingAgentComments() then
+                    TextLicense := TextLicenseLbl;
 
-                //     if locCustbankAcc.CAB <> '' then
-                //         OurBankRef1 += ' CAB:' + locCustbankAcc.CAB;
-                // end
-                // //end
-                // else begin
-
-                //     if locBankAcc.Get(loccustomer."EOS Our Bank Account") then
-                //         OurBankRef := CopyStr(locBankAcc.Name, 1, 49);
-
-                // end;
-                // >>> commentato perché modificata la gestione
-
-                //Start  24.12.2020 Gestione Testi trasporto conto proprio /IAD  
                 //if HeaderLoop."EOS Source Table ID" = 110 then begin //mpd- 29.12.20
                 ShippingCommentsText := '';
-                if HeaderLoop."EOS Source Table ID" = Database::"Sales Invoice Header" then begin //mpd+ 29.12.20
-                    if SalesInvHeader.get(HeaderLoop."EOS No.") then;
+                if HeaderLoop."EOS Source Table ID" = Database::"Sales Shipment Header" then begin //mpd+ 29.12.20
                     if SalesShipHeader.get(HeaderLoop."EOS No.") then;
-
                     if SalesShipHeader."Shipping Agent Code" <> '' then begin
                         CommentLine.Reset();
                         //CommentLine.SetRange("Table Name", CommentLine."Table Name"::"Shipping Agent");
@@ -710,32 +748,22 @@ report 50002 "UFO03 Invoice Document"
                         if ShippingCommentsText <> '' then
                             TextLicense := TextLicenseLbl;
                     end;
-
-                    if SalesInvHeader."Shipping Agent Code" <> '' then begin
+                    //Stop  24.12.2020 Gestione Testi trasporto Conto proprio /IAD
+                end else if HeaderLoop."EOS Source Table ID" = Database::"Return Shipment Header" then begin //mpd+ 29.12.20
+                    if ReturnShptHeader.get(HeaderLoop."EOS No.") then;
+                    if ReturnShptHeader."Shipping Agent Code" <> '' then begin
                         CommentLine.Reset();
                         //CommentLine.SetRange("Table Name", CommentLine."Table Name"::"Shipping Agent");
-                        CommentLine.SetRange("No.", SalesInvHeader."Shipping Agent Code");
+                        CommentLine.SetRange("No.", ReturnShptHeader."Shipping Agent Code");
                         if CommentLine.FindSet() then
                             repeat
                                 ShippingCommentsText += CommentLine.Comment + '';
                             until CommentLine.Next() = 0;
+
                         if ShippingCommentsText <> '' then
                             TextLicense := TextLicenseLbl;
                     end;
-
-                end;
-                //Stop  24.12.2020 Gestione Testi trasporto Conto proprio /IAD
-
-                //CustomSetup.CalcFields("Signature Image");
-                //sSignatureImage.Blob := CustomSetup."Signature Image";
-
-                InvoiceShipHeader.Reset();
-                if InvoiceShipHeader.Get(HeaderLoop."EOS No.") then begin
-                    IsCustomerBank := PrintsManagement.GetBankInformation(HeaderLoop."EOS Bill-to/Pay-to No.", HeaderLoop."EOS Payment Method Code", InvoiceShipHeader."EOS Our Bank Account", ABICode, CABCode, IBANCode, BankName)
-                end else begin
-                    SalesInvHeader.Reset();
-                    if SalesInvHeader.Get(HeaderLoop."EOS No.") then;
-                    IsCustomerBank := PrintsManagement.GetBankInformation(HeaderLoop."EOS Bill-to/Pay-to No.", HeaderLoop."EOS Payment Method Code", SalesInvHeader."EOS Our Bank Account", ABICode, CABCode, IBANCode, BankName);
+                    //Stop  24.12.2020 Gestione Testi trasporto Conto proprio /IAD
                 end;
 
                 if HeaderLoop."EOS Shipment Method Code" <> '' then begin
@@ -744,10 +772,26 @@ report 50002 "UFO03 Invoice Document"
                     else
                         ShipmentMethodDesc := HeaderLoop.ShptMethod_GetDescInLanguage()
                 end else begin
-                    if SalesInvHeader."Shipment Method Code" <> '' then
-                        if ShipmentMethod.get(SalesInvHeader."Shipment Method Code") then
-                            ShipmentMethodDesc := ShipmentMethod.Description
+                    if SalesShipHeader."Shipment Method Code" <> '' then
+                        if ShipmentMethod.get(SalesShipHeader."Shipment Method Code") then
+                            ShipmentMethodDesc := ShipmentMethod.Description;
+                    if ReturnShptHeader."Shipment Method Code" <> '' then
+                        if ShipmentMethod.get(ReturnShptHeader."Shipment Method Code") then
+                            ShipmentMethodDesc := ShipmentMethod.Description;
                 end;
+
+                //Start npa 21.05.2021
+                if (HeaderLoop."EOS Source Table ID" = Database::"Transfer Shipment Header") then begin
+                    HideAddressCaption := TransferShipmentHeader.Get(HeaderLoop."EOS No.");
+                end;
+                //Stop npa 21.05.2021
+
+                SalesShipHeader.Reset();
+                if SalesShipHeader.Get(HeaderLoop."EOS No.") then;
+                IsCustomerBank := PrintsManagement.GetBankInformation(HeaderLoop."EOS Bill-to/Pay-to No.", HeaderLoop."EOS Payment Method Code", SalesShipHeader."EOS Our Bank Account", ABICode, CABCode, IBANCode, BankName);
+
+                NsOrdine := SalesShipHeader."Order No.";
+                DataOrdine := SalesShipHeader."Order Date";
 
                 // >>> KF DEBUG-MODE
                 // if Debug then
@@ -755,14 +799,12 @@ report 50002 "UFO03 Invoice Document"
                 // <<< KF DEBUG-MODE
 
             end;
-
         }
     }
 
     requestpage
     {
         Caption = 'Options';
-        SaveValues = true;
 
         layout
         {
@@ -774,7 +816,7 @@ report 50002 "UFO03 Invoice Document"
 
                     field(ReportSetupCodeFld; ReportSetupCode)
                     {
-                        CaptionML = ENU = 'Report Setup Code', ITA = 'Codice Setup report';
+                        CaptionML = ENU = 'Report Setup Code', ITA = 'Cod. Setup Report';
                         TableRelation = "EOS Report Setup";
                         ApplicationArea = All;
                         trigger OnValidate()
@@ -794,14 +836,19 @@ report 50002 "UFO03 Invoice Document"
                     }
                     field(LogInteractionFld; LogInteraction)
                     {
-                        CaptionML = ENU = 'Log Interaction', ITA = 'Log Interazioni';
+                        CaptionML = ENU = 'Log Interaction', ITA = 'Log Interazione';
                         ApplicationArea = All;
                     }
                     field(Debug; Debug)
                     {
-                        Caption = 'Debug';
+                        CaptionML = ENU = 'Debug', ITA = 'Debug';
                         ApplicationArea = All;
                         ToolTip = 'Download Dataset';
+                    }
+                    field(HidePrices; NascondiPrezzi)
+                    {
+                        CaptionML = ENU = 'Hide prices', ITA = 'Nascondi prezzi';
+                        ApplicationArea = All;
                     }
                     // field(PrintVAT; PrintVAT)
                     // {
@@ -824,24 +871,32 @@ report 50002 "UFO03 Invoice Document"
 
     labels
     {
-        label(ReportTitle; ENU = 'Accompanying invoice', ITA = 'Fattura Accompagnatoria')
-        label(BillToAddress_Caption; ENU = 'Billing address', ITA = 'Destinatario')
+        label(ReportTitle; ENU = 'Transport Document', ITA = 'Documento di Trasporto')
+        label(ReporttitleText; ENU = 'ADR transport document pursuant to section 5.4.1 of the ADR Transport sheet (DM 554/2009)', ITA = 'Documento di trasporto ADR ai sensi della sezione 5.4.1 dell''ADR Scheda di trasporto (DM 554/2009)')
+        //'Documento di trasporto ADR ai sensi della sezione 5.4.1 dell''ADR Scheda di trasporto (DM 554/2009)';
+        label(RecipientCaption; ENU = 'Recepient', ITA = 'Destinatario')
+        //label(PlaceCaption; ENU = 'Place of Destination (Delivery address)', ITA = 'Luogo di destinazione')
+        label(PlaceCaption; ENU = 'Recipient', ITA = 'Destinatario')
+        //label(BillToAddress_Caption; ENU = 'Billing address', ITA = 'Spett.le')
+        label(BillToAddress_Caption; ENU = 'Invoice holder', ITA = 'Intestatario')
+        label(CIGCaption; ENU = 'CIG', ITA = 'CIG')
+        label(CUPCaption; ENU = 'CUP', ITA = 'CUP')
         label(CustomerVendorContact_Caption; ENU = 'Contact', ITA = 'Contatto')
-        label(CustomerVendorMail_Caption; ENU = 'E-Mail', ITA = 'E-mail')
+        label(CustomerVendorMail_Caption; ENU = 'E-Mail', ITA = 'E-Mail')
         label(CustomerVendorNo_Caption; ENU = 'Customer No.', ITA = 'Nr. Cliente')
         label(DocumentNo_Caption; ENU = 'No.', ITA = 'Nr.')
         label(FiscalCode_Caption; ENU = 'Fiscal code', ITA = 'Codice Fiscale')
-        label(GoodsAppearance_Caption; ENU = 'Goods appearance', ITA = 'Aspetto dei beni')
-        label(GrossWeight_Caption; ENU = 'Gross weight', ITA = 'Peso Lordo')
+        //label(GoodsAppearance_Caption; ENU = 'Goods appearance', ITA = 'Aspetto dei beni')
+        label(GoodsAppearance_Caption; ENU = 'Goods appearance', ITA = 'Aspetto esteriore dei beni')
+        label(TransportbyThe_Caption; ENU = 'Transport by the', ITA = 'Trasporto a cura del')
+        label(GrossWeight_Caption; ENU = 'Gross weight', ITA = 'Peso')
         label(Line_Amount_Caption; ENU = 'Amount', ITA = 'Importo')
         label(Line_Description_Caption; ENU = 'Description', ITA = 'Descrizione')
         label(Line_ItemNo_Caption; ENU = 'No.', ITA = 'Nr.')
-        label(Line_NoReg_Caption; ENU = 'Reg. No.', ITA = 'Nr. Reg.')
         label(Line_LineDiscountPerc_Caption; ENU = 'Disc. %', ITA = 'Sconto %')
         label(Line_OrderQuantity_Caption; ENU = 'Order Quantity', ITA = 'Quantità Ordine')
-        //label(Line_Quantity_Caption; ENU = 'Quantity', ITA = 'Quantità')
-        label(Line_Quantity_Caption; ENU = 'Qty', ITA = 'Q.tà')
-        label(Line_ShipmentDate_Caption; ENU = 'Shpt. Date', ITA = 'Data Sped.')
+        label(Line_Quantity_Caption; ENU = 'Q.ty', ITA = 'Q.tà')
+        label(Line_ShipmentDate_Caption; ENU = 'Shpt. Date', ITA = 'Data di Spedizione')
         label(Line_Type_Descr_Caption; ENU = 'Type', ITA = 'Tipo')
         label(Line_UnitPrice_Caption; ENU = 'Price', ITA = 'Prezzo')
         //label(Line_UoM_Caption; ENU = 'U.M.', ITA = 'U.M.')
@@ -851,26 +906,25 @@ report 50002 "UFO03 Invoice Document"
         label(NetWeightCaption; ENU = 'Net', ITA = 'Netto')
         label(GrossWeightCaption; ENU = 'Gross', ITA = 'Lordo')
         label(WeightCaption; ENU = 'Weight', ITA = 'Peso')
-        label(NoOfParcels_Caption; ENU = 'No. of Parcels', ITA = 'Nr. Colli')
+        label(NoOfParcels_Caption; ENU = 'Parcels', ITA = 'Nr. Colli')
         label(OperatorName_Caption; ENU = 'Contact', ITA = 'Contatto')
         label(OrderConf_Title; ENU = 'Order Confirmation', ITA = 'Conferma Ordine')
         label(OrderDate_Caption; ENU = 'Order Date', ITA = 'Data Ordine')
         label(Our_Bank; ENU = 'Our Bank Account', ITA = 'Banca di canalizzazione')
         label(Page_Caption; ENU = 'Page', ITA = 'Pagina')
-        label(Payment_Amount_Caption; ENU = 'Amount', ITA = 'Importo Rata')
-        label(Payment_DueDate_Caption; ENU = 'Due Date', ITA = 'Scadenze')
+        label(Payment_Amount_Caption; ENU = 'Amount', ITA = 'Importo')
+        label(Payment_DueDate_Caption; ENU = 'Due Date', ITA = 'Data Scadenza')
         label(PaymentMethod_Caption; ENU = 'Payment method', ITA = 'Metodo di pagamento')
         label(PaymentTerms_Caption; ENU = 'Payment terms', ITA = 'Condizione di pagamento')
         label(PostingDate_Caption; ENU = 'Date', ITA = 'Data')
         label(Reason_Caption; ENU = 'Transport reason', ITA = 'Causale del trasporto')
-        label(TransportbyThe_Caption; ENU = 'Transport by the', ITA = 'Trasporto a cura del')// trasporto a cura del
-        label(PhytoItemRegNo_Caption; ENU = 'N.Reg', ITA = 'Nr. Reg')
         label(ReturnAddr_Caption; ENU = 'Return address', ITA = 'Indirizzo mittente')
         label(Salesperson_Caption; ENU = 'Salesperson', ITA = 'Agente')
-        label(ShipmentDate_Caption; ENU = 'Shpt. Date', ITA = 'Data Sped.')
-        label(ShipToAddress_Caption; ENU = 'Shipping address', ITA = 'Luogo di destinazione')
-        label(ShpAgent_Caption; ENU = 'Shipping agent', ITA = 'Luogo di destinazione')
-        label(ShptBy_Caption; ENU = 'Shpt. by', ITA = 'Spedito Da')
+        label(ShipmentDate_Caption; ENU = 'Shpt. Date', ITA = 'Data di Spedizione')
+        //label(ShipToAddress_Caption; ENU = 'Shipping address', ITA = 'Luogo di destinazione')
+        label(ShipToAddress_Caption; ENU = 'Delivery point', ITA = 'Punto di consegna')
+        label(ShpAgent_Caption; ENU = 'Shipping agent', ITA = 'Vettore')
+        label(ShptBy_Caption; ENU = 'Shpt. by', ITA = 'Agente')
         //label(ShptMethod_Caption; ENU = 'Shipment meth.', ITA = 'Porto')
         label(ShptMethod_Caption; ENU = 'Shipment meth.', ITA = 'Resa')
         label(ShptStart_Caption; ENU = 'Shipment Start', ITA = 'Inizio del trasporto o consegna data e ora')
@@ -878,35 +932,25 @@ report 50002 "UFO03 Invoice Document"
         label(SigRecipient_Caption; ENU = 'Signature - Recipient', ITA = 'Firma destinatario')
         label(SigDriver_Caption; ENU = 'Signature - Recipient', ITA = 'Firma conducente')
         //label(SigShpAgent_Caption; ENU = 'Signature - Ship. agent', ITA = 'Firma dell''incaricato al trasporto o vettore')
-        label(SigShpAgent_Caption; ENU = 'Signature - Ship. agent', ITA = 'Firma Vettore')
-        label(Total_DocumentTotalCaption; ENU = 'Document Total', ITA = 'TOTALE FATTURA')
-        label(Total_DocumentTotalVatExclCaption; ENU = 'Document Total Vat Excl.', ITA = 'Tot. Documento IVA Esclusa')
+        label(SigCompiler_Caption; ENU = 'Signature - Ship. agent', ITA = 'Firma destinatario')
+        label(Total_DocumentTotalCaption; ENU = 'Document Total', ITA = 'Totale imponibile')
+        label(Total_DocumentTotalVatExclCaption; ENU = 'Document Total Vat Excl.', ITA = 'Totale documento escl. IVA')
         label(Total_NetAmountToPayCaption; ENU = 'Net Amount To Pay', ITA = 'Importo netto da pagare')
         label(Total_TotalAmountCaption; ENU = 'Total VAT', ITA = 'Totale IVA')
-        label(Total_TotalBaseCaption; ENU = 'Total Base', ITA = 'Totale Imponibile')
+        label(Total_TotalBaseCaption; ENU = 'Total Base', ITA = 'Totale Base')
         label(Total_TotalCaption; ENU = 'Total', ITA = 'Totale')
-        //label(Total_TotalInvDiscCaption; ENU = 'Invoice Discount', ITA = 'Sconto Fattura')
-        label(Total_TotalInvDiscCaption; ENU = 'Invoice Discount', ITA = 'Totale Extra Sc.')
+        label(Total_TotalInvDiscCaption; ENU = 'Invoice Discount', ITA = 'Sc. Fattutra')
         label(ValidTo_Caption; ENU = 'Validity', ITA = 'Validità')
-        //label(VAT_InvDisc_Caption; ENU = 'Inv. Disc.', ITA = 'Sc. Fatt.')
-        label(VAT_InvDisc_Caption; ENU = 'Inv. Disc.', ITA = 'Extra Sc.')
-        label(VAT_Line_VATIdentifier_Caption; ENU = 'VAT Code', ITA = 'Cod.IVA')
+        label(VAT_InvDisc_Caption; ENU = 'Inv. Disc.', ITA = 'Sc. Fatt.')
+        label(VAT_Line_VATIdentifier_Caption; ENU = 'VAT Code', ITA = 'Codice IVA')
         label(VAT_VATAmount_Caption; ENU = 'Amount', ITA = 'Importo')
-        label(VAT_VATBase_Caption; ENU = 'Base', ITA = 'Imponibile')
+        label(VAT_VATBase_Caption; ENU = 'Base', ITA = 'Base')
         label(VAT_VATPercent_Caption; ENU = 'VAT %', ITA = '% IVA')
         label(VAT_VATText_Caption; ENU = 'Description', ITA = 'Descrizione')
-        label(VATClausesCaption; ENU = 'VAT Additional Info:', ITA = 'Informazioni Aggiuntive IVA:')
-        label(VATRegNo_Caption; ENU = 'VAT Reg.', ITA = 'Partita IVA')
+        label(VATClausesCaption; ENU = 'VAT Additional Info:', ITA = 'Info. Aggiuntive IVA')
+        label(VATRegNo_Caption; ENU = 'VAT Reg.', ITA = 'Partita IVA') //P.IVA
         label(Volume_Caption; ENU = 'Volume', ITA = 'Volume')
-        label(YourReference_Caption; ENU = 'Your reference', ITA = 'Vs. Riferimento')
-        label(SigCompilier_Caption; ENU = 'Compiler Signature', ITA = 'Firma del compilatore')// Firam del compilatore
-        label(TaxDiscount_Caption; ENU = 'Tax Discount', ITA = 'Bolli')//Bolli
-        label(CarrierGenInfo_Caption; ENU = 'General Information of the carrier', ITA = 'Generalità del vettore')//Generalità del vettore
-        label(CollectionCosts; ENU = 'Collection Costs', ITA = 'Spese Incasso') //Totale Incasso
-        label(GoodsTotal_Caption; ENU = 'Goods Total', ITA = 'Totale Merce') //Totale  Merce
-        label(LoadingPlace_Caption; ENU = 'Goods Loading Place', ITA = 'Luogo di carico della merce') // Luogo di carico della merce
-        label(CIGCaption; ENU = 'CIG', ITA = 'CIG') //mpd+ 08.02.21
-        label(CUPCaption; ENU = 'CUP', ITA = 'CUP') //mpd+ 08.02.21
+        label(YourReference_Caption; ENU = 'Your reference', ITA = 'Vostro Riferimento')
         label(BankReference_Caption; ENU = 'Your bank references', ITA = 'Vs. riferimenti bancari')
         label(YourBankAccountRef_Caption; ENU = 'Our bank references', ITA = 'Ns. riferimenti bancari')
         label(CustomerBankReference_Caption; ENU = 'Customer Bank', ITA = 'Banca Cliente')
@@ -914,18 +958,32 @@ report 50002 "UFO03 Invoice Document"
         label(TextLicense2; ENU = 'TRANSPORT NOT EXCEEDING THE EXEMPTION LIMITS REQUIREMENTS TO 1.1.3.6 Tot. Dangerous goods:', ITA = 'TRASPORTO NON SUPERIORE AI LIMITI DI ESENZIONE PRESCRITTI AL 1.1.3.6 Tot. merci pericolose: KG/LT 900,000') //TRASPORTO NON SUPERIORE AI LIMITI DI ESENZIONE PRESCRIZIONI AL 1.1.3.6 Tot. merci pericole:
         //label(TextArt62; ENU = 'IT IS A NON-DETERIORABLE AGRICULTURAL PRODUCT. SINGLE ASSIGNMENT. Art. 62 c.1, DL 1/2012 - L.27 / 2012', ITA = 'TRATTASI DI PRODOTTI AGRICOLI NON DETERIORABILI. UNICA CESSIONE . Art. 62 c.1, DL 1/2012 - L.27/2012')//Declarazione Art 62              
         label(TextArt62; ENU = 'THIS IS A SALE OF NON-PERISHABLE AGRICULTURAL PRODUCTS. DELIVERY PERIOD: CALENDAR MONTH - Legislative Decree 198/2021', ITA = 'TRATTASI DI CESSIONE DI PRODOTTI AGRICOLI NON DEPERIBILI. PERIODO DI CONSEGNA: MESE SOLARE - D.Lgs. 198/2021')//Declarazione Art 62              
-        label(AmountVAT_caption; ENU = 'VAT Amount', ITA = 'Importo IVA')
+        label(SigCompilier_Caption; ENU = 'Compiler Signature', ITA = 'Firma Compilatore')// Firma del compilatore
+        label(TaxDiscount_Caption; ENU = 'Tax Discount', ITA = 'Bolli')//Bolli
+        label(CarrierGenInfo_Caption; ENU = 'General Information of the carrier', ITA = 'Generalità del vettore')//Generalità del vettore
+        label(PhytoLicense_CaptionM; ENU = 'Phytosanitary Certification', ITA = 'Autorizzazione Fitosanitaria') //Abilitazione Fitosanitaria
+        label(TransportationBythe_Caption; ENU = 'Transportation by the', ITA = 'Trasporto a cura del')//Trasporto acura del 
+        label(CollectionCosts; ENU = 'Collection Costs', ITA = 'SPESE INCASSO') //Totale Incasso
+        label(GoodsTotal_Caption; ENU = 'Goods Total', ITA = 'TOTALE MERCE') //Totale  Merce
+        label(LoadingPlace_Caption; ENU = 'Goods Loading Place', ITA = 'Luogo di carico della merce') // Luogo di carico della merce
+        label(text1; ENU = 'CONTRIBUTION TO FOOD SAFETY PERFORMED WHERE DUE', ITA = 'CONTRIBUTO PER LA SICUREZZA ALIMENTARE ASSOLTO OVE DOVUTO') //CONTRIBUTO PER LA SICUREZZA ALIMENTARE ASSOLTO OVE DOVUTO
+        label(text2; ENU = 'CONTRIBUTION TO THE COMPLIANCE PERFORMED WHERE DUE', ITA = 'CONTRIBUTO CONAI ASSOLTO OVE DOVUTO') //CONTRIBUTO CONAI ASSOLTO OVE DOVUTO
+        label(text3; ENU = 'POLIECO CONTRIBUTION COMPLETED', ITA = 'CONTRIBUTO POLIECO ASSOLTO') //CONTRIBUTO POLIECO ASSOLTO
+        label(PhytoItemRegNo_Caption; ENU = 'N.Reg.', ITA = 'Nr. Reg.')
         label(ABI_Caption; ENU = 'ABI', ITA = 'ABI')
         label(CAB_Caption; ENU = 'CAB', ITA = 'CAB')
         label(Valuta_Caption; ENU = 'Currency', ITA = 'Valuta')
         label(IBAN_Caption; ENU = 'IBAN', ITA = 'IBAN')
-        label(AmountVATLordo_caption; ENU = 'Amount', ITA = 'Importo')
         label(FirmaLegRappr_Caption; ENU = 'Legal Representative Signature', ITA = 'Firma Legale Rappresentante')
         label(Note_Caption; ENU = 'Notes', ITA = 'Note')
-        label(Giornochiusura_caption; ENU = 'Closing day', ITA = 'Giorno chiusura')
         label(CompanyPIva_caption; ENU = 'P.iva e C.F.', ITA = 'P.iva e C.F.')
         label(CompanyRea_caption; ENU = 'Iscr. cciaa Terni n. rea', ITA = 'Iscr. cciaa Terni n. rea')
         label(IBANCompany_caption; ENU = 'IBAN', ITA = 'IBAN')
+        label(Giornochiusura_caption; ENU = 'Closing day', ITA = 'Giorno chiusura')
+        label(OrdineNr_caption; ENU = 'Our order', ITA = 'Ns ordine')
+        label(Fresco_caption; ENU = 'Fresco:', ITA = 'Fresco:')
+        label(Surg_caption; ENU = 'Surg.:', ITA = 'Surg.:')
+        label(Secco_caption; ENU = 'Secco:', ITA = 'Secco:')
         label(Conai1_caption; ENU = 'CONAI contribution paid where due', ITA = 'Contributo CONAI assolto ove dovuto. ')
         label(Conai2_caption; ENU = 'Fee including environmental contribution', ITA = 'Corrispettivo comprensivo del contributo ambientale')
         label(Conai3_caption; ENU = 'Complies with the obligations under art. 62, paragraph 1, of the decree Law 24 January 2012, n. 1, converted with amendments by law 24 March 2012, n. 27', ITA = 'Assolve gli obblighi di cui all''art. 62, comma 1, del decr. Legge 24 gennaio 2012, n. 1, convertito con modificazioni dalla legge 24 marzo 2012, n. 27')
@@ -941,17 +999,13 @@ report 50002 "UFO03 Invoice Document"
         label(Piede10_caption; ENU = 'The processing of personal data is carried out, in full compliance with the aforementioned legislation, in compliance with the fundamental rights and freedoms of the interested party, ', ITA = 'Il trattamento dei dati personali si svolge, nel pieno rispetto della normativa suddetta, nel rispetto dei diritti e delle libertà fondamentali dell''interessato, ')
         label(Piede11_caption; ENU = 'with particular reference to confidentiality and the right to protection. The processing is carried out to fulfill administrative-accounting and fiscal obligations, ', ITA = 'con particolare riferimento alla riservatezza e al diritto alla protezione. Il trattamento viene effettuato per adempiere ad obblighi amministrativo-contabili e fiscali, ')
         label(Piede12_caption; ENU = 'as per the information available at www.amelia3.it, which we ask you to read', ITA = 'come da informativa reperibile all''indirizzo www.amelia3.it, della quali Vi preghiamo di prendere visione')
-        label(QtaCo_Caption; ENU = 'Q.tà CO', ITA = 'Q.tà CO')
-        label(Om_Caption; ENU = 'Om(*)', ITA = 'Om(*)')
-        label(PrezzoUnitario_Caption; ENU = 'Unit price', ITA = 'Prezzo Unitario')
-        label(AmountColumn_Caption; ENU = 'Amount', ITA = 'Importo')
         label(SpedizioneInf_caption; ENU = 'Shipments under 100 euros logistics contribution 3.90 euros', ITA = 'Spedizioni inferiori a 100 euro contributo logistico 3,90 euro')
         label(Autista_caption; ENU = 'THE DRIVER IS NOT AUTHORIZED TO COLLECT INVOICES', ITA = 'L''AUTISTA NON E'' AUTORIZZATO AD INCASSARE LE FATTURE')
-        label(Fresco_caption; ENU = 'Fresco:', ITA = 'Fresco:')
-        label(Surg_caption; ENU = 'Surg.:', ITA = 'Surg.:')
-        label(Secco_caption; ENU = 'Secco:', ITA = 'Secco:')
-        label(DocNonValido_caption; ENU = '**Document not valid for tax purposes**', ITA = '**Documento non valido ai fini fiscali**')
-
+        label(QtaCo_Caption; ENU = 'Q.tà CO', ITA = 'Q.tà CO')
+        label(Om_Caption; ENU = 'Om(*)', ITA = 'Om(*)')
+        //label(PrezzoUnitario_Caption; ENU = 'Unit price', ITA = 'Prezzo Unitario')
+        label(PrezzoUnitario_Caption; ENU = 'Price', ITA = 'Prezzo')
+        label(AmountColumn_Caption; ENU = 'Amount', ITA = 'Importo')
     }
 
     trigger OnInitReport()
@@ -963,17 +1017,20 @@ report 50002 "UFO03 Invoice Document"
 
         RigaCapitaleSociale := CapSocAz_CaptionLbl + ' 10.400,00 ' + InteramenteVersatoLbl;
 
-        // ---> settato qui per sistemare la visualizzazione dei lotti
-        ReportSetupCode := 'DEFAULT';
-    end;
+        // --> tentativo per immagine di sfondo
+        if EOSAdvReportingImages.get('CARTAINT') then
+            if EOSAdvReportingImages."EOS Image".HasValue then begin
+                TenandMediaHeaderImage.get(EOSAdvReportingImages."EOS Image".MediaId);
+                TenandMediaHeaderImage.CalcFields(Content);
+            end;
 
+    end;
 
     trigger OnPreReport()
     var
         AdvancedReportingMngt: Codeunit "EOS Advanced Reporting Mngt";
         AdvRptDebug: Codeunit "EOS AdvRpt Debug";
         PrintsManagement: Codeunit "Prints Management";
-        SalesInvoiceHeader: record "Sales Invoice Header";
         StopExecution: Boolean;
     begin
         AdvRptDebug.AddEventLog('OnPreReport', 'Start', '');
@@ -1015,11 +1072,17 @@ report 50002 "UFO03 Invoice Document"
     // begin
     //     // >>> KF DEBUG-MODE
     //     case TableID of
-    //         112:
+    //         110:
     //             begin
     //                 RecRef.Close();
-    //                 RecRef.Open(112);
-    //                 RecRef.Copy(FakeSalesInvoiceHeader);
+    //                 RecRef.Open(110);
+    //                 RecRef.Copy(FakeSalesShipmentHeader);
+    //             end;
+    //         6650:
+    //             begin
+    //                 RecRef.Close();
+    //                 RecRef.Open(6650);
+    //                 RecRef.Copy(FakeReturnShipmentHeader);
     //             end;
     //     end;
     //     // <<< KF DEBUG-MODE
@@ -1150,47 +1213,125 @@ report 50002 "UFO03 Invoice Document"
     end;
 
     //Start  24.12.2020 Gestione Testi trasporto proprio /IAD    funzioni per controllare se ci sono degli articoli che necessitano Patentino o con art62 attivo
-    // local procedure CheckLicenseReqItem(var DocumentNo: code[20]; SourceTableID: Integer): Boolean;
-    // var
-    //     Print: Boolean;
-    //     Item: Record Item;
-    //     //JobShipLine: Record "MMA07 Job Shipment Line";
-    //     SalesShipLine: Record "Sales Shipment Line";
-    //     SalesHeader: Record "Sales Header";
-    // begin
-    //     //Start mpd+ 06.01.21
-    //     CustomerPesticideLicense := '';
-    //     //Stop mpd+ 06.01.21
+    local procedure CheckLicenseReqItem(var DocumentNo: code[20]; SourceTableID: Integer): Boolean;
+    var
+        Print: Boolean;
+        Item: Record Item;
+        //JobShipLine: Record "MMA07 Job Shipment Line";
+        SalesShipLine: Record "Sales Shipment Line";
+        SalesHeader: Record "Sales Header";
+    begin
+        //Start mpd+ 06.01.21
+        CustomerPesticideLicense := '';
+        //Stop mpd+ 06.01.21
 
-    //     CASE SourceTableID OF
-    //         112:
-    //             begin
-    //                 SalesShipLine.SetRange("Document No.", DocumentNo);
-    //                 SalesShipLine.SetRange(Type, SalesShipLine.type::Item);
+        CASE SourceTableID OF
+            110:
+                begin
+                    // SalesShipLine.SetRange("Document No.", DocumentNo);
+                    // SalesShipLine.SetRange(Type, SalesShipLine.type::Item);
 
-    //                 if SalesShipLine.FindSet() then
-    //                     repeat
-    //                         if Item.Get(SalesShipLine."No.") //AND Item."License Requested" 
-    //                         then begin
-    //                             Print := true;
-    //                             //Start mpd+ 06.01.21
-    //                             if HeaderLoop."MMA03 Customer Pest Lic" <> '' then
-    //                                 CustomerPesticideLicense := HeaderLoop."MMA03 Customer Pest Lic"
-    //                             else begin
-    //                                 // 20241104: commentato in attesa di estensione da app
-    //                                 // if SalesHeader.get(SalesHeader."Document Type"::Order, SalesShipLine."Order No.") then
-    //                                 //     CustomerPesticideLicense := SalesHeader."Customer Pest Lic";
-    //                             end;
-    //                             //Stop mpd+ 06.01.21 
-    //                             exit(Print);
-    //                         end;
-    //                     until SalesShipLine.Next() = 0;
-    //                 Print := false;
-    //                 exit(Print);
-    //             end;
-    //     END;
-    // end;
+                    // if SalesShipLine.FindSet() then
+                    //     repeat
+                    //         if Item.Get(SalesShipLine."No.") AND Item."License Requested" then begin
+                    //             Print := true;
+                    //             //Start mpd+ 06.01.21
+                    //             if HeaderLoop."MMA03 Customer Pest Lic" <> '' then
+                    //                 CustomerPesticideLicense := HeaderLoop."MMA03 Customer Pest Lic"
+                    //             else begin
+                    //                 // if SalesHeader.get(SalesHeader."Document Type"::Order, SalesShipLine."Order No.") then
+                    //                 //     CustomerPesticideLicense := SalesHeader."Customer Pest Lic";
+                    //             end;
+                    //             //Stop mpd+ 06.01.21 
+                    //             exit(Print);
+                    //         end;
+                    //     until SalesShipLine.Next() = 0;
+                    Print := false;
+                    exit(Print);
+                end;
+            50004:
+                begin
+                    // JobShipLine.SetRange("MMA07 Document No.", DocumentNo);
+                    // JobShipLine.SetRange("MMA07 Type", JobShipLine."MMA07 Type"::Item);
 
+                    // if JobShipLine.FindSet() then
+                    //     repeat
+                    //         if Item.Get(JobShipLine."MMA07 No.") // AND Item."License Requested" 
+                    //         then begin
+                    //             Print := true;
+                    //             exit(Print);
+                    //         end;
+                    //     until JobShipLine.Next() = 0;
+                    // Print := false;
+                    // exit(Print);
+                end;
+        END;
+    end;
+
+    local procedure CheckArt62Item(var DocumentNo: code[20]; SourceTableID: Integer): Boolean
+    var
+        Item: Record Item;
+        //JobShipLine: Record "MMA07 Job Shipment Line";
+        SalesShipLine: Record "Sales Shipment Line";
+        Print: Boolean;
+    begin
+        CASE SourceTableID OF
+            110:
+                begin
+                    // -> da rivedere nel caso di articolo 62
+                    // SalesShipLine.SetRange("Document No.", DocumentNo);
+                    // SalesShipLine.SetRange(Type, SalesShipLine.type::Item);
+
+                    // if SalesShipLine.FindSet() then
+                    //     repeat
+                    //         if Item.Get(SalesShipLine."No.") AND Item."MMA04 Art. 62" then begin
+                    //             Print := true;
+                    //             exit(Print);
+                    //         end;
+                    //     until SalesShipLine.Next() = 0;
+                    // Print := false;
+                    // exit(Print);
+                end;
+        end;
+    end;
+
+    local procedure CheckShippingAgentComments(): Boolean //29.12.20 MPd+
+    var
+        CommentLine: record "Comment Line";
+        SalesShipHeader: record "Sales Shipment Header";
+    begin
+        CommentLine.Reset();
+        //CommentLine.SetRange("Table Name", CommentLine."Table Name"::"Shipping Agent");
+        CommentLine.SetRange("No.", HeaderLoop."EOS Shipping Agent Code");
+        if not CommentLine.IsEmpty then
+            exit(true);
+    end;
+    //Stop  24.12.2020 Gestione Testi trasporto proprio /IAD  
+
+    //Start mpd+ 29.12.20
+    procedure MMA_LocationAddr(): Text
+    var
+        FormatAddr: Codeunit "Format Address";
+        AddrArray: array[8] of Text[100];
+        ExitText: text;
+        Location: record Location;
+    begin
+        if not location.get(HeaderLoop."EOS Location Code") then
+            exit('');
+
+        // FormatAddr.FormatAddr(AddrArray, FORMAT(location.Code), FORMAT(location.Name), FORMAT(location."Name 2"), FORMAT(location.Address),
+        //    FORMAT(location."Address 2"), FORMAT(location.City), FORMAT(location."Post Code"), FORMAT(location.County),
+        //    FORMAT(location."Country/Region Code"));
+
+        // EXIT(MMA_GetAddressString(AddrArray));
+        ExitText := FORMAT(location.Code) + ', ' + FORMAT(location.Name) + ', ' + FORMAT(location.Address) + ', ' + FORMAT(location.City) + ', ' + FORMAT(location."Post Code")
+        + ', ' + FORMAT(location.County) + ', ' + FORMAT(location."Country/Region Code");
+
+        exit
+    end;
+    //Stop mpd+ 29.12.20
+
+    //Start 22.03.21 Fix County /iad 
     local procedure GetShipToAddr2(): Text
     var
         FormatAddr: Codeunit "Format Address";
@@ -1198,7 +1339,6 @@ report 50002 "UFO03 Invoice Document"
         Postcode: Record "Post Code";
         ShipToCounty: Text[30];
     begin
-
         PostCode.reset;
         PostCode.SetRange(Code, HeaderLoop."EOS Ship-to Post Code");
         PostCode.SetRange(city, HeaderLoop."EOS Ship-to City");
@@ -1209,6 +1349,7 @@ report 50002 "UFO03 Invoice Document"
           AddrArray, HeaderLoop."EOS Ship-to Name", HeaderLoop."EOS Ship-to Name 2", HeaderLoop."EOS Ship-to Contact", HeaderLoop."EOS Ship-to Address",
            HeaderLoop."EOS Ship-to Address 2", HeaderLoop."EOS Ship-to City", HeaderLoop."EOS Ship-to Post Code", ShipToCounty,
            HeaderLoop."EOS Ship-to Country");
+
         EXIT(GetAddressString(AddrArray));
     end;
 
@@ -1217,8 +1358,27 @@ report 50002 "UFO03 Invoice Document"
         FormatAddr: Codeunit "Format Address";
         AddrArray: array[8] of text[50];
         Postcode: Record "Post Code";
+        TransferShipmentHeader: Record "Transfer Shipment Header";
         BillToCounty: Text[30];
     begin
+        //Start npa 21.05.2021
+        if HideAddressCaption then begin
+            TransferShipmentHeader.Get(HeaderLoop."EOS No.");
+            PostCode.reset;
+            PostCode.SetRange(Code, TransferShipmentHeader."Transfer-from Post Code");
+            PostCode.SetRange(city, TransferShipmentHeader."Transfer-from City");
+            if PostCode.FindFirst() then
+                BillToCounty := Postcode."County";
+
+            FormatAddr.FormatAddr(
+              AddrArray, TransferShipmentHeader."Transfer-from Name", TransferShipmentHeader."Transfer-from Name 2", '', TransferShipmentHeader."Transfer-from Address",
+              TransferShipmentHeader."Transfer-from Address 2", TransferShipmentHeader."Transfer-from City", TransferShipmentHeader."Transfer-from Post Code", BillToCounty,
+              TransferShipmentHeader."Trsf.-from Country/Region Code");
+
+            EXIT(GetAddressString(AddrArray));
+        end;
+        //Stop npa 21.05.2021
+
         PostCode.reset;
         PostCode.SetRange(Code, HeaderLoop."EOS Bill-to/Pay-to Post Code");
         PostCode.SetRange(city, HeaderLoop."EOS Bill-to/Pay-to City");
@@ -1238,8 +1398,7 @@ report 50002 "UFO03 Invoice Document"
     var
         i: Integer;
         ResText: text;
-        eoslib: Codeunit "EOS Library Ext";
-
+        eoslib: Codeunit "EOS Library EXT";
     begin
         FOR i := 1 TO ARRAYLEN(AddrArray) DO
             IF AddrArray[i] <> '' THEN
@@ -1249,6 +1408,8 @@ report 50002 "UFO03 Invoice Document"
                     ResText := ResText + EosLib.NewLine + AddrArray[i];
         EXIT(ResText);
     end;
+
+    //Stop 22.03.21 Fix County /iad
 
     local procedure GetBillToFormattedAddress(): Text
     var
@@ -1275,7 +1436,7 @@ report 50002 "UFO03 Invoice Document"
                     Clear(Fax);
             end;
             exit(PrintsManagement.GetAddressInfo(HeaderLoop."EOS Bill-to/Pay-to Name", HeaderLoop."EOS Bill-to/Pay-to Name 2", HeaderLoop."EOS Bill-to/Pay-to Address", HeaderLoop."EOS Bill-to/Pay-to Address 2", HeaderLoop."EOS Bill-to/Pay-to Country", HeaderLoop."EOS Bill-to/Pay-to Post Code", HeaderLoop."EOS Bill-to/Pay-to City", HeaderLoop."EOS Bill-to/Pay-to County", Telefono, Fax));
-        end;
+        end
     end;
 
     local procedure GetShipToFormattedAddress(): Text
@@ -1305,21 +1466,41 @@ report 50002 "UFO03 Invoice Document"
         end;
     end;
 
+    local procedure GetLineDiscount(RecRef3: RecordRef)
+    // ---> preso da Renzini
     var
-        //reportsEvents: Codeunit "MMA Reports Events";
+        FieldRef: FieldRef;
+    begin
+        // Clear(DocumentLineDiscount);
+        // Clear(DocumentLineDiscountValue);
+        // If NOT (RecRef3.Number in [37, 113]) then Error('Tabella %1 non gestita', RecRef3.Number);
+        // FieldRef := RecRef3.Field(18123705); // <-- numero del campo "EOS Discount Set ID" per tutte le tabelle da stampare
+        // DiscountSetEntry.Reset();
+        // DiscountSetEntry.SetCurrentKey("Set ID");
+        // DiscountSetEntry.SetFilter("Set ID", '%1', FieldRef.Value);
+        // IF DiscountSetEntry.FindFirst() THEN
+        //     REPEAT
+        //         DocumentLineDiscount := DocumentLineDiscount + '+' + FORMAT(DiscountSetEntry.Value);
+        //         DocumentLineDiscountValue += DiscountSetEntry."Discount Amount";
+        //     UNTIL DiscountSetEntry.NEXT = 0;
+        // DocumentLineDiscount := DELSTR(DocumentLineDiscount, 1, 1);
+    end;
+
+    var
+        OurBankRef: Text[50]; //mpd+ 010221
+        OurBankRef1: Text[50]; //iad+ 020321
         BuyFromContact: Record Contact;
         Employee: Record Employee;
-        // FooterImage: Record TempBlob temporary;
-        // HeaderImage: Record TempBlob temporary;
-        //SignatureImage: record TempBlob temporary;
+        TempBlob: Codeunit "Temp Blob";
+        //FooterImage: Record TempBlob temporary;
+        //HeaderImage: Record TempBlob temporary;
         ReportSetup: Record "EOS Report Setup";
-        EOSAdvRepImg: Record "EOS Adv Reporting Images";
         Salesperson: Record "Salesperson/Purchaser";
         SellToContact: Record Contact;
-        //CustomSetup: record "MMA04 Custom Setup";
-        salesheader: Record "Sales Header";
+        // CustomSetup: record "MMA04 Custom Setup"; //iad+ 220421
         ImagesSent: Boolean;
         LogInteraction: Boolean;
+        //[InDataSet]
         NoofCopiesEditable: Boolean;
         PrintVAT: Boolean;
         ReportSetupCode: Code[10];
@@ -1340,41 +1521,72 @@ report 50002 "UFO03 Invoice Document"
         NoOfCopies: Integer;
         VAT_ClauseDescription: array[10] of Text;
         VAT_Description: array[10] of Text;
+        PrintText1: Boolean;
+        ShowTxt: Boolean;
+        ShowLicenseReqText: Boolean;
+        ShowArt62Text: Boolean;
+        ItemVariantDesc: text[100];
+        Line_Description: text[100];
         DocVariantToPrint: Variant;
         UnknowDocumentToPrintErr: TextConst ENU = 'Report %1 (%2): unable to recognize document to print', ITA = 'Report %1 (%2): impossibile stampare il documento';
-        CigCode_Value: Code[15];
-        CupCode_Value: Code[15];
-        OurBankRef: Text[50];
-        OurBankRef1: Text[50];
-        PhytoItemRegNo: code[30];
+        LicenseTxt1Title: Label '';
+        LicenseTxt1: Label '';
+        LicenseTxt2: Label '';
+        Art62Txt: Label '';
+        ShippingCommentsText: text; //mpd+ 29.12.20
+        Comments: array[10] of Text[100];
         showvariant: boolean;
         TextLicense: text;
+        TextLicenseLbl: TextConst ENU = 'DECLARATION OF GOODS TRANSPORTED ON OWN ACCOUNT PURSUANT TO ART. 39 L. N. 298/74 AND SUCC. MOD', ITA = 'DICHIARAZIONE MERCI TRASPORTATE IN CONTO PROPRIO AI SENSI DELL''ART. 39 L.N. 298/74 E SUCC. MOD.';//Declarazione
         CustomerPesticideLicense: Code[20];
-        TextLicenseLbl: TextConst ENU = 'DECLARATION OF GOODS TRANSPORTED ON OWN ACCOUNT PURSUANT TO ART. 39 L. N. 298/74 AND SUCC. MOD', ITA = 'DICHIARAZIONE MERCI TRASPORTATE IN CONTO PROPRIO AI SENSI DELL''ART. 39 L.N. 298/74 E SUCC. MOD.';
-        ItemVariantDesc: text[100];
-        ShippingCommentsText: text;
-        ReportCustomText: text[190];
+        PhytoItemRegNo: code[30];
+        CigCode_Value: Code[15];
+        CupCode_Value: Code[15];
+        HideAddressCaption: Boolean;
         ABICode: Code[5];
         CABCode: Code[5];
         IBANCode: Code[50];
         BankName: Text[100];
         IsCustomerBank: Boolean;
         PrintsManagement: Codeunit "Prints Management";
+        LastOrderNo: Code[20];
         Debug: Boolean;
         // RecRef: RecordRef; // recref del debug
         // ReportDebug: Codeunit "MMA03 Report Debug";
-        PercSconto: Text;
-        NascondiBanche: Boolean;
-        TenandMediaHeaderImage: Record "Tenant Media";
+        VATIdentifier: Code[20];
         ShipmentMethod: Record "Shipment Method";
         ShipmentMethodDesc: Text;
-        DichIntentoTesto: text;
+        ShowTextLicense: Boolean;
         CompanyInfo: Record "Company Information";
         RigaCapitaleSociale: Text;
         CapSocAz_CaptionLbl: TextConst ENU = 'Share capital', ITA = 'Cap. Soc.';
         InteramenteVersatoLbl: TextConst ENU = 'fully paid', ITA = 'inter. vers.';
+        NsOrdine: Code[20];
+        DataOrdine: date;
+        NascondiPrezzi: Boolean;
+        SalesShipmentLine: Record "Sales Shipment Line";
+        RecRef3: RecordRef;
+        SecQuantity: Decimal;
+        SecQuantityToPrint: Decimal;
+        UnitPrice: Decimal;
+        LineDiscount: Decimal;
+        LineAmount: Decimal;
+        LineQuantity: Decimal;
+        LineQuantityToPrint: Decimal;
+        SommaImponibilePerDDT: Decimal;
+        InvoiceDiscount: Text;
+        InvoiceDiscountValue: Decimal;
+        InvoiceDiscountInt: Integer;
+        DocumentLineDiscount: Text;
+        DocumentLineDiscountValue: Decimal;
         NrColliSecchi: Integer;
         NrColliFreschi: Integer;
         NrColliSurgelati: Integer;
+        LineUM: Code[10];
+        //DiscountSetEntry: Record "EOS037 Discount Set Entry";
         GiornoChiusura: text;
+        EOSAdvReportingImages: Record "EOS Adv Reporting Images";
+        TenandMediaHeaderImage: Record "Tenant Media";
+
 }
+

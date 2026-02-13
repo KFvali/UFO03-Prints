@@ -1,8 +1,42 @@
-report 50005 "UFO03 Purchase Request"
+namespace Keyfor.UFO03.Prints;
+
+using Microsoft.Sales.Document;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.History;
+using Microsoft.Sales.Archive;
+using Microsoft.Sales.Receivables;
+using Microsoft.Service.Document;
+using Microsoft.Service.History;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Document;
+using Microsoft.Purchases.Archive;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Bank.BankAccount;
+using Microsoft.Foundation.PaymentTerms;
+using Microsoft.Foundation.Company;
+using Microsoft.Foundation.Shipping;
+using Microsoft.Foundation.Comment;
+using Microsoft.Foundation.Auditcodes;
+using Microsoft.Foundation.Address;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Transfer;
+using Microsoft.Inventory.Tracking;
+using Microsoft.Inventory.Location;
+using Microsoft.Finance.VAT.Clause;
+using Microsoft.Finance.VAT.Setup;
+using Microsoft.CRM.Team;
+using Microsoft.CRM.Contact;
+using Microsoft.HumanResources.Employee;
+using System.Environment;
+using System.Security.AccessControl;
+using System.Security.User;
+using System.Utilities;
+
+report 50004 "Purchase Order"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = 'UFO03 Purchase Request.rdlc';
-    CaptionML = ENU = 'Purchase Request', ITA = 'Richiesta d''offerta';
+    RDLCLayout = 'Purchase Order.rdlc';
+    CaptionML = ENU = 'Purchase Order', ITA = 'Ordine d''acquisto';
     Permissions = TableData "VAT Clause" = r,
                   TableData "VAT Clause Translation" = r;
     PreviewMode = PrintLayout;
@@ -196,6 +230,10 @@ report 50005 "UFO03 Purchase Request"
                 column(HeaderImage; HeaderLoop."EOS Header Image") { }
                 column(FooterImage; HeaderLoop."EOS Footer Image") { }
                 column(CompanyPicture; CompanyInfo.Picture) { }
+                column(CompanyREA; CompanyInfo."REA No.") { }
+                column(CompanyVAT; CompanyInfo."VAT Registration No.") { }
+                column(CompanyIban; CompanyInfo.IBAN) { }
+                column(CompanyShareCapitalTxt; RigaCapitaleSociale) { }
                 //Start iad
                 //column(ReportTitle; HeaderLoop."EOS Report Title") { }
                 column(ReportTitle; VarReportTitle) { }
@@ -232,7 +270,7 @@ report 50005 "UFO03 Purchase Request"
                 column(CopyNo; Number) { }
                 column(DocumentNo; HeaderLoop."EOS No.") { }
                 //column(PostingDate; HeaderLoop."EOS Posting Date") { }
-                column(PostingDate; OrderDate) { }
+                column(PostingDate; HeaderLoop."EOS Order Date") { }
                 column(Salesperson; Salesperson.Name) { }
                 column(SalesPersonMail; Salesperson."E-Mail") { }
                 column(SalesPersonPhoneNo; Salesperson."Phone No.") { }
@@ -256,7 +294,8 @@ report 50005 "UFO03 Purchase Request"
                 column(Reason; HeaderLoop.ReasonCode_GetDescInLanguage()) { }
                 column(VATRegNo; HeaderLoop."EOS VAT Registration No.") { }
                 column(FiscalCode; HeaderLoop."EOS Fiscal Code") { }
-                column(ShptMethod; HeaderLoop.ShptMethod_GetDescInLanguage()) { }
+                //column(ShptMethod; HeaderLoop.ShptMethod_GetDescInLanguage()) { }
+                column(ShptMethod; ShipmentMethodDesc) { }
                 column(ShptBy; Format(HeaderLoop."EOS Shipment by")) { }
                 //column(ShpAgent; HeaderLoop.GetShippingAgentText() { }
                 column(GoodsAppearance; HeaderLoop."EOS Goods Appearance") { }
@@ -291,7 +330,8 @@ report 50005 "UFO03 Purchase Request"
                 column(CstmHdrTxt15; HeaderLoop.GetCustomFieldTextValue('CustomText15')) { }
                 column(CstmHdrTxt16; HeaderLoop.GetCustomFieldTextValue('CustomText16')) { }
                 column(CstmHdrTxt17; HeaderLoop.GetCustomFieldTextValue('CustomText17')) { }
-                column(CstmHdrTxt18; HeaderLoop.GetCustomFieldTextValue('CustomText18')) { }
+                //column(CstmHdrTxt18; HeaderLoop.GetCustomFieldTextValue('CustomText18')) { }
+                column(CstmHdrTxt18; TipoSped) { }
                 column(CstmHdrTxt19; HeaderLoop.GetCustomFieldTextValue('CustomText19')) { }
                 column(CstmHdrTxt20; HeaderLoop.GetCustomFieldTextValue('CustomText20')) { }
                 column(CstmHdrTxt21; HeaderLoop.GetCustomFieldTextValue('CustomText21')) { }
@@ -348,7 +388,7 @@ report 50005 "UFO03 Purchase Request"
                     column(Line_ItemVariantDesc; ItemVariantDesc) { }
                     //Stop iad 15.01.2021
                     column(Line_Description2; LineLoop."EOS Description 2") { }
-                    column(Line_Quantity; LineLoop."EOS Quantity") { }
+                    column(Line_Quantity; LineLoop."EOS Quantity") { DecimalPlaces = 3; }
                     column(Line_UoMCode; CopyStr(LineLoop.GetUdMTraduction(HeaderLoop), 1, 4)) { }
                     //column(Line_LineDiscountPerc; LineLoop."EOS Discount Text") { }
                     column(Line_LineDiscountPerc; PercSconto) { }
@@ -570,14 +610,6 @@ report 50005 "UFO03 Purchase Request"
                 if PurchaseHeader.findset then begin
                     OrderDate := PurchaseHeader."Order Date";
                     ExpctRecpDt_PurchHdr := PurchaseHeader."Expected Receipt Date";
-                    // WrittenBy := PurchaseHeader."Assigned User ID";
-                    // ApprovedBy := PurchaseHeader."MMA04 Approved By";
-                    BankAccount := PurchaseHeader."Bank Account";//Banca d'appoggio
-                    VendorOrderNo := PurchaseHeader."Vendor Order No.";//Vendor Order No
-                    ExpDate := PurchaseHeader."Expected Receipt Date";
-                    //ShippingAgentCode := PurchaseHeader."MMA04 Shipping Agent Code NP";
-                    CIG := PurchaseHeader."EOS Fattura Tender Code";
-                    CUP := PurchaseHeader."EOS Fattura Project Code";
 
                     User.Reset();
                     User2.Reset();
@@ -585,7 +617,6 @@ report 50005 "UFO03 Purchase Request"
                     ApprovedBy := '';
                     WrittenBy := '';
 
-                    // ---> ricapire come fare per questi campi
                     // if PurchaseHeader."MMA04 Approved By" <> '' then begin
                     //     User.SetCurrentKey("User Name");
                     //     User.SetFilter("User Name", PurchaseHeader."MMA04 Approved By");
@@ -602,16 +633,37 @@ report 50005 "UFO03 Purchase Request"
                     //         Clear(WrittenBy);
                     // end;
 
-                    if HeaderLoop."EOS Order Date" = 0D then
-                        OrderDate := PurchaseHeader."Order Date"
-                    else
-                        OrderDate := HeaderLoop."EOS Order Date";
+                    BankAccount := PurchaseHeader."Bank Account";//Banca d'appoggio
+                    VendorOrderNo := PurchaseHeader."Vendor Order No.";//Vendor Order No
+                    ExpDate := PurchaseHeader."Expected Receipt Date";
+                    //ShippingAgentCode := PurchaseHeader."MMA04 Shipping Agent Code NP";
+                    CIG := PurchaseHeader."EOS Fattura Tender Code";
+                    CUP := PurchaseHeader."EOS Fattura Project Code";
+                    QuoteNo := PurchaseHeader."Quote No.";
                     VendorBankAccount.reset();
                     VendorBankAccount.SetRange("Vendor No.", PurchaseHeader."Buy-from Vendor No.");
                     VendorBankAccount.SetRange(Code, PurchaseHeader."Bank Account");
                     if VendorBankAccount.findset then begin
                         VendorABI := VendorBankAccount.ABI;
                         VendorCAB := VendorBankAccount.CAB;
+                    end;
+                    // ---> capire come gestire il tipo spedizione
+                    // if PurchaseHeader."MMA04 Freight Type" = PurchaseHeader."MMA04 Freight Type"::"Agent Code" then
+                    //     TipoSped := 'Vettore'
+                    // else if PurchaseHeader."MMA04 Freight Type" = PurchaseHeader."MMA04 Freight Type"::"Carriage Consigner" then
+                    //     TipoSped := 'Mittente'
+                    // else if PurchaseHeader."MMA04 Freight Type" = PurchaseHeader."MMA04 Freight Type"::"Carriage Forward" then
+                    //     TipoSped := 'Destinatario';
+
+                    if HeaderLoop."EOS Shipment Method Code" <> '' then begin
+                        if ShipmentMethod.get(HeaderLoop."EOS Shipment Method Code") then
+                            ShipmentMethodDesc := ShipmentMethod.Description
+                        else
+                            ShipmentMethodDesc := HeaderLoop.ShptMethod_GetDescInLanguage()
+                    end else begin
+                        if PurchaseHeader."Shipment Method Code" <> '' then
+                            if ShipmentMethod.get(PurchaseHeader."Shipment Method Code") then
+                                ShipmentMethodDesc := ShipmentMethod.Description
                     end;
 
                 end;
@@ -620,15 +672,15 @@ report 50005 "UFO03 Purchase Request"
                 if PurchaseHeader.Get(PurchaseHeader."Document Type"::Order, HeaderLoop."EOS No.") then
                     IsCustomerBank := PrintsManagement.GetBankInformation(HeaderLoop."EOS Bill-to/Pay-to No.", HeaderLoop."EOS Payment Method Code", PurchaseHeader."EOS Our Bank Account", ABICode, CABCode, IBANCode, BankName);
 
-                if PurchaseHeader."Document Type" = PurchaseHeader."Document Type"::Quote then begin
-                    ReportTitleNew := ReportTitleOff;
-                    TipoDocumento := 'Offerta'
+                // --> scommentare su offerta
+                // if PurchaseHeader."Document Type" = PurchaseHeader."Document Type"::Quote then begin
+                //     ReportTitleNew := ReportTitleOff;
+                //     TipoDocumento := 'Offerta'
+                // end
+                if PurchaseHeader."Document Type" = PurchaseHeader."Document Type"::Order then begin
+                    ReportTitleNew := ReportTitleOrd;
+                    TipoDocumento := 'Ordine'
                 end;
-                // --> scommentare su ordine
-                // if PurchaseHeader."Document Type" = PurchaseHeader."Document Type"::Order then begin
-                //     ReportTitleNew := ReportTitleOrd;
-                //     TipoDocumento := 'Ordine'
-                // end;
 
                 // >>> KF DEBUG-MODE
                 // if Debug then
@@ -663,7 +715,6 @@ report 50005 "UFO03 Purchase Request"
                                 UpdateLocalCopies();
                                 RequestOptionsPage.Update(false);
                             end;
-
                         end;
                     }
                     field(NoofCopiesFld; NoOfCopies)
@@ -683,16 +734,16 @@ report 50005 "UFO03 Purchase Request"
                         ApplicationArea = All;
                         ToolTip = 'Download Dataset';
                     }
-                    field(HidePrices; NascondiPrezzi)
-                    {
-                        CaptionML = ENU = 'Hide prices', ITA = 'Nascondi prezzi';
-                        ApplicationArea = All;
-                    }
                     // field(PrintVAT; PrintVAT)
                     // {
                     //     CaptionML = ENU = 'Hide VAT', ITA = 'Nascondi IVA';
                     //     ApplicationArea = All;
                     // }
+                    field(HidePrices; NascondiPrezzi)
+                    {
+                        CaptionML = ENU = 'Hide prices', ITA = 'Nascondi prezzi';
+                        ApplicationArea = All;
+                    }
                 }
             }
         }
@@ -730,8 +781,10 @@ report 50005 "UFO03 Purchase Request"
         label(Line_Type_Descr_Caption; ENU = 'Type', ITA = 'Tipo')
         //label(Line_UnitPrice_Caption; ENU = 'Price', ITA = 'Prezzo Unitario')
         label(Line_UnitPrice_Caption; ENU = 'Price', ITA = 'Prezzo')
-        label(Line_UoM_Caption; ENU = 'U.M.', ITA = 'U.M.')
-        label(Line_VATIdentifier_Caption; ENU = 'VAT', ITA = 'Cod. IVA')
+        //label(Line_UoM_Caption; ENU = 'U.M.', ITA = 'U.M.')
+        label(Line_UoM_Caption; ENU = 'UM', ITA = 'UM')
+        //label(Line_VATIdentifier_Caption; ENU = 'VAT', ITA = 'Cod. IVA')
+        label(Line_VATIdentifier_Caption; ENU = 'VAT', ITA = 'IVA')
         label(NetWeightCaption; ENU = 'Net weight', ITA = 'Peso Netto')
         label(NoOfParcels_Caption; ENU = 'No. of Parcels', ITA = 'Nr. Colli')
         label(OperatorName_Caption; ENU = 'Contact', ITA = 'Contatto')
@@ -785,16 +838,18 @@ report 50005 "UFO03 Purchase Request"
         label(Volume_Caption; ENU = 'Volume', ITA = 'Volume')
         label(YourReference_Caption; ENU = 'Your reference', ITA = 'Vs. Riferimento')
         label(Note_caption; ENU = 'NOTES:', ITA = 'NOTE:')
-        label(Note2_caption; ENU = 'Book delivery at +39 0547 88260 or by email at ', ITA = 'Prenotare la consegna al numero +39 0547 88260 oppure via mail all''indirizzo')
-        //label(Note3_caption; ENU = 'logistica@amelia3.it', ITA = 'logistica@amelia3.it')
-        label(Note3_caption; ENU = 'logistica@azienda.it', ITA = 'logistica@azienda.it')
-        label(Note4_caption; ENU = 'Goods reception hours: Monday to Friday 08.30 - 12.00', ITA = 'Orario ricezione merce: dal lunedì al venerdì 08:30 - 12:00')
+        label(Note2_caption; ENU = '*** INFORMAZIONI FISSE DA CONCORDARE CON IL CLIENTE ***', ITA = '*** INFORMAZIONI FISSE DA CONCORDARE CON IL CLIENTE ***')
+        label(Note3_caption; ENU = ' ', ITA = ' ')
+        label(Note4_caption; ENU = ' ', ITA = ' ')
+        label(Note5_caption; ENU = ' ', ITA = ' ')
+        label(Note6_caption; ENU = ' ', ITA = ' ')
+        label(Note7_caption; ENU = ' ', ITA = ' ')
         label(RedattoDa_caption; ENU = 'Compiled by', ITA = 'Redatto da')
         label(DtRichSped_caption; ENU = 'Expected shipment date', ITA = 'Data Consegna Richiesta')
         // label(BankReference_Caption; ENU = 'Our bank references', ITA = 'Ns. riferimenti bancari')
         // label(YourBankAccountRef_Caption; ENU = 'Your bank references', ITA = 'Vs. Banca d''appoggio')
-        label(YourBankAccountRef_Caption; ENU = 'Our bank references', ITA = 'Ns. Banca d''appoggio')
-        label(BankReference_Caption; ENU = 'Your bank references', ITA = 'Vs. Banca d''appoggio')
+        label(BankReference_Caption; ENU = 'Our bank references', ITA = 'Ns. riferimenti bancari')
+        label(YourBankAccountRef_Caption; ENU = 'Your bank references', ITA = 'Vs. riferimenti bancari')
         label(OfferNo; ENU = 'Our offer No.', ITA = 'Ns. Rdo')
         label(ShipMeth; ENU = 'Shipment Method', ITA = 'Porto')//Porto
         label(Transportedby; ENU = 'Transported by', ITA = 'Trasporto a cura')
@@ -802,8 +857,9 @@ report 50005 "UFO03 Purchase Request"
         label(ABI_Caption; ENU = 'ABI', ITA = 'ABI')
         label(CAB_Caption; ENU = 'CAB', ITA = 'CAB')
         label(IBAN_Caption; ENU = 'IBAN', ITA = 'IBAN')
-
-
+        label(CompanyPIva_caption; ENU = 'P.iva e C.F.', ITA = 'P.iva e C.F.')
+        label(CompanyRea_caption; ENU = 'Iscr. cciaa Terni n. rea', ITA = 'Iscr. cciaa Terni n. rea')
+        label(IBANCompany_caption; ENU = 'IBAN', ITA = 'IBAN')
     }
 
     trigger OnInitReport()
@@ -812,6 +868,8 @@ report 50005 "UFO03 Purchase Request"
     begin
         CompanyInfo.get;
         CompanyInfo.CalcFields(Picture);
+
+        RigaCapitaleSociale := CapSocAz_CaptionLbl + ' 10.400,00 ' + InteramenteVersatoLbl;
     end;
 
     trigger OnPreReport()
@@ -948,11 +1006,11 @@ report 50005 "UFO03 Purchase Request"
     end;
 
     procedure GetPrintValues(var ReportRBHeader: Record "EOS Report Buffer Header" temporary;
-                                   var ReportRBLine: Record "EOS Report Buffer Line" temporary;
-                                   var ReportReportSetupCode: Code[10];
-                                   var ReportNoOfCopies: Integer;
-                                   var ReportLogInteraction: Boolean;
-                                   var ReportPrintVAT: Boolean)
+                             var ReportRBLine: Record "EOS Report Buffer Line" temporary;
+                             var ReportReportSetupCode: Code[10];
+                             var ReportNoOfCopies: Integer;
+                             var ReportLogInteraction: Boolean;
+                             var ReportPrintVAT: Boolean)
     var
         AdvancedReportingMngt: Codeunit "EOS Advanced Reporting Mngt";
     begin
@@ -1062,7 +1120,7 @@ report 50005 "UFO03 Purchase Request"
         CUP_Caption: TextConst ENU = 'CUP  %1', ITA = 'CUP  %1';
         VarReportTitle: text;
         VarFooter: text;
-        //Orderdate: Date;
+        Orderdate: Date;
         ExpctRecpDt_PurchHdr: Date;
         ShippingAgentCode: Code[10];
         SalesPersonMail: text;
@@ -1103,9 +1161,13 @@ report 50005 "UFO03 Purchase Request"
         BankName: Text[100];
         QuoteNo: Code[20];
         PercSconto: Text;
-        OrderDate: Date;
+        TipoSped: Text;
+        ShipmentMethod: Record "Shipment Method";
+        ShipmentMethodDesc: Text;
         NascondiPrezzi: Boolean;
         CompanyInfo: Record "Company Information";
-
+        RigaCapitaleSociale: Text;
+        CapSocAz_CaptionLbl: TextConst ENU = 'Share capital', ITA = 'Cap. Soc.';
+        InteramenteVersatoLbl: TextConst ENU = 'fully paid', ITA = 'inter. vers.';
 }
 

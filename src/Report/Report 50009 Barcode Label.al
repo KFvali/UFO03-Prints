@@ -1,9 +1,48 @@
-report 50008 "UFO03 Frontalino barcode label"
+namespace Keyfor.UFO03.Prints;
+
+using Microsoft.Sales.Document;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.History;
+using Microsoft.Sales.Archive;
+using Microsoft.Sales.Receivables;
+using Microsoft.Sales.Comment;
+using Microsoft.Service.Document;
+using Microsoft.Service.History;
+using Microsoft.Purchases.History;
+using Microsoft.Purchases.Document;
+using Microsoft.Purchases.Archive;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Bank.BankAccount;
+using Microsoft.Foundation.PaymentTerms;
+using Microsoft.Foundation.Company;
+using Microsoft.Foundation.Shipping;
+using Microsoft.Foundation.Comment;
+using Microsoft.Foundation.Auditcodes;
+using Microsoft.Foundation.Address;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Transfer;
+using Microsoft.Inventory.Tracking;
+using Microsoft.Inventory.Location;
+using Microsoft.Inventory.Item.Catalog;
+using Microsoft.Finance.VAT.Clause;
+using Microsoft.Finance.VAT.Setup;
+using Microsoft.CRM.Team;
+using Microsoft.CRM.Contact;
+using Microsoft.Utilities;
+using Microsoft.Pricing.PriceList;
+using Microsoft.HumanResources.Employee;
+using System.Environment;
+using System.Security.AccessControl;
+using System.Security.User;
+using System.Utilities;
+using System.Text;
+
+report 50009 "Barcode Label"
 {
     UsageCategory = ReportsAndAnalysis;
-    DefaultRenderingLayout = FrontalinoBarcodeLabel;
+    DefaultRenderingLayout = BarcodeLabel;
     ApplicationArea = All;
-    CaptionML = ENU = 'Frontalino barcode label', ITA = 'Frontalino etichetta barcode';
+    CaptionML = ENU = 'Barcode Label', ITA = 'Etichetta Barcode';
     PreviewMode = PrintLayout;
 
     dataset
@@ -82,10 +121,10 @@ report 50008 "UFO03 Frontalino barcode label"
 
     rendering
     {
-        layout(FrontalinoBarcodeLabel)
+        layout(BarcodeLabel)
         {
             Type = RDLC;
-            LayoutFile = 'UFO03 Frontalino barcode label.rdlc';
+            LayoutFile = 'Barcode label.rdlc';
         }
     }
 

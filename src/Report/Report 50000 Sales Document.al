@@ -30,7 +30,7 @@ using System.Utilities;
 report 50000 "Sales Document"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = 'UFO03 Sales Document.rdlc';
+    RDLCLayout = 'Sales Document.rdlc';
     CaptionML = ENU = 'Sales - Quote Document', ITA = 'Offerta/Ordine di vendita';
     PreviewMode = PrintLayout;
 
