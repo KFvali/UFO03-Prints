@@ -71,6 +71,18 @@
       "name": "Yaveon 365 Library",
       "publisher": "YAVEON GMBH",
       "version": "12.0.0.0"
+    }, 
+    {
+      "id": "f6054ab6-161a-4d34-8145-24c72dce4ce3",
+      "name": "Handling Units Management",
+      "publisher": "EOS Solutions",
+      "version": "27.0.0.0"
+    },
+    {
+      "id": "be167a22-6665-408f-baa6-3df197d0de7c",
+      "name": "Advanced Logistic Common Library",
+      "publisher": "EOS Solutions",
+      "version": "27.0.0.0"
     }
 
   ],
